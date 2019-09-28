@@ -1,0 +1,19 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/animations.scss';
+
+$event-height: 60rem;
+$event-item-height: 11rem;
+
+.event {
+
+  min-height: $event-height;
+
+  // event__item is the EventListItem
+  &__item {
+    @include fade;
+
+    min-height: $event-item-height;
+  }
+
+}
