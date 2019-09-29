@@ -2,7 +2,7 @@ import React from "react";
 import { FormControl, InputLabel, Input } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 // import Button from '@material-ui/core/Button';
-import Button from "components/Button";
+import Button from "components/common/Button";
 import Avatar from '@material-ui/core/Avatar';
 import "components/User/styles.scss";
 

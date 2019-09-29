@@ -23,15 +23,3 @@ function App() {
 }
 
 export default App;
-
-
-// import React from "react";
-// import "./App.scss";
-// ​
-// function Topbar() {
-//   return (
-    
-//   );
-// }
-// ​
-// export default Topbar;
