@@ -1,26 +1,37 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import "./app.scss";
+import Event from "components/User/eventsList";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <main className="layout">
+      <section className="topbar">
+          <img
+            className="topbar__together"
+            src="images/togetherLogo.png"
+            alt="Together"
+          />
+      </section>
+    </main>
+    <Event></Event>
     </div>
   );
 }
 
 export default App;
+
+
+// import React from "react";
+// import "./App.scss";
+// ​
+// function Topbar() {
+//   return (
+    
+//   );
+// }
+// ​
+// export default Topbar;
