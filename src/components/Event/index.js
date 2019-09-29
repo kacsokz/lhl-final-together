@@ -25,13 +25,18 @@ export default function Event(props) {
   return (
     <article className="event">
       <List />
-      
+
 {/* 
       {mode === LIST && <List />}
 
       {mode === SHOW && <Show />}
 
-      {mode === CREATE && <Form />}
+      {mode === CREATE && (
+        <Form
+          // onSave={save}
+          // onCancel={back}
+        />
+      )}
 
       {mode === LIST && <List />}
 
@@ -53,9 +58,6 @@ export default function Event(props) {
 
       {mode === EDIT && (
         <Form
-          name={props.interview.student}
-          interviewer={props.interview.interviewer.id}
-          interviewers={props.interviewers}
           // onSave={save}
           // onCancel={back}
         />
@@ -63,14 +65,14 @@ export default function Event(props) {
 
       {mode === ERROR_DELETE && (
         <Error 
-          message="Could not cancel appointment."
+          message="Could not cancel event."
           // onClose={back}
         />
       )}
 
       {mode === ERROR_SAVE && (
         <Error 
-          message="Could not save appointment."
+          message="Could not save event."
           // onClose={back}
         />
       )} */}

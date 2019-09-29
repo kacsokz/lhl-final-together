@@ -2,7 +2,13 @@ import React from "react";
 
 export default function Status(props) {
   return (
-    <main>
+    <main className="event__card event__card--status">
+      <img
+        className="event__status-image"
+        src="public/images/status.png"
+        alt="Loading"
+      />
+      <h1>{props.message}</h1>
     </main>
   );
 };

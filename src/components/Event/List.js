@@ -1,13 +1,10 @@
-import React from "react";
+// loop and list all in one module
 
-import EventListItem from 'components/Event/EventListItem/index';
-import EventListItemHeader from 'components/Event/EventListItem/Header';
+import React from "react";
 
 export default function List(props) {
   return (
-    <>
-      <EventListItemHeader />
-      <EventListItem />
-    </>
+    <main className="event__card event__card--item">
+    </main>
   );
 };
