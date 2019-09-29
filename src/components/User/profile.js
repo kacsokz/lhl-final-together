@@ -33,7 +33,7 @@ export default function Profile(props) {
         <Button confirm onClick={() => { console.log('save') }}>
           Save
         </Button>
-        <Button danger onClick={() => { console.log('Delete') }}>
+        <Button cancel onClick={() => { console.log('Delete') }}>
           Delete
         </Button>
         </span>
