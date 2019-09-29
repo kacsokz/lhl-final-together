@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Confirm from 'components/Confirm';
-import Error from 'components/Error';
+import Confirm from 'components/Event/Confirm';
+import Error from 'components/Event/Error';
 import Form from 'components/Event/Form';
 import List from 'components/Event/List';
 import Show from 'components/Event/Show';
-import Status from 'components/Status';
+import Status from 'components/Event/Status';
 
 export default {
   title: 'Event',
