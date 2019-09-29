@@ -9,7 +9,7 @@ export default function Show(props) {
           className="event__actions-button"
           src="public/images/add.png"
           alt="Join"
-          // onClick={props.onJoin}
+          onClick={props.onJoin}
         />
       </section>
 
