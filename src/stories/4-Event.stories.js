@@ -12,9 +12,7 @@ export default {
 export const show = () => (
   <Show>
     <Button onClick={action('clicked')}>
-    <span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-    </span>
+
   </Button>
   </Show>
 );

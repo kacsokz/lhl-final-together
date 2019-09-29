@@ -24,9 +24,9 @@
   border: 2px solid transparent;
 }
 
-.button--danger {
-  color: $danger-color;
-  border-color: $danger-color;
+.button--cancel {
+  color: $cancel-color;
+  border-color: $cancel-color;
   background-color: transparent;
 }
 
@@ -36,9 +36,9 @@
   background-color: transparent;
 }
 
-.button--danger:hover {
+.button--cancel:hover {
   color: $white;
-  background-color: $danger-color;
+  background-color: $cancel-color;
 }
 
 .button--confirm:hover {
