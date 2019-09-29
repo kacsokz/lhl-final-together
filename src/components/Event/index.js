@@ -3,9 +3,9 @@ import React from 'react';
 import List from 'components/Event/List';
 import Show from 'components/Event/Show';
 import Form from 'components/Event/Form';
-import Status from 'components/Event/Status';
-import Confirm from 'components/Event/Confirm';
-import Error from 'components/Event/Error';
+import Status from 'components/Status';
+import Confirm from 'components/Confirm';
+import Error from 'components/Error';
 
 import 'components/Event/styles.scss';
 

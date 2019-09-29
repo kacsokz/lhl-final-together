@@ -8,9 +8,9 @@ $event-item-height: 11rem;
 .event {
 
   min-height: $event-height;
+  background-color: $main-color;
 
-  // event__item is the EventListItem
-  &__item {
+  &__card {
     @include fade;
 
     min-height: $event-item-height;
