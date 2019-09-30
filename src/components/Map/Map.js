@@ -16,7 +16,7 @@ export class MapContainer extends Component {
         lat: happyHour.lat,
         lng: happyHour.lng
       }}
-        onClick={() => console.log("You clicked me!")} />
+        onClick={() => console.log("You clicked me again!")} />
     })
   }
 
