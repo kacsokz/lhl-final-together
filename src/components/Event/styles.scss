@@ -1,31 +1,56 @@
 @import 'styles/variables.scss';
 @import 'styles/mixins.scss';
 @import 'styles/animations.scss';
+@import 'styles/typography.scss';
+@import 'styles/reset.scss';
 
-$event-height: 60rem;
+$event-height: 50rem;
 $event-item-height: 11rem;
 
 .event {
-
   min-height: $event-height;
-  background-color: $main-color;
-
+  
   &__card {
-    @include fade;
+    width: 30rem;
+    min-height: 11rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: inline-block;
+    color: $white;
 
-    min-height: $event-item-height;
-    color: $main-color;
-    height: 5rem;
-    padding-left: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    &:hover {
+    &--header {
+      margin: 0.5rem;
+      border-radius: 0.5rem;
+      color: $main-color;
       background-color: $accent1-color;
-      cursor: pointer;
-      color: $accent2-color;
+      text-align: center;
+    }
+
+    &--body {
+      text-align: center;
+    }
+  
+    &--show {
+      color: $accent1-color;
+      background-color: $accent2-color;
+      background-image: url('/public/images/evt-bg.png');
     }
   }
 
+  &__actions {
+    &--join {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+}
+
+.user {
+  &__card {
+    &--avatar {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
 }
