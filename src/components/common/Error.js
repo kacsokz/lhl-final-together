@@ -9,7 +9,7 @@ export default function Error(props) {
       </section>
       <img
         className="event__error-close"
-        src="images/close.png"
+        src="public/images/close.png"
         alt="Close"
         // onClick={props.onClose}
       />
