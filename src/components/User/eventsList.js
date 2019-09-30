@@ -16,18 +16,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function EventsList(props) {
-  let events = [
-    {id:"1", name:"EventName1", start_time:"15:00", end_time:"16:40"},
-    {id:"2", name:"EventName2", start_time:"15:00", end_time:"16:40"},
-    {id:"3", name:"EventName3", start_time:"15:00", end_time:"16:40"},
-    {id:"3", name:"EventName3", start_time:"15:00", end_time:"16:40"},
-    {id:"3", name:"EventName3", start_time:"15:00", end_time:"16:40"}
-  ]
-
-
+  
   const classes = useStyles();
-  // const events = props.events;
-  const eventsList = events.map((event) => (
+  const eventsList = props.events.map((event) => (
     <EventListItem
       id={event.id}
       name={event.name}
