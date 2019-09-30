@@ -1,0 +1,44 @@
+@import "styles/mixins.scss";
+@import "styles/variables.scss";
+
+.Navbutton {
+  font-size: 1.5rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  width: 8rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $main-color;
+  color: $white;
+  background-color: transparent;
+}
+
+.Navbutton:hover {
+  @include button-active;
+
+  color: $black;
+  background-color: $white;
+  border: 2px solid transparent;
+}
+
+.Navbutton--confirm {
+  color: $black;
+  background-color: transparent;
+}
+
+.Navbutton--confirm:hover {
+  color: $white;
+  background-color: $black;
+  opacity: 0.6;
+}
+
+.Navbutton--cancel {
+  color: $cancel-color;
+  background-color: transparent;
+}
+
+.Navbutton--cancel:hover {
+  color: $white;
+  background-color: $cancel-color;
+}
