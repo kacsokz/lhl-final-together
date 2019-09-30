@@ -1,17 +1,17 @@
 
 .profile-container {
-  height: 400px;
+  min-height: 40rem;
   box-shadow: 10%;
   text-align: center;
   display: flex;
   background-image: linear-gradient(to bottom right, rgb(104, 99, 99), rgb(241, 241, 209));
   flex-direction: column;
-  width: 30%;
+  width: 40%;
   border-top-right-radius: 25px;
   border-bottom-left-radius: 25px;
   border-width: 2px;
   border-color: white;
-  border-style: solid; 
+  border-style: solid;
     
   .user-details {
     border-width: 2px;
