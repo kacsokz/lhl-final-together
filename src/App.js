@@ -10,15 +10,7 @@ function App() {
     <div className="App">
       
       <main className="layout">
-      <section className="topbar">
-          <img
-            className="topbar__together"
-            src="images/togetherLogo.png"
-            alt="Together"
-          />
-          <NavButton confirm>Register</NavButton>
-          <NavButton confirm>Sign In</NavButton>
-      </section>
+      
     </main>
     <Event></Event>
     </div>

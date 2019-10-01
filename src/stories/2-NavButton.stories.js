@@ -1,6 +1,8 @@
 import React from "react";
 import NavButton from "components/Navbar/NavButton";
 import { action } from "@storybook/addon-actions";
+import NavBarFinal from "components/Navbar/NavBarFinal";
+
 
 export default {
   title: "NavigationBar"
@@ -28,4 +30,8 @@ export const LogOut = () => (
   <NavButton cancel onClick={action("clicked")}>
     Log Out
   </NavButton>
+);
+
+export const FinalNavBar = () => (
+  <NavBarFinal></NavBarFinal>
 );
