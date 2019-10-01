@@ -5,7 +5,7 @@ export default function EventListItem(props) {
   
   return (
     <div className="event-details">
-      <div>{props.id}: {props.name}</div>
+      <div onClick={props.viewEvent}>{props.id}: {props.name}</div>
       <div>{props.start_time} - {props.end_time}</div>
       <span><img
             className="appointment__actions-button"
@@ -17,7 +17,7 @@ export default function EventListItem(props) {
             className="appointment__actions-button"
             src="images/trash.png"
             alt="Delete"
-            onClick={() => {console.log('delete')}}
+            onClick={props.onDelete}
           />
           </span>
       </div>
