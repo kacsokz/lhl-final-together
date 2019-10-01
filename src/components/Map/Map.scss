@@ -17,15 +17,3 @@
       }
     }
 }
-
-@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display:400,800|Open+Sans+Condensed:300,700|Vibes&display=swap');
-
-$fonts: (
-  header: 'Open Sans Condensed',
-);
-
-@each $font, $value in $fonts {
-  .text-#{$font} {
-    font-family: $value;
-  }
-}
