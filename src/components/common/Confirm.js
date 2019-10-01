@@ -10,13 +10,13 @@ export default function Confirm(props) {
       <section className="event__actions">
         <Button
           confirm
-          // onClick={props.onConfirm}
+          onClick={props.onConfirm}
         >
           Confirm
         </Button>
         <Button
           cancel
-          // onClick={props.onCancel}
+          onClick={props.onCancel}
         >
           Cancel
         </Button>
