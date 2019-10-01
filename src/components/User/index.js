@@ -1,36 +1,70 @@
 import React, { useEffect } from "react";
 import EventsList from "components/User/eventsList";
 import Profile from "components/User/profile";
+import Status from "components/common/Status";
+import Confirm from "components/common/Confirm";
+import Error from "components/common/Error";
 import "components/User/styles.scss";
-// import useVisualMode from "../../hooks/useVisualMode";
-import { create } from "domain";
+import useVisualMode from "hooks/useVisualMode";
+// import { create } from "domain";
 
 export default function UserView(props) {
   const PROFILE = "PROFILE";
   const USEREVENTSLIST = "USEREVENTSLIST";
+  const ERROR = "ERROR";
+  const CONFIRMING = "CONFIRMING";
+  const EDITING = "EDITING";
+  const ERROR_DELETE = "ERROR_DELETE"
+  const DELETING = "DELETING";
+  const ERROR_SAVE = "ERROR_SAVE"
+  const SAVING = "SAVING";
 
 
-  // const { mode, transition, back } = useVisualMode(
-  //   props.profile ? Profile : USEREVENTSLIST
-  // );
+  const { mode, transition, back } = useVisualMode(PROFILE);
 
-  // useEffect(() => {
-  //     transition(PROFILE);
+  useEffect(() => {
+    if (props.user && mode === PROFILE) {
+      transition(PROFILE);
+    }
+  }, [props.events, props.user, transition, mode]);
 
-  // }, [props.events, transition, mode]);
 
+  function saveTagLine(tag_line) {
 
-  let mode = USEREVENTSLIST
+    if (!tag_line) {
+      transition(ERROR_SAVE, true)
+    }
 
-  function confirmUserTagLine() {
-    console.log('confirmUserTagLine')
-    // transition(STATUS)
+    props.createUserTagLine(props.id, tag_line)
+    transition(SAVING)
+      .then(() => transition(PROFILE))
+      .catch(error => transition(ERROR_SAVE, true));
+  }
+
+  function saveEmail(email) {
+
+    if (!email) {
+      transition(ERROR_SAVE, true)
+    }
+
+    props.updateEmail(props.id, email)
+    transition(SAVING)
+      .then(() => transition(PROFILE))
+      .catch(error => transition(ERROR_SAVE, true));
+  }
+
+  function deleting() {
+    transition(CONFIRMING)
   }
 
   function deleteUserTagLine() {
-    console.log('deleteUserTagLine')
-    // transition(CONFIRMING)
+    const tag_line = null;
+    transition(DELETING, true)
+    props.deleteTagLine(props.id, tag_line)
+      .then(() => transition(PROFILE))
+      .catch(error => transition(ERROR_DELETE, true));
   }
+
   function createUserEvent() {
     console.log('createUserEvent')
     // transition(STATUS)
@@ -51,6 +85,14 @@ export default function UserView(props) {
     // transition(STATUS)
   }
 
+  // function deleteUserEvent() {
+  //   const userEvent = null;
+  //   transition(DELETING, true)
+  //   props.deleteEvent(props.id, userEvent)
+  //     .then(() => transition(PROFILE))
+  //     .catch(error => transition(ERROR_DELETE, true));
+  // }
+
   return (
     <div>
       {mode === PROFILE && (
@@ -61,8 +103,9 @@ export default function UserView(props) {
           email={props.user[0].email}
           avatar={props.user[0].avatar}
           tag_line={props.user[0].tag_line}
-          onConfirm={() => confirmUserTagLine()}
-          onDelete={() => deleteUserTagLine()}
+          onConfirm={() => saveTagLine()}
+          onDelete={() => deleting()}
+          onSaveEmail={() => saveEmail()}
         />
       )}
 
@@ -76,6 +119,37 @@ export default function UserView(props) {
           viewEvent={() => viewEvent()}
         />
       }
+
+      {mode === CONFIRMING && (
+        <Confirm
+          message={"Delete the Tag Line?"}
+          tag_line={props.user[0].tag_line}
+          onConfirm={deleteUserTagLine}
+          onCancel={() => back()} />
+      )}
+
+      {mode === ERROR_DELETE && (
+        <Error
+          message={"Could not delete event."}
+          onClose={() => back()} />
+      )}
+
+      {mode === ERROR_SAVE && (
+        <Error
+          message={"Could not save tagline."}
+          onClose={() => back()} />
+      )}
+
+      {mode === DELETING && (
+        <Status
+          message="DELETING"
+        />
+      )}
+      {mode === SAVING && (
+        <Status
+          message="SAVING"
+        />
+      )}
     </div>
   )
 
