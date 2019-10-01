@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function EventsList(props) {
-  
+
   const classes = useStyles();
   const eventsList = props.events.map((event) => (
     <EventListItem
@@ -24,23 +24,23 @@ export default function EventsList(props) {
       name={event.name}
       start_time={event.start_time}
       end_time={event.end_time}
+      onEdit={props.onEdit}
+      onDelete={props.onDelete}
+      viewEvent={props.viewEvent}
     />
-    ));
+  ));
   return (
     <div className="event-container">
-      <Avatar alt="Avatar" src="https://www.straitstimes.com/sites/default/files/styles/article_pictrure_780x520_/public/articles/2018/02/02/2017-09-05t123641z_2074388227_rc1f50c4add0_rtrmadp_3_filmfestival-venice.jpg?itok=oNSajv26&timestamp=1517521109" className={classes.bigAvatar} />
+      <Avatar alt="Avatar" src={props.avatar} className={classes.bigAvatar} />
       <h4 className="my-event">Events</h4>
       <div className="events-list">
-          {eventsList}
+        {eventsList}
       </div>
-
       <span className="create-event">
-        <Button confirm onClick={() => { console.log('create') }}>
+        <Button confirm onClick={props.onCreate}>
           Create
         </Button>
       </span>
-
-
     </div>
   );
 
