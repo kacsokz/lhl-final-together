@@ -17,30 +17,28 @@ const useStyles = makeStyles(theme => ({
 
 export default function Profile(props) {
   const classes = useStyles();
+
   return (
     <div className="profile-container">
-      <Avatar alt="Avatar" src="https://www.straitstimes.com/sites/default/files/styles/article_pictrure_780x520_/public/articles/2018/02/02/2017-09-05t123641z_2074388227_rc1f50c4add0_rtrmadp_3_filmfestival-venice.jpg?itok=oNSajv26&timestamp=1517521109" className={classes.bigAvatar} />
-      <div className="user-details"><h3>{"firstName"}</h3></div>
-      <div className="user-details"><h3>{"lastName"}</h3></div>
-      <div className="user-details"><h3>{"existed Tagline"}</h3></div>
+      <Avatar alt="Avatar" src={props.avatar} className={classes.bigAvatar} />
+      <div className="user-details"><h3>{props.first_name}</h3></div>
+      <div className="user-details"><h3>{props.last_name}</h3></div>
+      <div className="user-details"><h3>{props.tag_line}</h3></div>
       <div className="tagline">
         <FormControl className="tagline-input">
           <InputLabel htmlFor="my-input">Update tagline</InputLabel>
           <Input id="my-input" aria-describedby="my-helper-text" />
         </FormControl>
-        
+
         <span className="delete-save">
-        <Button confirm onClick={() => { console.log('save') }}>
-          Save
+          <Button confirm onClick={props.onConfirm}>
+            Save
         </Button>
-        <Button cancel onClick={() => { console.log('Delete') }}>
-          Delete
+          <Button cancel onClick={props.onDelete}>
+            Delete
         </Button>
         </span>
-        </div>
-
-      
+      </div>
     </div>
   );
-
 }
