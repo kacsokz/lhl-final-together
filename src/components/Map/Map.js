@@ -5,7 +5,7 @@ import "components/Map/Map.scss";
 
 import config from 'config'
 
-console.log("CONFIG", config)
+// console.log("CONFIG", config)
 
 const mapStyles = {
   width: '35rem',
