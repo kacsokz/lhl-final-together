@@ -17,19 +17,44 @@ const useStyles = makeStyles(theme => ({
 
 export default function Profile(props) {
   const classes = useStyles();
+  // console.log(props.user)
+  // let result
+
+  // for (let item in props.user) {
+  //   result = item
+  // }
+  // console.log(result)
+
+  // const userListItem = function (props.user)
+
+  // const userList = props.user.map((item) => (
+  //   <div className="user-details"><h3>{item}</h3></div>
+  // ));
+  let tag_line_input
+  if (props.tag_line) {
+    tag_line_input = props.tag_line
+  }
+  else tag_line_input = ""
 
   return (
     <div className="profile-container">
       <Avatar alt="Avatar" src={props.avatar} className={classes.bigAvatar} />
       <div className="user-details"><h3>{props.first_name}</h3></div>
       <div className="user-details"><h3>{props.last_name}</h3></div>
-      <div className="user-details"><h3>{props.tag_line}</h3></div>
       <div className="tagline">
         <FormControl className="tagline-input">
-          <InputLabel htmlFor="my-input">Update tagline</InputLabel>
+          <InputLabel htmlFor="my-input">{props.email}</InputLabel>
           <Input id="my-input" aria-describedby="my-helper-text" />
         </FormControl>
-
+        <span className="delete-save">
+          <Button confirm onClick={props.onSaveEmail}>
+            Save
+        </Button>
+        </span>
+        <FormControl className="tagline-input">
+          <InputLabel htmlFor="my-input">{tag_line_input}</InputLabel>
+          <Input id="my-input" aria-describedby="my-helper-text" />
+        </FormControl>
         <span className="delete-save">
           <Button confirm onClick={props.onConfirm}>
             Save
