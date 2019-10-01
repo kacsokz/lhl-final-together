@@ -13,44 +13,55 @@ $event-item-height: 11rem;
   &__card {
     width: 30rem;
     min-height: 11rem;
-    border-radius: 0.5rem;
-    padding: 1rem;
+    // border-radius: 0.5rem;
+    // padding: 1rem;
     display: inline-block;
     color: $white;
 
     &--header {
-      margin: 0.5rem;
-      border-radius: 0.5rem;
-      color: $main-color;
-      background-color: $accent1-color;
+      // border-radius: 0.5rem;
+      color: $accent1-color;
+      background-color: $accent2-color;
       text-align: center;
+      background-image: url('../../../public/images/evt-bg2.png');
     }
 
     &--body {
       text-align: center;
+      margin: 0.5rem;
     }
   
     &--show {
-      color: $accent1-color;
-      background-color: $accent2-color;
-      background-image: url('../../../public/images/evt-bg.png');
+      color: $main-color;
+      background-color: $accent1-color;
+
+      &-avatar {
+        margin: 0.75rem;
+        display: flex;
+        align-items: center;
+        // width: 50%;
+        // float: left;
+        // margin-left: 25%;
+      }
+
+      &-host {
+        margin: 0.75rem;
+        // display: flex;
+        font-size: 30px;
+      }
+
+      &-tagline {
+        margin: 0.5rem;
+      }
     }
   }
 
   &__actions {
     &--join {
+      margin: 0.75rem;
       display: flex;
       justify-content: center;
     }
   }
 
-}
-
-.user {
-  &__card {
-    &--avatar {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
 }
