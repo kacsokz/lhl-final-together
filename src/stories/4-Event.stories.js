@@ -15,36 +15,41 @@ const users = [
     id: 1,
     first_name: 'Kat',
     last_name: 'Connolly',
-    email: 'kat.connolly@gmail.com',
-    avatar: ''
+    email: 'k.connolly@nomail.com',
+    avatar: '',
+    tag_line: 'Fun & Outgoing Software Engineer'
   },
   {
     id: 2,
     first_name: 'Tony',
     last_name: 'Grimes',
-    email: 'tony.grimes@gmail.com',
-    avatar: ''
+    email: 't.grimes@nomail.com',
+    avatar: '',
+    tag_line: 'Mentor & Community Leader'
   },
   {
     id: 3,
     first_name: 'Nima',
     last_name: 'Boscarino',
-    email: 'nima.boscarino@gmail.com',
-    avatar: ''
+    email: 'n.boscarino@nomail.com',
+    avatar: '',
+    tag_line: 'Stay yeezy'
   },
   {
     id: 4,
     first_name: 'Hafiz',
     last_name: 'Suara',
-    email: 'hafiz.suara@gmail.com',
-    avatar: ''
+    email: 'h.suara@nomail.com',
+    avatar: '',
+    tag_line: 'Developer, Mentor and Friend'
   },
   {
     id: 5,
     first_name: 'Khurram',
     last_name: 'Virani',
-    email: 'khurram.virani@gmail.com',
-    avatar: ''
+    email: 'k.virani@nomail.com',
+    avatar: '',
+    tag_line: 'Professional Developer, Entrepreneur and Top Notch Voice Actor'
   }
 ];
 
@@ -52,6 +57,8 @@ const bars = [
   {
     id: 1,
     name: 'The Last Best Brewing Company',
+    latitude: -114.074559,
+    longitude: 51.042613,
     address: '607 11 Ave SW, Calgary, AB T2R 0E1',
     start_time: '15:30',
     end_time: '16:30'
@@ -59,13 +66,17 @@ const bars = [
   {
     id: 2,
     name: 'Greta Bar',
+    latitude: -114.066669,
+    longitude: 51.043242,
     address: '213 10 Ave SW, Calgary, AB T2R 0A4',
     start_time: '15:00',
     end_time: '17:00'
   },
   {
     id: 3,
-    name: 'Hudsons Canada\'s Pub',
+    name: 'Hudsons Canadas Pub',
+    latitude: -114.074565,
+    longitude: 51.041519,
     address: '1201 5 St SW, Calgary, AB T2R 0Y6',
     start_time: '16:00',
     end_time: '17:00'
@@ -73,6 +84,8 @@ const bars = [
   {
     id: 4,
     name: 'El Furniture Warehouse',
+    latitude: -114.063567,
+    longitude: 51.045587,
     address: '107 8 Ave SW, Calgary, AB T2P 1B4',
     start_time: '15:30',
     end_time: '17:30'
@@ -80,6 +93,8 @@ const bars = [
   {
     id: 5,
     name: 'Craft Beer Market',
+    latitude: -114.070548,
+    longitude: 51.043386,
     address: '345 10 Ave SW, Calgary, AB T2R 0A5',
     start_time: '14:00',
     end_time: '16:00'
@@ -101,11 +116,11 @@ const events = [
     id: 2,
     user_id: 2,
     bar_id: 2,
-    name: 'Halloween Costume Showdown',
+    name: 'Costume Showdown',
     date: 'Oct. 31, 2019',
     start_time: '16:00',
     end_time: '17:00',
-    tag_line: 'I\'m buying a shot for the best costume.'
+    tag_line: 'Best costume gets a shot and 5 nima bucks.'
   },
   {
     id: 3,
@@ -115,7 +130,7 @@ const events = [
     date: 'Nov. 7, 2019',
     start_time: '17:00',
     end_time: '21:00',
-    tag_line: 'For 10 years, Calgary\'s best and brightest in tech and digital design have been meeting for drinks. Sometimes there\'s cake'
+    tag_line: 'For 10 years, Calgarys best and brightest in tech and digital design have been meeting for drinks. Sometimes theres cake.'
   },
   {
     id: 4,
@@ -131,7 +146,7 @@ const events = [
     id: 5,
     user_id: 5,
     bar_id: 5,
-    name: 'KV\'s NY PB\'s',
+    name: 'KVs NY & PBs',
     date: 'Jan. 1, 2019',
     start_time: '16:00',
     end_time: '17:00',
