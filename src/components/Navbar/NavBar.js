@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import "components/Navbar/NavButton.scss";
 import "components/Navbar/NavBar.scss";
 import NavButton from "components/Navbar/NavButton";
@@ -12,11 +13,13 @@ export default function NavBar(props) {
     <section className="topbar">
     <img
       className="topbar__together"
-      src="images/togetherLogo.png"
+      src="images/Logo_TogetherW.png"
       alt="Together"
     />
-    <NavButton confirm>{props.user1}</NavButton>
-    <NavButton confirm>{props.user2}</NavButton>
+    <div>
+    <NavButton confirm onClick={props.action1}>{props.user1}</NavButton>
+    <NavButton confirm onClick={props.action2}>{props.user2}</NavButton>
+    </div>
 </section>
    );
 };

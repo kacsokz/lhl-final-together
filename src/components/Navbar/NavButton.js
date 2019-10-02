@@ -13,7 +13,6 @@ export default function NavButton(props) {
       <button
          className={buttonClass}
          onClick={props.onClick}
-         disabled={props.disabled}
       >
          {props.children}
       </button>

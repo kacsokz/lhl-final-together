@@ -3,34 +3,23 @@
 
 .Navbutton {
   font-size: 1.5rem;
-  height: 2rem;
+  height: 100%;
   line-height: 1.2rem;
-  margin-right: 1rem;
   width: 8rem;
   border-width: 2px;
   border-style: solid;
   border-color: $main-color;
-  color: $white;
-  background-color: transparent;
-}
-
-.Navbutton:hover {
-  @include button-active;
-
-  color: $black;
-  background-color: $white;
-  border: 2px solid transparent;
+  vertical-align: middle;
 }
 
 .Navbutton--confirm {
-  color: $black;
+  color: $white;
   background-color: transparent;
 }
 
 .Navbutton--confirm:hover {
-  color: $white;
-  background-color: $black;
-  opacity: 0.6;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .Navbutton--cancel {

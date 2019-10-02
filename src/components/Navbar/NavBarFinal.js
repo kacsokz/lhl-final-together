@@ -17,12 +17,16 @@ export default function NavBarFinal(props) {
     <NavBar
     user1="Register"
     user2="Log In"
+    action1= {() => console.log("RegisterMe")}
+    action2= {() => console.log("LogMeIn")}
     />
    )}
    {mode === "LOGGEDIN" && (
     <NavBar
     user1="Profile"
     user2="Log Out"
+    action1= {() => console.log("MeProfile")}
+    action2= {() => console.log("LogMeOut")}
     />
    )}
    </div>
