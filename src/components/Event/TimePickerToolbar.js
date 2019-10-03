@@ -17,16 +17,19 @@ const useToolbarStyles = makeStyles(theme => ({
     justifyContent: 'flex-end'
   },
   timeInput: {
-    width: 70,
+    width: 80,
     lineHeight: 50,
-    fontSize: 40,
+    fontSize: 50,
+    padding: 0,
     border: 'none',
     outline: 'none',
-    backgroundColor: darken(theme.brand.main, 0.5)
+    '&:hover': {
+      backgroundColor: theme.brand.accentLight
+    }
   },
   timeWrapper: {
     ...flex,
-    padding: theme.spacing(2)
+    // padding: theme.spacing(2)
   },
   amPmClass: {
     display: 'flex',

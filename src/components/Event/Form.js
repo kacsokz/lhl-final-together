@@ -1,20 +1,26 @@
-import React from 'react';
-import Button from 'components/common/Button';
+import React                      from 'react';
+import Button                     from 'components/common/Button';
 
-import KCPicker, { usePicker } from './KCPicker';
+import EvtTime, { useTimePicker } from './Form/Time';
+import Date, { useDatePicker }    from './Form/Date';
+import SelectLocation             from  './Form/SelectLocation';
+import EventName                  from './Form/Name';
+import EventTag                   from './Form/Tag';
 
 export default function Form(props) {
 
-  // The first commit of Material-UI
-  const pickerProps = usePicker();
-
+  const pickerDateProps = useDatePicker();
+  const pickerTimeProps = useTimePicker();
 
   const validate = () => {
     const {
-      eventDate,
+      eventDate
+    } = pickerDateProps;
+
+    const {
       eventStart,
-      eventEnd
-    } = pickerProps;
+      eventEnd,
+    } = pickerTimeProps;
 
     console.log(`{
       eventDate,
@@ -34,8 +40,16 @@ export default function Form(props) {
 
   return (
     <main className="event__card event__card--create">
-      <KCPicker {...pickerProps} />
-      <section className="event__actions">
+
+      <section className="event__card--create-form">
+        <SelectLocation />
+        <EventName />
+        <EventTag />
+        <Date {...pickerDateProps} />
+        <EvtTime {...pickerTimeProps} />
+      </section>
+
+      <section className="event__card--create-cc">
         <Button
           confirm
           onClick={validate}
@@ -49,6 +63,7 @@ export default function Form(props) {
           Cancel
         </Button>
       </section>
+
     </main>
   );
 };
