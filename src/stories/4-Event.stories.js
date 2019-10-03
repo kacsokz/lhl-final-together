@@ -6,19 +6,62 @@ import Form from 'components/Event/Form';
 import List from 'components/Event/List';
 import Show from 'components/Event/Show';
 
+const events = [
+  {
+    event_name: 'Graduation & Celebration Drinks',
+    bar_name: 'The Last Best Brewing Company',
+    date: 'Oct. 10, 2019',
+    start_time: '20:00',
+    end_time: '23:00',
+    attendees: 18,
+  },
+  {
+    event_name: 'Halloween Costume Showdown',
+    bar_name: 'Greta Bar',
+    date: 'Oct. 31, 2019',
+    start_time: '16:00',
+    end_time: '17:00',
+    attendees: 18,
+  },
+  {
+    event_name: 'Pixels & Pints 10th Anniversary',
+    bar_name: 'Hudsons Canadas Pub',
+    date: 'Nov. 7, 2019',
+    start_time: '17:00',
+    end_time: '21:00',
+    attendees: 18,
+  },
+  {
+    event_name: 'Holiday Party',
+    bar_name: 'El Furniture Warehouse',
+    date: 'Dec. 7, 2019',
+    start_time: '15:00',
+    end_time: '16:00',
+    attendees: 18,
+  },
+  {
+    event_name: 'KVs NY PBs',
+    bar_name: 'Craft Beer Market',
+    date: 'Jan. 1, 2019',
+    start_time: '16:00',
+    end_time: '17:00',
+    attendees: 18,
+  }
+];
+
 export default {
   title: 'Event',
 };
 
-export const form = () => <Form />;
+export const form = () => (
+  <Form
+    user_name="Kat Connolly"
+  />
+);
 
 export const list = () => (
   <List
-     event_name=""
-     bar_name="The Last Best Brewing Company"
-     date=""
-     start_time=""
-     end_time=""
+     events={events}
   />
 );
 

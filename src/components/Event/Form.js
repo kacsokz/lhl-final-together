@@ -40,7 +40,7 @@ export default function Form(props) {
 
   return (
     <main className="event__card event__card--create">
-
+      <h1 className="event__card--header text--header">{props.user_name}'s Event</h1>
       <section className="event__card--create-form">
         <SelectLocation />
         <EventName />

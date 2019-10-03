@@ -4,7 +4,7 @@ import UserAvatar from '../common/Avatar';
 
 export default function Show(props) {
   return (
-    <main className="event__card--show">
+    <main className="event__card event__card--show">
 
       <h1 className="event__card--header text--header">HOST</h1>
 
@@ -26,7 +26,6 @@ export default function Show(props) {
       </section>
 
       <h1 className="event__card--header text--header">JOIN {props.attendees} OTHERS</h1>
-        
       <section className="event__card--show-footer">
         <img
           src="images/add.png"

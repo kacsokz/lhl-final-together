@@ -8,11 +8,15 @@
   
   // Event Card Styles
   &__card {
-    color: $white;
+    min-height: 675px;
+    width: 500px;
+    color: $main-color;
+    background-color: $accent1-color;
 
     // Common Header Styles
     &--header {
       height: 50px;
+      border-style: outset;
       color: $accent1-color;
       background-color: $accent2-color;
       text-align: center;
@@ -21,9 +25,6 @@
 
     // Show Page Styles
     &--show {
-      width: 500px;
-      color: $main-color;
-      background-color: $accent1-color;
 
       // Show Page Body Content Styles
       &-body {
@@ -79,12 +80,45 @@
 
     // Event List Page Styles
     &--list {
-      background-color: $white;
+      display: block;
+
+      // Event List Item Page Styles
+      &-item {
+        height: 100px;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+        border: 2px;
+        border-style: inset;
+
+        &-name {
+          margin: 5px;
+        }
+
+        &-bar {
+          margin: 5px;
+        }
+
+        &-date {
+          margin: 5px;
+        }
+
+        &-attendees {
+          margin: 5px;
+        }
+      }
+
+      &-item img {
+        color: $main-color;
+        display: flex;
+        float: right;
+      }
+
     }
 
     // Form Page Styles
     &--form {
-      background-color: $white;
+      display: block;
     }
 
   }
