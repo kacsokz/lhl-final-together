@@ -2,8 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import "./app.scss";
-import Event from "components/User/eventsList";
 import NavButton from "components/Navbar/NavButton";
+import MapContainer from "components/Map/Map";
 
 function App() {
   return (
@@ -20,7 +20,6 @@ function App() {
           <NavButton confirm>Sign In</NavButton>
       </section>
     </main>
-    <Event></Event>
     </div>
   );
 }

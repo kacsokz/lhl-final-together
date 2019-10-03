@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import "components/Map/Map.scss";
-// require('dotenv').config()
+import axios from 'axios';
 
 import config from 'config'
-
-// console.log("CONFIG", config)
 
 const mapStyles = {
   width: '35rem',
@@ -51,13 +49,9 @@ export class MapContainer extends Component {
 const MyMap = (props) => {
   const [apiKey, setKey] = React.useState();
 
-  React.useEffect(() => {
-    fetch(`${config.API_PATH}/mapApiKey`)
-    .then(res => {
-      console.log('RES', res)
-      return res.json()
-    })
-    .then(data => setKey(data.key))
+    React.useEffect(() => {
+      axios.get(`${config.API_PATH}/api/mapApiKey`)
+        .then(res => setKey(res.data));
   }, [])
 
   if (!apiKey) return <h1>Fetching google api key ...</h1>;
