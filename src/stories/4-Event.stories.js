@@ -12,16 +12,25 @@ export default {
 
 export const form = () => <Form />;
 
-export const list = () => <List />;
+export const list = () => (
+  <List
+     event_name=""
+     bar_name="The Last Best Brewing Company"
+     date=""
+     start_time=""
+     end_time=""
+  />
+);
 
 export const show = () => (
   <Show
-    user_id="Kat Connolly"
+    user_name="Kat Connolly"
     bar_name="The Last Best Brewing Company"
+    event_name="Graduation & Celebration Drinks"
     date="Oct. 10, 2019"
     start_time="20:00"
     end_time="23:00"
-    tag_line="Join me in celebrating the accomplishments of my favourite LHL cohort, Calgary 22JUL2019."
+    tag_line="Join me in celebrating the accomplishments of my favourite LHL cohort, Calgary 22-JUL-2019."
     attendees="18"
   />
 );
