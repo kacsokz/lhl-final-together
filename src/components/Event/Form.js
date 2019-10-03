@@ -39,31 +39,35 @@ export default function Form(props) {
   };
 
   return (
-    <main className="event__card event__card--create">
+    <main className="event__card event__card--form">
+      <h1 className="event__card--header text--header">{props.user_name}'s Event</h1>
+      
+      <section className="event__card--form-body">
 
-      <section className="event__card--create-form">
         <SelectLocation />
         <EventName />
         <EventTag />
-        <Date {...pickerDateProps} />
+        <Date {...pickerDateProps}
+          className="event__card--form-body-date"
+        />
         <EvtTime {...pickerTimeProps} />
-      </section>
 
-      <section className="event__card--create-cc">
-        <Button
-          confirm
-          onClick={validate}
-        >
-          Confirm
-        </Button>
-        <Button
-          cancel
-          onClick={cancel}
-        >
-          Cancel
-        </Button>
-      </section>
+        <section>
+          <Button
+            cancel
+            onClick={cancel}
+          >
+            Cancel
+          </Button>
+          <Button
+            confirm
+            onClick={validate}
+          >
+            Confirm
+          </Button>
+        </section>
 
+      </section>
     </main>
   );
 };

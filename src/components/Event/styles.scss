@@ -4,68 +4,135 @@
 @import 'styles/typography.scss';
 @import 'styles/reset.scss';
 
-$event-height: 50rem;
-$event-item-height: 11rem;
-
 .event {
-  min-height: $event-height;
   
+  // Event Card Styles
   &__card {
-    width: 30rem;
-    min-height: 11rem;
-    // border-radius: 0.5rem;
-    // padding: 1rem;
-    display: grid;
-    grid-template-columns: 1;
-    grid-template-rows: 2;
-    color: $white;
+    min-height: 700px;
+    width: 500px;
+    color: $main-color;
+    background-color: $accent1-color;
 
+    // Common Header Styles
     &--header {
-      // border-radius: 0.5rem;
+      height: 50px;
+      border-style: outset;
       color: $accent1-color;
       background-color: $accent2-color;
       text-align: center;
       background-image: url('../../../public/images/evt-bg2.png');
     }
 
-    &--body {
-      text-align: center;
-      margin: 0.5rem;
-    }
-  
+    // Show Page Styles
     &--show {
-      color: $main-color;
-      background-color: $accent1-color;
 
-      &-avatar {
-        margin: 0.75rem;
+      // Show Page Body Content Styles
+      &-body {
+
+        // Body Content under Host Title
+        &-host {
+          padding: 10px;
+          
+          // Host Name
+          &-name {
+            font-size: 30px;
+            padding: 10px;
+            text-align: center;
+          }
+
+          // Host Tag Line
+          &-tag {
+            padding: 5px;
+            text-align: center;
+            font-size: 16px;
+          }
+
+        }
+
+        // Body Content under Event Title
+        &-event {
+          padding: 10px;
+          text-align: center;
+          &-body {
+            padding: 5px;
+            font-size: 18px;
+          }
+          &-header {
+            font-size: 18px;
+            color: $accent2-color;
+          }
+        }
+      }
+
+      // Show Page Footer Stles
+      &-footer {
+        height: 75px;
+        margin: auto;
+      }
+
+      &-footer img {
+        height: 50px;
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+      }
+    }
+
+    // Event List Page Styles
+    &--list {
+      display: block;
+
+      // Event List Item Page Styles
+      &-item {
+        height: 100px;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+        border: 2px;
+        border-style: inset;
+
+        &-name {
+          margin: 5px;
+        }
+
+        &-bar {
+          margin: 5px;
+        }
+
+        &-date {
+          margin: 5px;
+        }
+
+        &-attendees {
+          margin: 5px;
+        }
+      }
+
+      &-item img {
+        color: $main-color;
         display: flex;
-        align-items: center;
-        // width: 50%;
-        // float: left;
-        // margin-left: 25%;
+        float: right;
       }
 
-      &-host {
-        margin: 0.75rem;
-        // display: flex;
-        font-size: 30px;
-      }
-
-      &-tagline {
-        margin: 0.5rem;
-      }
     }
 
-  }
+    // Form Page Styles
+    &--form {
+      
+      &-body {
+        padding: 20px;
+        display: grid;
+        grid-gap: 28px;
+        justify-items: center;
 
-  &__actions {
-    display: flex;
-    &--join {
-      margin: 0.75rem;
-      display: flex;
-      justify-content: center;
+        &-date {
+          margin: 0px;
+          flex-direction: none;
+        }
+      }
+      
     }
+
   }
 
 }
