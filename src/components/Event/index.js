@@ -1,23 +1,23 @@
-import React from 'react';
+import React    from 'react';
 
-import List from 'components/Event/List';
-import Show from 'components/Event/Show';
-import Form from 'components/Event/Form';
-import Status from 'components/Event/Status';
-import Confirm from 'components/Event/Confirm';
-import Error from 'components/Event/Error';
+import List     from 'components/Event/List';
+import Show     from 'components/Event/Show';
+import Form     from 'components/Event/Form';
+import Status   from 'components/Event/Status';
+import Confirm  from 'components/Event/Confirm';
+import Error    from 'components/Event/Error';
 
 import 'components/Event/styles.scss';
 
-const LIST = "LIST";
-const SHOW = "SHOW";
-const CREATE = "CREATE";
-const SAVING = "SAVING";
-const DELETING = "DELETING";
-const CONFIRM = "CONFIRM";
-const EDIT = "EDIT";
-const ERROR_SAVE = "ERROR_SAVE";
-const ERROR_DELETE = "ERROR_DETELE";
+const LIST          = "LIST";
+const SHOW          = "SHOW";
+const CREATE        = "CREATE";
+const SAVING        = "SAVING";
+const DELETING      = "DELETING";
+const CONFIRM       = "CONFIRM";
+const EDIT          = "EDIT";
+const ERROR_SAVE    = "ERROR_SAVE";
+const ERROR_DELETE  = "ERROR_DETELE";
 
 
 export default function Event(props) {
