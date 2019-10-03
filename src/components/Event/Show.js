@@ -1,6 +1,6 @@
 import React from "react";
 
-import Avatar from '@material-ui/core/Avatar';
+import UserAvatar from '../common/Avatar';
 
 export default function Show(props) {
   return (
@@ -9,11 +9,8 @@ export default function Show(props) {
       <h1 className="event__card--header text--header">HOST</h1>
       <section className="event__card--body">
 
-
-        <Avatar
+        <UserAvatar
           className="event__card--show-avatar"
-          alt="Avatar"
-          src="https://www.straitstimes.com/sites/default/files/styles/article_pictrure_780x520_/public/articles/2018/02/02/2017-09-05t123641z_2074388227_rc1f50c4add0_rtrmadp_3_filmfestival-venice.jpg?itok=oNSajv26&timestamp=1517521109"
         />
 
         <h1 className="event__card--show-host text--body">{props.user_id}</h1>
