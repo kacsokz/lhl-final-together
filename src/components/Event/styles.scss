@@ -8,7 +8,7 @@
   
   // Event Card Styles
   &__card {
-    min-height: 675px;
+    min-height: 700px;
     width: 500px;
     color: $main-color;
     background-color: $accent1-color;
@@ -118,7 +118,19 @@
 
     // Form Page Styles
     &--form {
-      display: block;
+      
+      &-body {
+        padding: 20px;
+        display: grid;
+        grid-gap: 28px;
+        justify-items: center;
+
+        &-date {
+          margin: 0px;
+          flex-direction: none;
+        }
+      }
+      
     }
 
   }

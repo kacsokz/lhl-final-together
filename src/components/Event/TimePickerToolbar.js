@@ -4,7 +4,6 @@ import { darken } from '@material-ui/core/styles';
 
 import { getHours, getMinutes, setHours, setMinutes } from 'date-fns';
 
-
 const flex = {
   display: 'flex',
   alignItems: 'center'
