@@ -3,9 +3,6 @@ import React from "react";
 import "components/Navbar/NavButton.scss";
 import "components/Navbar/NavBar.scss";
 import NavBar from "components/Navbar/NavBar";
-import classnames from 'classnames/bind';
-
-
 
 export default function NavBarFinal(props) {
    let mode = "LOGGEDOUT";

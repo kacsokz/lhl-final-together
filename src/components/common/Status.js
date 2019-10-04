@@ -1,5 +1,5 @@
-import React from "react";
-import "components/common/styles.scss";
+import React from "components/Common/node_modules/react";
+import "components/Common/styles.scss";
 
 export default function Status(props) {
   return (

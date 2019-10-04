@@ -14,13 +14,11 @@ $weights: (
 
 // Header Fonts
 @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display:400,800|Open+Sans+Condensed:300,700|Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Be+Vietnam|Lexend+Tera&display=swap');
 
 $fonts: (
   header: 'Be Vietnam',
-  body: 'Lexend Tera',
-  mui: 'Roboto'
+  body: 'Lexend Tera'
 );
 
 @each $font, $value in $fonts {

@@ -1,24 +1,24 @@
-import React from 'react';
-import  Button  from 'components/common/Button';
-import  Confirm  from 'components/common/Confirm';
-import  Error  from 'components/common/Error';
-import  Status  from 'components/common/Status';
+import React   from 'react';
+
+import Confirm from 'components/Common/Confirm';
+import Error   from 'components/Common/Error';
+import Status  from 'components/Common/Status';
+
+import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'common',
+  title: 'Common Views',
 };
 
-export const confirm_button = () =>
-<Button confirm>Confirm</Button>;
+export const confirm_view = () =>
+<Confirm
+  message="Delete the appointment?"
+  onConfirm={action("onConfirm")}
+  onCancel={action("onCancel")}
+/>
 
-export const cancel_button = () =>
-<Button cancel>Cancel</Button>;
+export const error_view = () =>
+<Error />;
 
-export const Confirm_view = () =>
-<Confirm></Confirm>;
-
-export const Error_view = () =>
-<Error></Error>;
-
-export const Status_view = () =>
-<Status></Status>;
+export const status_view = () =>
+<Status />;

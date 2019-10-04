@@ -1,6 +1,6 @@
-import React from "react";
-import "components/common/Button.scss";
-import classnames from 'classnames/bind';
+import React from "components/Common/node_modules/react";
+import "components/Common/Button.scss";
+import classnames from 'components/Common/node_modules/classnames/bind';
 
 export default function Button(props) {
    const buttonClass = classnames("button", {

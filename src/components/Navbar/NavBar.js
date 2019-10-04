@@ -4,7 +4,6 @@ import React from "react";
 import "components/Navbar/NavButton.scss";
 import "components/Navbar/NavBar.scss";
 import NavButton from "components/Navbar/NavButton";
-import classnames from 'classnames/bind';
 
 export default function NavBar(props) {
    

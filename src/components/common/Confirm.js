@@ -1,7 +1,6 @@
-import React from "react";
-import Button from "components/common/Button";
-import classnames from 'classnames/bind';
-import "components/common/styles.scss";
+import React from "components/Common/node_modules/react";
+import Button from "components/Common/Button";
+import "components/Common/styles.scss";
 
 export default function Confirm(props) {
   return (

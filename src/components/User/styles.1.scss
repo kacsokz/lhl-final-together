@@ -1,0 +1,130 @@
+
+.profile-container {
+  min-height: 40rem;
+  box-shadow: 10%;
+  text-align: center;
+  display: flex;
+  background-image: linear-gradient(to bottom right, rgb(104, 99, 99), rgb(241, 241, 209));
+  flex-direction: column;
+  width: 40%;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-width: 2px;
+  border-color: white;
+  border-style: solid;
+    
+  .user-details {
+    border-width: 2px;
+    border-style: solid;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-color: white;
+    width: 90%;
+    margin-top: 3px;
+    height: 40px;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(255, 255, 227));
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .tagline {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    position: relative;
+  }
+
+  .tagline-input {
+    width: 80%;
+    margin:auto;
+    padding-bottom: 10px;
+    display: inline-flex
+  }
+
+  .delete-save {
+    padding-bottom: 10px;
+    display: flex;
+    width: 80%;
+    margin: auto;
+    padding-left: auto;
+    padding-right: auto;
+  }
+}
+
+.event-container {
+  min-height: 40rem;
+  box-shadow: 10%;
+  text-align: center;
+  display: flex;
+  background-image: linear-gradient(to bottom right, rgb(104, 99, 99), rgb(241, 241, 209));
+  flex-direction: column;
+  width: 40%;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-width: 2px;
+  border-color: white;
+  border-style: solid;
+
+  .my-event {
+    // border-width: 2px;
+    // border-style: solid;
+    border-radius: 10px;
+    border-color: white;
+    width: 30%;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(255, 255, 227));
+    margin-left: 5%;
+    height: 20px;
+    margin-bottom: 1px;
+    text-align: center
+  }
+
+  .events-list {
+    border-width: 2px;
+    border-style: solid;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-color: white;
+    width: 90%;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(255, 255, 227));
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1px;
+    margin-bottom: 7px;
+
+    .event-details {
+      
+      height: 40px;
+      border-width: 2px;
+      border-style: solid;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-color: rgb(224, 221, 221);
+      width: 90%;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      align-items: center;
+      // padding-top: 15px;
+      // text-align: center;
+      background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(165, 204, 114));
+      margin-left: 7%;
+      display: inline-flex;
+      justify-content: space-between;
+      // justify-content: flex-start;
+
+      img:hover {
+      
+        color: black;
+        background-color: transparent;
+        border: 2px solid transparent;
+      }
+    }
+  }
+  .create-event {
+    margin-top: auto;
+    padding-bottom: 5px;
+  }
+}

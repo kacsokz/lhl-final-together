@@ -1,9 +1,7 @@
 import React from 'react';
 
-import './App.css';
 import "./app.scss";
 import NavButton from "components/Navbar/NavButton";
-import MapContainer from "components/Map/Map";
 
 function App() {
   return (

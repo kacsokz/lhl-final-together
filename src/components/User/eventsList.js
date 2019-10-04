@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Button from "components/common/Button";
+import Button from "components/Common/Button";
 import EventListItem from "components/User/eventListItem";
 import Avatar from '@material-ui/core/Avatar';
 import "components/User/styles.scss";

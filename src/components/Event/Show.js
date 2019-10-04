@@ -1,6 +1,6 @@
 import React from "react";
 
-import UserAvatar from '../common/Avatar';
+import UserAvatar from '../Common/Avatar';
 
 export default function Show(props) {
   return (

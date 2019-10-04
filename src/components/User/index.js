@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import EventsList from "components/User/eventsList";
-import Profile from "components/User/profile";
-import Status from "components/common/Status";
-import Confirm from "components/common/Confirm";
-import Error from "components/common/Error";
+import Profile from "components/User/Profile";
+import Status from "components/Common/Status";
+import Confirm from "components/Common/Confirm";
+import Error from "components/Common/Error";
 import "components/User/styles.scss";
 import useVisualMode from "hooks/useVisualMode";
 // import { create } from "domain";

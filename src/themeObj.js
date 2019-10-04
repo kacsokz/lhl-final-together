@@ -5,6 +5,11 @@ export default {
     black: '#000',
     accentDark: '#96ACB7',
     accentLight: '#DEE7E7',
+    headerFont: 'Be Vietnam',
+    bodyFont: 'Lexend Tera',
   },
   spacing: (n) => n * 4,
 }
+
+
+// Change the fontFamily

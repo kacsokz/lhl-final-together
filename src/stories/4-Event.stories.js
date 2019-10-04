@@ -61,7 +61,7 @@ export const form = () => (
 
 export const list = () => (
   <List
-     events={events}
+    events={events}
   />
 );
 

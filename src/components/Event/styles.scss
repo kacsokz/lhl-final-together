@@ -31,7 +31,8 @@
 
         // Body Content under Host Title
         &-host {
-          padding: 10px;
+          padding: 18px;
+          padding-bottom: 5px;
           
           // Host Name
           &-name {
@@ -130,9 +131,6 @@
           flex-direction: none;
         }
       }
-      
     }
-
   }
-
 }
