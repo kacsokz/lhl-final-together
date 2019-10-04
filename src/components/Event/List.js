@@ -6,6 +6,7 @@ export default function List(props) {
   const events = props.events.map(event => {
     return (
       <ListItem
+        key={event.id}
         event_name={event.event_name}
         bar_name={event.bar_name}
         date={event.date}

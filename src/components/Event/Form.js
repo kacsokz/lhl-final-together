@@ -12,30 +12,32 @@ export default function Form(props) {
   const pickerDateProps = useDatePicker();
   const pickerTimeProps = useTimePicker();
 
-  const validate = () => {
-    const {
-      eventDate
-    } = pickerDateProps;
+  const reset = () => {
 
-    const {
-      eventStart,
-      eventEnd,
-    } = pickerTimeProps;
-
-    console.log(`{
-      eventDate,
-      eventStart,
-      eventEnd
-    }`,
-    eventDate.value,
-    {
-      eventStart,
-      eventEnd
-    })
   };
 
-  const cancel = () => {
+  const cancel = () => props.onCancel(reset());
 
+  const validate = () => {
+    // const {
+    //   eventDate
+    // } = pickerDateProps;
+
+    // const {
+    //   eventStart,
+    //   eventEnd,
+    // } = pickerTimeProps;
+
+    // console.log(`{
+    //   eventDate,
+    //   eventStart,
+    //   eventEnd
+    // }`,
+    // eventDate.value,
+    // {
+    //   eventStart,
+    //   eventEnd
+    // })
   };
 
   return (
@@ -54,13 +56,13 @@ export default function Form(props) {
 
         <section>
           <Button
-            cancel
+            red
             onClick={cancel}
           >
             Cancel
           </Button>
           <Button
-            confirm
+            blue
             onClick={validate}
           >
             Save

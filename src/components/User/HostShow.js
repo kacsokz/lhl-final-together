@@ -25,13 +25,13 @@ export default function HostShow(props) {
       <h1 className="user__card--header text--header">ADMIN</h1>
       <section className="user__card--show-footer">
         <Button
-          cancel
+          blue
           onClick={props.onCancel}
         >
           Edit
         </Button>
         <Button
-          confirm
+          red
           onClick={props.onConfirm}
         >
           Delete

@@ -24,24 +24,24 @@
   border: 2px solid transparent;
 }
 
-.button--cancel {
+.button--blue {
   color: $main-color;
   border-color: $main-color;
   background-color: transparent;
 }
 
-.button--confirm {
+.button--red {
   color: $main-color;
   border-color: $main-color;
   background-color: transparent;
 }
 
-.button--cancel:hover {
+.button--blue:hover {
   color: $white;
   background-color: $accent2-color;
 }
 
-.button--confirm:hover {
+.button--red:hover {
   color: $white;
   background-color: $cancel-color;
 }

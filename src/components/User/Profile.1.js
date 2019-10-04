@@ -47,7 +47,7 @@ export default function Profile(props) {
           <Input id="my-input" aria-describedby="my-helper-text" />
         </FormControl>
         <span className="delete-save">
-          <Button confirm onClick={props.onSaveEmail}>
+          <Button blue onClick={props.onSaveEmail}>
             Save
         </Button>
         </span>
@@ -56,10 +56,10 @@ export default function Profile(props) {
           <Input id="my-input" aria-describedby="my-helper-text" />
         </FormControl>
         <span className="delete-save">
-          <Button confirm onClick={props.onConfirm}>
+          <Button blue onClick={props.onConfirm}>
             Save
         </Button>
-          <Button cancel onClick={props.onDelete}>
+          <Button red onClick={props.onDelete}>
             Delete
         </Button>
         </span>

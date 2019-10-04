@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import EventsList from "components/User/HostEventList";
+import HostEventsList from "components/User/HostEventList";
 import Profile from "components/User/Profile";
 import Status from "components/Common/Status";
 import Confirm from "components/Common/Confirm";
@@ -9,7 +9,7 @@ import useVisualMode from "hooks/useVisualMode";
 
 export default function UserView(props) {
   const PROFILE = "PROFILE";
-  const USEREVENTSLIST = "USEREVENTSLIST";
+  const HOSTEVENTLIST = "HOSTEVENTLIST";
   const ERROR = "ERROR";
   const CONFIRMING = "CONFIRMING";
   const EDITING = "EDITING";
@@ -108,8 +108,8 @@ export default function UserView(props) {
         />
       )}
 
-      {mode === USEREVENTSLIST &&
-        <EventsList
+      {mode === HOSTEVENTLIST &&
+        <HostEventsList
           events={props.events}
           avatar={props.user[0].avatar}
           onCreate={() => createUserEvent()}

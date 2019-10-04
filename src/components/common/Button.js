@@ -4,8 +4,8 @@ import classnames from 'classnames/bind';
 
 export default function Button(props) {
    const buttonClass = classnames("button", {
-      "button--confirm text--body": props.confirm,
-      "button--cancel text--body": props.cancel
+      "button--red text--body": props.red,
+      "button--blue text--body": props.blue
    });
 
    return (

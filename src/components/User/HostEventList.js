@@ -6,6 +6,7 @@ export default function HostEventList(props) {
 
   const userEvents = props.events.map(event => (
     <HostEventListItem
+      key={event.id}
       name={event.bar_name}
       date={event.date}
       start_time={event.start_time}
@@ -21,7 +22,7 @@ export default function HostEventList(props) {
         {userEvents}
       </section>
       <section className="user__card--create-event">
-        <Button cancel onClick={props.onCreate}>
+        <Button blue onClick={props.onCreate}>
           Create Event
         </Button>
       </section>

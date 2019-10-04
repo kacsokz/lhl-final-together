@@ -9,13 +9,13 @@ export default function Confirm(props) {
         <h1 className="text--body">{props.message}</h1>
         <section className="common__card--confirm-cc">
           <Button
-            cancel
+            blue
             onClick={props.onCancel}
           >
             Cancel
           </Button>
           <Button
-            confirm
+            red
             onClick={props.onConfirm}
           >
             Confirm
