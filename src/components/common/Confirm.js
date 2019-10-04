@@ -4,21 +4,23 @@ import "components/Common/styles.scss";
 
 export default function Confirm(props) {
   return (
-    <main className="event_card event_card--confirm">
-      <h1>{props.message}</h1>
-      <section className="event__actions">
-        <Button
-          confirm
-          onClick={props.onConfirm}
-        >
-          Confirm
-        </Button>
-        <Button
-          cancel
-          onClick={props.onCancel}
-        >
-          Cancel
-        </Button>
+    <main className="common__card">
+      <section className="common__card--outline">
+        <h1 className="text--body">{props.message}</h1>
+        <section className="common__card--confirm-cc">
+          <Button
+            cancel
+            onClick={props.onCancel}
+          >
+            Cancel
+          </Button>
+          <Button
+            confirm
+            onClick={props.onConfirm}
+          >
+            Confirm
+          </Button>
+        </section>
       </section>
     </main>
   );
