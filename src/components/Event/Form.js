@@ -63,7 +63,7 @@ export default function Form(props) {
             confirm
             onClick={validate}
           >
-            Confirm
+            Save
           </Button>
         </section>
 

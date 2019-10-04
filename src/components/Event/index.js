@@ -22,22 +22,32 @@ const ERROR_DELETE  = "ERROR_DETELE";
 
 export default function Event(props) {
 
+  // dummy code to satisfy mode/transition requirement
+      const mode = mode => {
+        console.log(mode);
+      };
+      const transition = transition => {
+        console.log(transition);
+      };
+  // be sure to delete the above code
+
   return (
     <article className="event">
       <List />
 
-{/* 
-      {mode === LIST && <List />}
+      {/* ON JOIN IS A PUT REQUEST WITH YOUR ID */}
+      {mode === LIST && <List onJoin={} />}
 
       {mode === SHOW && <Show />}
 
       {mode === CREATE && (
         <Form
-          // onSave={save}
-          // onCancel={back}
+          onSave={save}
+          onCancel={back}
         />
-      )}
+        )}
 
+{/* 
       {mode === LIST && <List />}
 
       {mode === SAVING && (

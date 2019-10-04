@@ -28,6 +28,7 @@ export default function Show(props) {
       <h1 className="event__card--header text--header">JOIN {props.attendees} OTHERS</h1>
       <section className="event__card--show-footer">
         <img
+          className="event__card--show-footer-join"
           src="images/add.png"
           alt="Join"
           onClick={props.onJoin}

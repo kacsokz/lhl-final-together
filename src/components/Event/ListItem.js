@@ -8,12 +8,7 @@ export default function ListItem(props) {
       <h5 className="event__card--list-item-bar text--body">@ {props.bar_name}</h5>
       
       <p className="event__card--list-item-attendees text--header">
-        Join the {props.attendees} others
-        <img
-          src="images/joinevt.png"
-          alt="Join"
-          onClick={props.onJoin}
-        />
+        {props.attendees} others are going
       </p>
     </article>
   );

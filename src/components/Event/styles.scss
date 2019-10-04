@@ -70,13 +70,13 @@
       &-footer {
         height: 75px;
         margin: auto;
-      }
-
-      &-footer img {
-        height: 50px;
-        display: block;
-        margin: auto;
-        margin-top: 20px;
+        
+        &-join {
+          height: 50px;
+          display: block;
+          margin: auto;
+          margin-top: 20px;
+        }
       }
     }
 
@@ -109,13 +109,6 @@
           margin: 5px;
         }
       }
-
-      &-item img {
-        color: $main-color;
-        display: flex;
-        float: right;
-      }
-
     }
 
     // Form Page Styles

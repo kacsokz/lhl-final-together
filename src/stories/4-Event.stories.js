@@ -5,6 +5,7 @@ import 'components/Event/styles.scss';
 import Form from 'components/Event/Form';
 import List from 'components/Event/List';
 import Show from 'components/Event/Show';
+import { action } from '@storybook/addon-actions';
 
 const events = [
   {
@@ -55,7 +56,8 @@ export default {
 
 export const form = () => (
   <Form
-    user_name="Kat Connolly"
+    onSave={action("onSave")}
+    onCancel={action("onCancel")}
   />
 );
 
@@ -75,5 +77,6 @@ export const show = () => (
     end_time="23:00"
     tag_line="Join me in celebrating the accomplishments of my favourite LHL cohort, Calgary 22-JUL-2019."
     attendees="18"
+    onJoin={action("onJoin")}
   />
 );
