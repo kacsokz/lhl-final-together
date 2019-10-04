@@ -1,22 +1,11 @@
-import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import Button from "components/Common/Button";
-import EventListItem from "components/User/eventListItem";
-import Avatar from '@material-ui/core/Avatar';
-import "components/User/styles.scss";
+import React from 'react';
+import Button from 'components/Common/Button';
+import UserAvatar from 'components/Common/Avatar';
+import EventListItem from 'components/User/eventListItem';
+import 'components/User/styles.scss';
 
-const useStyles = makeStyles(theme => ({
-  bigAvatar: {
-    padding: "top",
-    margin: 10,
-    width: 60,
-    height: 60,
-  },
-}));
+export default function HostEventList(props) {
 
-export default function EventsList(props) {
-
-  const classes = useStyles();
   const eventsList = props.events.map((event) => (
     <EventListItem
       id={event.id}
@@ -28,9 +17,10 @@ export default function EventsList(props) {
       viewEvent={props.viewEvent}
     />
   ));
+
   return (
     <div className="event-container">
-      <Avatar alt="Avatar" src={props.avatar} className={classes.bigAvatar} />
+      <UserAvatar alt="Avatar" src={props.avatar} />
       <h4 className="my-event">Events</h4>
       <div className="events-list">
         {eventsList}

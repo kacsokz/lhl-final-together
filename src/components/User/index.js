@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import EventsList from "components/User/eventsList";
+import EventsList from "components/User/HostEventList";
 import Profile from "components/User/Profile";
 import Status from "components/Common/Status";
 import Confirm from "components/Common/Confirm";
 import Error from "components/Common/Error";
 import "components/User/styles.scss";
 import useVisualMode from "hooks/useVisualMode";
-// import { create } from "domain";
 
 export default function UserView(props) {
   const PROFILE = "PROFILE";
