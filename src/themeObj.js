@@ -8,8 +8,8 @@ export default {
     headerFont: 'Be Vietnam',
     bodyFont: 'Lexend Tera',
   },
+  typography: {
+    fontFamily: 'Lexend Tera'
+  },
   spacing: (n) => n * 4,
 }
-
-
-// Change the fontFamily
