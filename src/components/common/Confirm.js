@@ -1,4 +1,4 @@
-import React from "components/Common/node_modules/react";
+import React from "react";
 import Button from "components/Common/Button";
 import "components/Common/styles.scss";
 

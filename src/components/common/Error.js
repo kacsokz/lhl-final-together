@@ -1,4 +1,4 @@
-import React from "components/Common/node_modules/react";
+import React from "react";
 import "components/Common/styles.scss";
 
 export default function Error(props) {
