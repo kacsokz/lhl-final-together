@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
-import HostEventsList from "components/User/HostEventList";
-import Profile from "components/User/Profile";
-import Status from "components/Common/Status";
-import Confirm from "components/Common/Confirm";
-import Error from "components/Common/Error";
-import "components/User/styles.scss";
-import useVisualMode from "hooks/useVisualMode";
+import React, { useEffect } from 'react';
+import useVisualMode        from 'hooks/useVisualMode';
+import Profile              from 'components/User/Profile';
+import HostEventsList       from 'components/User/HostEventList';
+import Status               from 'components/Common/Status';
+import HostShow             from 'components/User/HostShow';
+import Confirm              from 'components/Common/Confirm';
+import Error                from 'components/Common/Error';
+import 'components/User/styles.scss';
 
 export default function UserView(props) {
-  const PROFILE = "PROFILE";
-  const HOSTEVENTLIST = "HOSTEVENTLIST";
-  const ERROR = "ERROR";
-  const CONFIRMING = "CONFIRMING";
-  const EDITING = "EDITING";
-  const ERROR_DELETE = "ERROR_DELETE"
-  const DELETING = "DELETING";
-  const ERROR_SAVE = "ERROR_SAVE"
-  const SAVING = "SAVING";
+  const PROFILE = 'PROFILE';
+  const HOSTEVENTLIST = 'HOSTEVENTLIST';
+  const HOSTSHOW = 'HOSTSHOW';
+  const CONFIRMING = 'CONFIRMING';
+  const ERROR_DELETE = 'ERROR_DELETE';
+  const DELETING = 'DELETING';
+  const ERROR_SAVE = 'ERROR_SAVE';
+  const SAVING = 'SAVING';
 
 
   const { mode, transition, back } = useVisualMode(PROFILE);
@@ -83,14 +83,6 @@ export default function UserView(props) {
     console.log('viewEvent')
     // transition(STATUS)
   }
-
-  // function deleteUserEvent() {
-  //   const userEvent = null;
-  //   transition(DELETING, true)
-  //   props.deleteEvent(props.id, userEvent)
-  //     .then(() => transition(PROFILE))
-  //     .catch(error => transition(ERROR_DELETE, true));
-  // }
 
   return (
     <div>

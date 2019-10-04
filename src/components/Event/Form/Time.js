@@ -48,6 +48,7 @@ const EvtTime = ({
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <section>
         <KeyboardTimePicker
+          ampm={ false }
           DialogProps={{ className: classes.dialog }}
           margin="normal"
           variant="dialog"
@@ -63,6 +64,7 @@ const EvtTime = ({
       </section>
       <section>
         <KeyboardTimePicker
+          ampm={ false }
           DialogProps={{ className: classes.dialog }}
           margin="normal"
           variant="dialog"

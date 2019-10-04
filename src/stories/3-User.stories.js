@@ -1,7 +1,8 @@
-import React      from 'react';
-import Profile    from 'components/User/Profile';
-import HostEventList from 'components/User/HostEventList';
-import HostShow     from 'components/User/HostShow';
+import React          from 'react';
+import Profile        from 'components/User/Profile';
+import HostEventList  from 'components/User/HostEventList';
+import HostShow       from 'components/User/HostShow';
+import { action }     from '@storybook/addon-actions';
 
 export default {
   title: 'User Stories',
@@ -72,4 +73,6 @@ export const host_show = () =>
     end_time="23:00"
     tag_line="Join me in celebrating the accomplishments of my favourite LHL cohort, Calgary 22-JUL-2019."
     attendees="18"
+    onEdit={action("onEdit")}
+    onDelete={action("onConfirm")}
   />

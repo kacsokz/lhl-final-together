@@ -36,7 +36,6 @@ export default function EventTag() {
         id="standard-tag"
         label="Tag Line"
         className={classes.textField}
-        value={values.tag}
         onChange={handleTagChange('tag')}
         margin="normal"
       />

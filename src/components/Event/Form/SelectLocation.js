@@ -45,7 +45,6 @@ export default function SelectLocation() {
             id: 'bar',
           }}
         >
-          <MenuItem value={0}></MenuItem>
           <MenuItem value={1}>The Last Best Brewing Company</MenuItem>
           <MenuItem value={2}>Greta Bar</MenuItem>
           <MenuItem value={3}>Hudsons Canadas Pub</MenuItem>

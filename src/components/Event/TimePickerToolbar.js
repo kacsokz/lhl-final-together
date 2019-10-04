@@ -16,7 +16,7 @@ const useToolbarStyles = makeStyles(theme => ({
     justifyContent: 'flex-end'
   },
   timeInput: {
-    width: 110,
+    width: 100,
     lineHeight: 50,
     fontSize: 50,
     padding: 0,

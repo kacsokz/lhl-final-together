@@ -9,7 +9,7 @@ export default {
     bodyFont: 'Lexend Tera',
   },
   typography: {
-    fontFamily: 'Lexend Tera'
+    fontFamily: 'Lexend Tera',
   },
   spacing: (n) => n * 4,
 }

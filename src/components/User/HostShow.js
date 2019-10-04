@@ -26,7 +26,7 @@ export default function HostShow(props) {
       <section className="user__card--show-footer">
         <Button
           blue
-          onClick={props.onCancel}
+          onClick={props.onEdit}
         >
           Edit
         </Button>
