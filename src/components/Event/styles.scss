@@ -16,6 +16,7 @@
     // Common Header Styles
     &--header {
       height: 50px;
+      font-size: 26px;
       border-style: outset;
       color: $accent1-color;
       background-color: $accent2-color;
@@ -133,4 +134,10 @@
       }
     }
   }
+}
+
+h1.event__card--header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

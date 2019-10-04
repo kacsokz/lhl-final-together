@@ -2,7 +2,6 @@
 @import 'styles/mixins.scss';
 @import 'styles/animations.scss';
 @import 'styles/typography.scss';
-@import 'styles/reset.scss';
 
 .user {
   
@@ -16,6 +15,7 @@
     // Common Header Styles
     &--header {
       height: 50px;
+      font-size: 26px;
       border-style: outset;
       color: $accent1-color;
       background-color: $accent2-color;
@@ -23,7 +23,7 @@
       background-image: url('../../../public/images/evt-bg2.png');
     }
 
-    // Profile Page Styles
+    // User Profile Page Styles
     &--profile {
       padding: 20px;
       display: grid;
@@ -94,85 +94,7 @@
 
     }
 
-  }
-};
-
-.event {
-  
-  // Event Card Styles
-  &__card {
-    min-height: 700px;
-    width: 500px;
-    color: $main-color;
-    background-color: $accent1-color;
-
-    // Common Header Styles
-    &--header {
-      height: 50px;
-      border-style: outset;
-      color: $accent1-color;
-      background-color: $accent2-color;
-      text-align: center;
-      background-image: url('../../../public/images/evt-bg2.png');
-    }
-
-    // Show Page Styles
-    &--show {
-
-      // Show Page Body Content Styles
-      &-body {
-
-        // Body Content under Host Title
-        &-host {
-          padding: 18px;
-          padding-bottom: 5px;
-          
-          // Host Name
-          &-name {
-            font-size: 30px;
-            padding: 10px;
-            text-align: center;
-          }
-
-          // Host Tag Line
-          &-tag {
-            padding: 5px;
-            text-align: center;
-            font-size: 16px;
-          }
-
-        }
-
-        // Body Content under Event Title
-        &-event {
-          padding: 10px;
-          text-align: center;
-          &-body {
-            padding: 5px;
-            font-size: 18px;
-          }
-          &-header {
-            font-size: 18px;
-            color: $accent2-color;
-          }
-        }
-      }
-
-      // Show Page Footer Stles
-      &-footer {
-        height: 75px;
-        margin: auto;
-      }
-
-      &-footer img {
-        height: 50px;
-        display: block;
-        margin: auto;
-        margin-top: 20px;
-      }
-    }
-
-    // Event List Page Styles
+    // Host Event List Page Styles
     &--list {
       display: block;
 
@@ -200,30 +122,20 @@
         &-attendees {
           margin: 5px;
         }
-      }
-
-      &-item img {
-        color: $main-color;
-        display: flex;
-        float: right;
-      }
+    }
 
     }
 
-    // Form Page Styles
-    &--form {
-      
-      &-body {
-        padding: 20px;
-        display: grid;
-        grid-gap: 28px;
-        justify-items: center;
-
-        &-date {
-          margin: 0px;
-          flex-direction: none;
-        }
-      }
+    // Create New Event
+    &--create-event {
+      display: flex;
+      justify-content: center;
     }
   }
+};
+
+h1.user__card--header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

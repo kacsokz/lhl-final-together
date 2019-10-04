@@ -6,7 +6,7 @@ export default function HostShow(props) {
   return (
     <main className="user__card user__card--show">
 
-      <h1 className="user__card--header text--header">{props.user_name}'s Event</h1>
+      <h1 className="user__card--header text--header">EVENT</h1>
 
       <section className="user__card--show-body-host">
         <UserAvatar />
@@ -22,7 +22,7 @@ export default function HostShow(props) {
         <h3 className="user__card--show-body-event-body text--body">{props.bar_name}</h3>
       </section>
 
-      <h1 className="user__card--header text--header">Admin</h1>
+      <h1 className="user__card--header text--header">ADMIN</h1>
       <section className="user__card--show-footer">
         <Button
           cancel

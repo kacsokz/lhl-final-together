@@ -1,36 +1,30 @@
-import React from 'react';
-import Button from 'components/Common/Button';
-import UserAvatar from 'components/Common/Avatar';
-import EventListItem from 'components/User/eventListItem';
-import 'components/User/styles.scss';
+import React              from 'react';
+import Button             from 'components/Common/Button';
+import HostEventListItem  from 'components/User/HostEventListItem';
 
 export default function HostEventList(props) {
 
-  const eventsList = props.events.map((event) => (
-    <EventListItem
-      id={event.id}
-      name={event.name}
+  const userEvents = props.events.map(event => (
+    <HostEventListItem
+      name={event.bar_name}
+      date={event.date}
       start_time={event.start_time}
       end_time={event.end_time}
-      onEdit={props.onEdit}
-      onDelete={props.onDelete}
-      viewEvent={props.viewEvent}
+      attendees={event.attendees}
     />
   ));
 
   return (
-    <div className="event-container">
-      <UserAvatar alt="Avatar" src={props.avatar} />
-      <h4 className="my-event">Events</h4>
-      <div className="events-list">
-        {eventsList}
-      </div>
-      <span className="create-event">
-        <Button confirm onClick={props.onCreate}>
-          Create
+    <div className="user__card user__card--list">
+      <h1 className="user__card--header text--header">MY EVENTS</h1>
+      <section>
+        {userEvents}
+      </section>
+      <section className="user__card--create-event">
+        <Button cancel onClick={props.onCreate}>
+          Create Event
         </Button>
-      </span>
+      </section>
     </div>
   );
-
 }
