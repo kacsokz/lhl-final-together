@@ -1,10 +1,12 @@
 .map-header {
+    // display: flex;
+    // flex: 1 1 50%;
     border-width: 2px;
     border-style : solid;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     border-color: white;
-    width: 35rem;
+    width: 70rem;
     height: 50px;
     background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(255, 255, 227));
 

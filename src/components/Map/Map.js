@@ -7,14 +7,14 @@ import config from 'config';
 
 const mapStyles = {
   width: '70rem',
-  height: '40rem'
+  height: '50rem'
 };
 
 let markersFromDB = [
-  { id: "1", name: "happyHour1", start_time: "15:00", end_time: "16:40", lat: 51.0447, lng: -114.0719 },
-  { id: "2", name: "happyHour2", start_time: "15:00", end_time: "16:40", lat: 51.0457, lng: -114.0719 },
-  { id: "3", name: "happyHour3", start_time: "15:00", end_time: "16:40", lat: 51.0447, lng: -114.0739 },
-  { id: "3", name: "happyHour3", start_time: "15:00", end_time: "16:40", lat: 51.0467, lng: -114.0759 }
+  { id: "1", name: "happyHour1", start_time: "15:00", end_time: "16:40", lat: 51.0447, lng: -114.0719 }
+  // { id: "2", name: "happyHour2", start_time: "15:00", end_time: "16:40", lat: 51.0457, lng: -114.0719 },
+  // { id: "3", name: "happyHour3", start_time: "15:00", end_time: "16:40", lat: 51.0447, lng: -114.0739 },
+  // { id: "3", name: "happyHour3", start_time: "15:00", end_time: "16:40", lat: 51.0467, lng: -114.0759 }
 ]
 
 export class MapContainer extends Component {
@@ -31,14 +31,14 @@ export class MapContainer extends Component {
 
   render() {
     return (
-      <div className="map-header">
+      <div className="map-header" style= {{flex: "1 1 50%"}}>
         <div className="something">
           <div>
             <div className="text-header">Happy hours</div>
           </div>
           <Map
             google={this.props.google}
-            zoom={10}
+            zoom={15}
             style={mapStyles}
             initialCenter={{
               lat: 51.0447,

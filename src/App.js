@@ -15,8 +15,12 @@ export default function App() {
     <div className="App">
       <main className="layout">
         <NavBarFinal />
+        <div style= {{display:"flex"}}>
+          
         <Map />
-        <Event /> 
+        
+        <Event />
+        </div>
         {/* <User /> */}
       </main>
     </div>
