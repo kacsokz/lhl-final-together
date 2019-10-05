@@ -1,11 +1,11 @@
 import React    from 'react';
-import ListItem from 'components/Common/EventListItem';
+import EventListItem from 'components/Common/EventListItem';
 
 export default function EventList(props) {
 
   const events = props.events.map(event => {
     return (
-      <ListItem
+      <EventListItem
         key={event.id}
         event_name={event.event_name}
         bar_name={event.bar_name}
