@@ -4,7 +4,7 @@ import queryString  from 'query-string'
 import NavBarFinal  from 'components/Navbar/NavBarFinal';
 import Map          from 'components/Map/Map';
 import Event        from 'components/Event/';
-import User         from 'components/User';
+// import User         from 'components/User';
 
 export default function App() {
 
