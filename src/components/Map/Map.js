@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import "components/Map/Map.scss";
+import 'components/Map/Map.scss';
 import axios from 'axios';
 
-import config from 'config'
+import config from 'config';
 
 const mapStyles = {
   width: '35rem',
