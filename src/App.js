@@ -1,22 +1,13 @@
 import React from 'react';
 
 import "./app.scss";
-import NavButton from "components/Navbar/NavButton";
+import NavBarFinal from "components/Navbar/NavBarFinal";
 
 function App() {
   return (
     <div className="App">
-      
       <main className="layout">
-      <section className="topbar">
-          <img
-            className="topbar__together"
-            src="images/togetherLogo.png"
-            alt="Together"
-          />
-          <NavButton confirm>Register</NavButton>
-          <NavButton confirm>Sign In</NavButton>
-      </section>
+      <NavBarFinal></NavBarFinal>
     </main>
     </div>
   );

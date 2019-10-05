@@ -5,7 +5,8 @@ import "components/Navbar/NavBar.scss";
 import NavBar from "components/Navbar/NavBar";
 
 export default function NavBarFinal(props) {
-   let mode = "LOGGEDOUT";
+   const username = window.location.search.replace("?username=", "")
+   let mode = username ? "LOGGEDIN" : "LOGGEDOUT";
    
 
    return (
