@@ -1,11 +1,11 @@
 import React from "react";
-import "components/common/Button.scss";
+import "components/Common/Button.scss";
 import classnames from 'classnames/bind';
 
 export default function Button(props) {
    const buttonClass = classnames("button", {
-      "button--confirm": props.confirm,
-      "button--cancel": props.cancel
+      "button--red text--body": props.red,
+      "button--blue text--body": props.blue
    });
 
    return (

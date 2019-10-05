@@ -1,15 +1,17 @@
 import React from "react";
-import "components/common/styles.scss";
+import "components/Common/styles.scss";
 
 export default function Status(props) {
   return (
-    <main className="event__card event__card--status">
-      <img
-        className="event__status-image"
-        src="images/status.png"
-        alt="Loading"
-      />
-      <h1>{props.message}</h1>
+    <main className="common__card">
+      <section className="common__card--outline">
+        <img
+          className="status-image"
+          src="images/status.png"
+          alt="Loading"
+        />
+        <h1 className="text--body">{props.message}</h1>
+      </section>
     </main>
   );
 };

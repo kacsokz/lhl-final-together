@@ -1,24 +1,26 @@
-import React, { useEffect } from "react";
-import EventsList from "components/User/eventsList";
-import Profile from "components/User/profile";
-import Status from "components/common/Status";
-import Confirm from "components/common/Confirm";
-import Error from "components/common/Error";
-import "components/User/styles.scss";
-import useVisualMode from "hooks/useVisualMode";
-// import { create } from "domain";
+import 'components/User/styles.scss';
+import React, { useEffect } from 'react';
+import useVisualMode        from 'hooks/useVisualMode';
+import Profile              from 'components/User/Profile';
+import EventList            from 'components/User/HostEventList';
+import Form                 from 'components/Common/Form';
+import HostShow             from 'components/User/HostShow';
+import Confirm              from 'components/Common/Confirm';
+import Status               from 'components/Common/Status';
+import Error                from 'components/Common/Error';
+
+const PROFILE               = 'PROFILE';
+const HOSTEVENTLIST         = 'HOSTEVENTLIST';
+const USEREVENTLIST         = 'USEREVENTLIST';
+const HOSTSHOW              = 'HOSTSHOW';
+const EDIT                  = 'EDIT';
+const CONFIRM               = 'CONFIRM';
+const SAVING                = 'SAVING';
+const DELETING              = 'DELETING';
+const ERROR_SAVE            = 'ERROR_SAVE';
+const ERROR_DELETE          = 'ERROR_DELETE';
 
 export default function UserView(props) {
-  const PROFILE = "PROFILE";
-  const USEREVENTSLIST = "USEREVENTSLIST";
-  const ERROR = "ERROR";
-  const CONFIRMING = "CONFIRMING";
-  const EDITING = "EDITING";
-  const ERROR_DELETE = "ERROR_DELETE"
-  const DELETING = "DELETING";
-  const ERROR_SAVE = "ERROR_SAVE"
-  const SAVING = "SAVING";
-
 
   const { mode, transition, back } = useVisualMode(PROFILE);
 
@@ -28,129 +30,139 @@ export default function UserView(props) {
     }
   }, [props.events, props.user, transition, mode]);
 
+  const confirm = () => transition(CONFIRM);
 
-  function saveTagLine(tag_line) {
+  const edit = () => transition(EDIT);
 
-    if (!tag_line) {
-      transition(ERROR_SAVE, true)
-    }
+  const destroy = () => {
+    const event = null;
+    transition(DELETING, true);
+    props.deleteEvent(props.id, event)
+      .then(() => transition(PROFILE));
+  };
 
-    props.createUserTagLine(props.id, tag_line)
-    transition(SAVING)
-      .then(() => transition(PROFILE))
-      .catch(error => transition(ERROR_SAVE, true));
+  // Placeholder Functions BELOW
+  const save = () => {
+    // save update to Profile Email &&/||Tag
+  };
+  const eventShow = () => {
+    // Transition to Event/Show.js
   }
-
-  function saveEmail(email) {
-
-    if (!email) {
-      transition(ERROR_SAVE, true)
-    }
-
-    props.updateEmail(props.id, email)
-    transition(SAVING)
-      .then(() => transition(PROFILE))
-      .catch(error => transition(ERROR_SAVE, true));
+  const hostEventShow = () => {
+    // Transition to User/HostShow.js
   }
-
-  function deleting() {
-    transition(CONFIRMING)
+  const hostEventList = () => {
+    // List of Events Hosted By the User
+    // SEE User/Profile.js
+  };
+  const userEventList = () => {
+    // List of Events the User is Attending
+    // SEE User/Profile.js
+  };
+  const createEvent = () => {
+    // Saves a new event to the db
   }
-
-  function deleteUserTagLine() {
-    const tag_line = null;
-    transition(DELETING, true)
-    props.deleteTagLine(props.id, tag_line)
-      .then(() => transition(PROFILE))
-      .catch(error => transition(ERROR_DELETE, true));
-  }
-
-  function createUserEvent() {
-    console.log('createUserEvent')
-    // transition(STATUS)
-  }
-
-  function editUserEvent() {
-    console.log('editUserEvent')
-    // transition(STATUS)
-  }
-
-  function deleteUserEvent() {
-    console.log('deleteUserEvent')
-    // transition(STATUS)
-  }
-
-  function viewEvent() {
-    console.log('viewEvent')
-    // transition(STATUS)
-  }
-
-  // function deleteUserEvent() {
-  //   const userEvent = null;
-  //   transition(DELETING, true)
-  //   props.deleteEvent(props.id, userEvent)
-  //     .then(() => transition(PROFILE))
-  //     .catch(error => transition(ERROR_DELETE, true));
-  // }
+  // Placeholder Functions ABOVE
 
   return (
-    <div>
+    <section className="user">
+
+      {/* Renders a User Profile */}
+      {/* A User can Update their Email & Tag Line */}
+      {/* A User can view events they are hosting & attending */}
       {mode === PROFILE && (
         <Profile
-          id={props.user[0].id}
+          avatar={props.user[0].avatar}
           first_name={props.user[0].first_name}
           last_name={props.user[0].last_name}
           email={props.user[0].email}
-          avatar={props.user[0].avatar}
           tag_line={props.user[0].tag_line}
-          onConfirm={() => saveTagLine()}
-          onDelete={() => deleting()}
-          onSaveEmail={() => saveEmail()}
+          onUpdate={save}
+          onHosting={hostEventList}
+          onAttending={userEventList}
         />
       )}
 
-      {mode === USEREVENTSLIST &&
-        <EventsList
+      {/* Renders a List of the Users' Event */}
+      {/* A User can Create a New Event */}
+      {/* A User can Click on their Event to view its' Host Show Page */}
+      {mode === HOSTEVENTLIST && (
+        <EventList
           events={props.events}
-          avatar={props.user[0].avatar}
-          onCreate={() => createUserEvent()}
-          onEdit={() => editUserEvent()}
-          onDelete={() => deleteUserEvent()}
-          viewEvent={() => viewEvent()}
+          onCreate={() => createEvent()}
+          hostEventShow={() => hostEventShow()}
         />
-      }
+      )}
 
-      {mode === CONFIRMING && (
+      {/* Renders a List of the Users' Event */}
+      {/* A User can Click on an Event to view its' Show Page */}
+      {mode === USEREVENTLIST && (
+        <EventList
+          events={props.events}
+          eventShow={() => eventShow()}
+        />
+      )}
+
+      {/* Renders Show Page for a Users' Hosted Event */}
+      {/* Allows a User to Edit or Delete their Event */}
+      {mode === HOSTSHOW && (
+        <HostShow
+          user_name={props.user_name}
+          bar_name={props.bar_name}
+          event_name={props.event_name}
+          date={props.date}
+          start_time={props.start_time}
+          end_time={props.end_time}
+          tag_line={props.tag_line}
+          attendees={props.attendees}
+          onEdit={edit}
+          onDelete={confirm}
+        />
+      )}
+
+      {/* Renders the Form to Edit a Users' Specified Event */}
+      {/* Allows a User to Save or Delete Their Event */}
+      {mode === EDIT && (
+        <Form
+          bar_id={props.bars.id}
+          name={props.events.name}
+          tag={props.events.tag_line}
+          date={props.events.date}
+          start_time={props.events.start_time}
+          end_time={props.events.end_time}
+          onSave={save}
+          onCancel={back}
+        />
+      )}
+
+      {/* Renders a Confirm/Delete Page for a Users Event */}
+      {/* A User can Confirm or Cancel a Pending Delete */}
+      {mode === CONFIRM && (
         <Confirm
           message={"Delete the Tag Line?"}
           tag_line={props.user[0].tag_line}
-          onConfirm={deleteUserTagLine}
-          onCancel={() => back()} />
+          onCancel={back}
+          onConfirm={destroy}
+        />
       )}
 
+      {/* Renders Status Pages for Saving & Deleting */}
+      {mode === SAVING && <Status message="Saving..." />}
+      {mode === DELETING && <Status message="Deleting..." />}
+
+      {/* Renders Error Pages for Saving & Deleting */}
+      {mode === ERROR_SAVE && (
+        <Error
+          message={"Could not save event."}
+          onClose={back}
+        />
+      )}
       {mode === ERROR_DELETE && (
         <Error
           message={"Could not delete event."}
-          onClose={() => back()} />
-      )}
-
-      {mode === ERROR_SAVE && (
-        <Error
-          message={"Could not save tagline."}
-          onClose={() => back()} />
-      )}
-
-      {mode === DELETING && (
-        <Status
-          message="DELETING"
+          onClose={back}
         />
       )}
-      {mode === SAVING && (
-        <Status
-          message="SAVING"
-        />
-      )}
-    </div>
+    </section>
   )
-
 }

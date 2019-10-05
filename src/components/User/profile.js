@@ -1,69 +1,62 @@
-import React from "react";
-import { FormControl, InputLabel, Input } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
-import Button from "components/common/Button";
-import Avatar from '@material-ui/core/Avatar';
-import "components/User/styles.scss";
-
-const useStyles = makeStyles(theme => ({
-  bigAvatar: {
-    padding: "top",
-    margin: 10,
-    width: 60,
-    height: 60,
-  },
-}));
+import React      from 'react';
+import Email      from './Profile/Email';
+import TagLine    from './Profile/Tag';
+import UserAvatar from '../Common/Avatar';
+import Button     from '../Common/Button';
 
 export default function Profile(props) {
-  const classes = useStyles();
-  // console.log(props.user)
-  // let result
 
-  // for (let item in props.user) {
-  //   result = item
-  // }
-  // console.log(result)
-
-  // const userListItem = function (props.user)
-
-  // const userList = props.user.map((item) => (
-  //   <div className="user-details"><h3>{item}</h3></div>
-  // ));
-  let tag_line_input
-  if (props.tag_line) {
-    tag_line_input = props.tag_line
+  // Placeholder Functions BELOW
+  const save = () => {
+    // Saves any changes made to either
+    // Email (*required) or Tag Line
+  };
+  const hostEventList = () => {
+    // Transitions to HostEventList
+    // TRANSITIONS TAKE PLACE IN THE INDEX.JS
   }
-  else tag_line_input = ""
+  const userEventList = () => {
+    // Transitions to UserEventList
+    // TRANSITIONS TAKE PLACE IN THE INDEX.JS
+  }
+  // Placeholder Functions ABOVE
 
   return (
-    <div className="profile-container">
-      <Avatar alt="Avatar" src={props.avatar} className={classes.bigAvatar} />
-      <div className="user-details"><h3>{props.first_name}</h3></div>
-      <div className="user-details"><h3>{props.last_name}</h3></div>
-      <div className="tagline">
-        <FormControl className="tagline-input">
-          <InputLabel htmlFor="my-input">{props.email}</InputLabel>
-          <Input id="my-input" aria-describedby="my-helper-text" />
-        </FormControl>
-        <span className="delete-save">
-          <Button confirm onClick={props.onSaveEmail}>
-            Save
+    <main className="user__card">
+
+      <h1 className="user__card--header text--header">PROFILE</h1>
+
+      <section className="user__card--profile">
+        
+        <section className="user__card--profile-avatar">
+          <UserAvatar />
+        </section>
+
+        <h1 className="user__card--profile-name text--body">{props.name}</h1>
+        
+        <Email />
+
+        <TagLine />
+
+        <section className="user__card--profile-save">
+          <Button blue onClick={save} >
+            Update
+          </Button>
+        </section>
+
+      </section>
+
+      <h1 className="user__card--header text--header">MY EVENTS</h1>
+
+      <section className="user__card--profile-list">
+        <Button blue onClick={hostEventList} >
+          Hosting
         </Button>
-        </span>
-        <FormControl className="tagline-input">
-          <InputLabel htmlFor="my-input">{tag_line_input}</InputLabel>
-          <Input id="my-input" aria-describedby="my-helper-text" />
-        </FormControl>
-        <span className="delete-save">
-          <Button confirm onClick={props.onConfirm}>
-            Save
+        <Button blue onClick={userEventList} >
+          Attending
         </Button>
-          <Button cancel onClick={props.onDelete}>
-            Delete
-        </Button>
-        </span>
-      </div>
-    </div>
+      </section>
+
+    </main>
   );
-}
+};

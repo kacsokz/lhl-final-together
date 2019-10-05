@@ -1,130 +1,156 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/animations.scss';
+@import 'styles/typography.scss';
 
-.profile-container {
-  min-height: 40rem;
-  box-shadow: 10%;
-  text-align: center;
-  display: flex;
-  background-image: linear-gradient(to bottom right, rgb(104, 99, 99), rgb(241, 241, 209));
-  flex-direction: column;
-  width: 40%;
-  border-top-right-radius: 25px;
-  border-bottom-left-radius: 25px;
-  border-width: 2px;
-  border-color: white;
-  border-style: solid;
-    
-  .user-details {
-    border-width: 2px;
-    border-style: solid;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-color: white;
-    width: 90%;
-    margin-top: 3px;
-    height: 40px;
-    text-align: center;
-    background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(255, 255, 227));
-    margin-left: auto;
-    margin-right: auto;
-  }
+.user {
   
-  .tagline {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    position: relative;
-  }
+  // User Card Styles
+  &__card {
+    min-height: 700px;
+    width: 500px;
+    color: $main-color;
+    background-color: $accent1-color;
 
-  .tagline-input {
-    width: 80%;
-    margin:auto;
-    padding-bottom: 10px;
-    display: inline-flex
-  }
+    // Common Header Styles
+    &--header {
+      height: 50px;
+      font-size: 26px;
+      border-style: outset;
+      color: $accent1-color;
+      background-color: $accent2-color;
+      text-align: center;
+      background-image: url('../../../public/images/evt-bg2.png');
+    }
 
-  .delete-save {
-    padding-bottom: 10px;
-    display: flex;
-    width: 80%;
-    margin: auto;
-    padding-left: auto;
-    padding-right: auto;
-  }
-}
+    // User Profile Page Styles
+    &--profile {
+      padding: 20px;
+      display: grid;
+      grid-gap: 20px;
+      text-align: center;
 
-.event-container {
-  min-height: 40rem;
-  box-shadow: 10%;
-  text-align: center;
-  display: flex;
-  background-image: linear-gradient(to bottom right, rgb(104, 99, 99), rgb(241, 241, 209));
-  flex-direction: column;
-  width: 40%;
-  border-top-right-radius: 25px;
-  border-bottom-left-radius: 25px;
-  border-width: 2px;
-  border-color: white;
-  border-style: solid;
+      // User Name
+      &-name {
+        font-size: 30px;
+        padding: 10px;
+        text-align: center;
+      }
 
-  .my-event {
-    // border-width: 2px;
-    // border-style: solid;
-    border-radius: 10px;
-    border-color: white;
-    width: 30%;
-    text-align: center;
-    background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(255, 255, 227));
-    margin-left: 5%;
-    height: 20px;
-    margin-bottom: 1px;
-    text-align: center
-  }
+      // User Email
+      &-name {
+        font-size: 30px;
+        padding: 10px;
+        text-align: center;
+      }
 
-  .events-list {
-    border-width: 2px;
-    border-style: solid;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-color: white;
-    width: 90%;
-    text-align: center;
-    background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(255, 255, 227));
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1px;
-    margin-bottom: 7px;
+      // User Tag Line
+      &-tag {
+        font-size: 30px;
+        padding: 10px;
+        text-align: center;
+      }
 
-    .event-details {
-      
-      height: 40px;
-      border-width: 2px;
-      border-style: solid;
-      border-top-right-radius: 10px;
-      border-bottom-left-radius: 10px;
-      border-color: rgb(224, 221, 221);
-      width: 90%;
-      margin-top: 3px;
-      margin-bottom: 3px;
-      align-items: center;
-      // padding-top: 15px;
-      // text-align: center;
-      background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(165, 204, 114));
-      margin-left: 7%;
-      display: inline-flex;
-      justify-content: space-between;
-      // justify-content: flex-start;
+      // Save Button
+      &-save {
+        justify-items: center;
+      }
 
-      img:hover {
-      
-        color: black;
-        background-color: transparent;
-        border: 2px solid transparent;
+      // List User Events
+      &-list {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
       }
     }
+
+    // Host Show Page Styles
+    &--show {
+
+      // Host Show Page Body Content Styles
+      &-body {
+
+        // Body Content under Host Title
+        &-host {
+          padding: 18px;
+          padding-bottom: 5px;
+
+          // Host Tag Line
+          &-tag {
+            padding: 5px;
+            text-align: center;
+            font-size: 20px;
+          }
+
+        }
+
+        // Body Content under Event Title
+        &-event {
+          padding: 10px 5px;
+          text-align: center;
+          &-body {
+            padding: 15px 5px;
+            font-size: 18px;
+          }
+          &-header {
+            font-size: 20px;
+            color: $accent2-color;
+          }
+        }
+      }
+
+      // Host Show Page Footer Stles
+      &-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+      }
+
+    }
+
+    // Host Event List Page Styles
+    &--list {
+      display: block;
+
+      // Event List Item Page Styles
+      &-item {
+        height: 100px;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+        border: 2px;
+        border-style: inset;
+
+        &-name {
+          margin: 5px;
+        }
+
+        &-bar {
+          margin: 5px;
+        }
+
+        &-date {
+          margin: 5px;
+        }
+
+        &-attendees {
+          margin: 5px;
+        }
+    }
+
+    }
+
+    // Create New Event
+    &--create-event {
+      display: flex;
+      justify-content: center;
+    }
   }
-  .create-event {
-    margin-top: auto;
-    padding-bottom: 5px;
-  }
+};
+
+h1.user__card--header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

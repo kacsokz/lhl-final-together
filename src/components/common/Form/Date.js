@@ -1,5 +1,6 @@
-import React        from 'react';
-import DateFnsUtils from '@date-io/date-fns';
+import React          from 'react';
+import { makeStyles } from '@material-ui/core';
+import DateFnsUtils   from '@date-io/date-fns';
 import 'date-fns';
 import {
   MuiPickersUtilsProvider,
@@ -18,14 +19,22 @@ export const useDatePicker = () => {
   return { eventDate, handleDateChange }
 }
 
+const useStyles = makeStyles({
+  textField: {
+    width: 390,
+  }
+})
+
 const Date = ({
   eventDate,
   handleDateChange
 }) => {
 
+  const classes = useStyles();
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <KeyboardDatePicker
+            className={classes.textField}
             disableToolbar
             variant="inline"
             format="MM/dd/yyyy"

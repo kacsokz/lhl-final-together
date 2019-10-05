@@ -5,6 +5,12 @@ export default {
     black: '#000',
     accentDark: '#96ACB7',
     accentLight: '#DEE7E7',
+    headerFont: 'Be Vietnam',
+    bodyFont: 'Lexend Tera',
+  },
+  typography: {
+    fontFamily: 'Lexend Tera',
+    display: 'block',
   },
   spacing: (n) => n * 4,
 }

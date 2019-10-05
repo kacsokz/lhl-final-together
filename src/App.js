@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './App.css';
 import "./app.scss";
 import NavButton from "components/Navbar/NavButton";
 import MapContainer from "components/Map/Map";
 import queryString from 'query-string'
+import NavBarFinal from "components/Navbar/NavBarFinal";
 
 function App() {
 
@@ -12,17 +12,8 @@ function App() {
   console.log(parsed)
   return (
     <div className="App">
-      
       <main className="layout">
-      <section className="topbar">
-          <img
-            className="topbar__together"
-            src="images/togetherLogo.png"
-            alt="Together"
-          />
-          <NavButton confirm>Register</NavButton>
-          <NavButton confirm>Sign In</NavButton>
-      </section>
+      <NavBarFinal></NavBarFinal>
     </main>
     </div>
   );

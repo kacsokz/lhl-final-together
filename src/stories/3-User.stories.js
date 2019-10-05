@@ -1,35 +1,86 @@
-import React from 'react';
-import Profile from 'components/User/profile';
-import EventsList from 'components/User/eventsList';
-import UserView from 'components/User/index';
+import React          from 'react';
+import Profile        from 'components/User/Profile';
+import HostEventList  from 'components/User/HostEventList';
+import EventList      from 'components/Common/EventList'
+import HostShow       from 'components/User/HostShow';
+import { action }     from '@storybook/addon-actions';
 
 export default {
-  title: 'User',
+  title: 'User Stories',
 };
 
-let events = [
-  { id: "1", name: "EventName1", start_time: "15:00", end_time: "16:40", happyHourName: 'something1' },
-  { id: "2", name: "EventName2", start_time: "15:00", end_time: "16:40", happyHourName: 'something2' },
-  { id: "3", name: "EventName3", start_time: "15:00", end_time: "16:40", happyHourName: 'something3' },
-  { id: "3", name: "EventName3", start_time: "15:00", end_time: "16:40", happyHourName: 'something4' },
-  { id: "3", name: "EventName3", start_time: "15:00", end_time: "16:40", happyHourName: 'something5' }
-]
-
-let user = [
-  { id: "1", first_name: "firstName1", last_name: "lastName2", email: "email@email.email", avatar: 'https://www.straitstimes.com/sites/default/files/styles/article_pictrure_780x520_/public/articles/2018/02/02/2017-09-05t123641z_2074388227_rc1f50c4add0_rtrmadp_3_filmfestival-venice.jpg?itok=oNSajv26&timestamp=1517521109', tag_line: 'this is tagline' }
+const events = [
+  {
+    event_name: 'Graduation & Celebration Drinks',
+    bar_name: 'The Last Best Brewing Company',
+    date: 'Oct. 10, 2019',
+    start_time: '20:00',
+    end_time: '23:00',
+    attendees: 18,
+  },
+  {
+    event_name: 'Halloween Costume Showdown',
+    bar_name: 'Greta Bar',
+    date: 'Oct. 31, 2019',
+    start_time: '16:00',
+    end_time: '17:00',
+    attendees: 18,
+  },
+  {
+    event_name: 'Pixels & Pints 10th Anniversary',
+    bar_name: 'Hudsons Canadas Pub',
+    date: 'Nov. 7, 2019',
+    start_time: '17:00',
+    end_time: '21:00',
+    attendees: 18,
+  },
+  {
+    event_name: 'Holiday Party',
+    bar_name: 'El Furniture Warehouse',
+    date: 'Dec. 7, 2019',
+    start_time: '15:00',
+    end_time: '16:00',
+    attendees: 18,
+  },
+  {
+    event_name: 'KVs NY PBs',
+    bar_name: 'Craft Beer Market',
+    date: 'Jan. 1, 2019',
+    start_time: '16:00',
+    end_time: '17:00',
+    attendees: 18,
+  }
 ];
 
-export const profile = () =>
-  <Profile user={user}></Profile>;
+export const host_profile = () =>
+  <Profile
+    name="Kat Connolly"
+    email="k.connolly@nomail.com"
+    tag_line="Software Engineer with a Flair for Design"
+  />
 
-export const event = () =>
-  <EventsList
+export const host_event_list = () =>
+  <HostEventList
+    message="HOSTING"
     events={events}
-    user={user}>
-  </EventsList>;
+  />
 
-export const user_view = () =>
-  <UserView
-    user={user}
-    events={events}>
-  </UserView>;
+export const user_event_list = () =>
+  <EventList
+    message="ATTENDING"
+    events={events}
+  />
+
+export const host_show = () =>
+  <HostShow
+    user_name="Kat Connolly"
+    bar_name="The Last Best Brewing Company"
+    event_name="Graduation & Celebration Drinks"
+    date="Oct. 10, 2019"
+    start_time="20:00"
+    end_time="23:00"
+    tag_line="Join me in celebrating the accomplishments of my favourite LHL cohort, Calgary 22-JUL-2019."
+    attendees="18"
+    onEdit={action("onEdit")}
+    onDelete={action("onConfirm")}
+  />

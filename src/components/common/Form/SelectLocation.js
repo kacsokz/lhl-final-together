@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 390,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -45,12 +45,11 @@ export default function SelectLocation() {
             id: 'bar',
           }}
         >
-          <MenuItem value={10}></MenuItem>
-          <MenuItem value={20}>The Last Best Brewing Company</MenuItem>
-          <MenuItem value={30}>Greta Bar</MenuItem>
-          <MenuItem value={40}>Hudsons Canadas Pub</MenuItem>
-          <MenuItem value={50}>El Furniture Warehouse</MenuItem>
-          <MenuItem value={60}>Craft Beer Market</MenuItem>
+          <MenuItem value={1}>The Last Best Brewing Company</MenuItem>
+          <MenuItem value={2}>Greta Bar</MenuItem>
+          <MenuItem value={3}>Hudsons Canadas Pub</MenuItem>
+          <MenuItem value={4}>El Furniture Warehouse</MenuItem>
+          <MenuItem value={5}>Craft Beer Market</MenuItem>
         </Select>
       </FormControl>
 

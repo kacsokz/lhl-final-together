@@ -2,13 +2,13 @@
 @import "styles/variables.scss";
 
 .button {
-  border-radius: 10rem;
+  border-radius: 1rem;
   border: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   height: 2rem;
   line-height: 1.2rem;
   margin-right: 1rem;
-  width: 5rem;
+  width: 8rem;
   border-width: 2px;
   border-style: solid;
   border-color: $white;
@@ -24,26 +24,26 @@
   border: 2px solid transparent;
 }
 
-.button--cancel {
-  color: $cancel-color;
-  border-color: $cancel-color;
+.button--blue {
+  color: $main-color;
+  border-color: $main-color;
   background-color: transparent;
 }
 
-.button--confirm {
-  color: $confirm-color;
-  border-color: $confirm-color;
+.button--red {
+  color: $main-color;
+  border-color: $main-color;
   background-color: transparent;
 }
 
-.button--cancel:hover {
+.button--blue:hover {
+  color: $white;
+  background-color: $accent2-color;
+}
+
+.button--red:hover {
   color: $white;
   background-color: $cancel-color;
-}
-
-.button--confirm:hover {
-  color: $white;
-  background-color: $confirm-color;
 }
 
 .button:last-of-type {

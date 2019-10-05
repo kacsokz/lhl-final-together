@@ -10,11 +10,12 @@ export default function NavButton(props) {
    });
 
    return (
-      <button
+      <a
          className={buttonClass}
+         href="http://localhost:3000/auth/linkedin"
          onClick={props.onClick}
       >
          {props.children}
-      </button>
+      </a>
    );
 };

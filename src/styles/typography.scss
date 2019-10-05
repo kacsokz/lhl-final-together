@@ -1,25 +1,8 @@
-$weights: (
-  light: 300,
-  regular: 400,
-  semi-bold: 600,
-  bold: 700,
-  black: 900,
-);
-
-@each $weight, $value in $weights {
-  .text--#{$weight} {
-    font-weight: $value;
-  }
-};
-
-// Header Fonts
-@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display:400,800|Open+Sans+Condensed:300,700|Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam|Lexend+Tera&display=swap');
 
 $fonts: (
-  header: 'Vibes',
-  body: 'Open Sans Condensed',
-  mui: 'Roboto'
+  header: 'Lexend Tera',
+  body: 'Be Vietnam'
 );
 
 @each $font, $value in $fonts {
