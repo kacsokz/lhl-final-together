@@ -1,95 +1,51 @@
-import React    from 'react';
-
-import List     from 'components/Event/List';
-import Show     from 'components/Event/Show';
-import Form     from 'components/Event/Form';
-import Status   from 'components/Event/Status';
-import Confirm  from 'components/Event/Confirm';
-import Error    from 'components/Event/Error';
-
 import 'components/Event/styles.scss';
+import React          from 'react';
+import useVisualMode  from 'hooks/useVisualMode';
+import List           from 'components/Common/EventList';
+import Show           from 'components/Event/Show';
 
-const LIST          = "LIST";
-const SHOW          = "SHOW";
-const CREATE        = "CREATE";
-const SAVING        = "SAVING";
-const DELETING      = "DELETING";
-const CONFIRM       = "CONFIRM";
-const EDIT          = "EDIT";
-const ERROR_SAVE    = "ERROR_SAVE";
-const ERROR_DELETE  = "ERROR_DETELE";
-
+const LIST            = 'LIST';
+const SHOW            = 'SHOW';
 
 export default function Event(props) {
 
-  // dummy code -- to be edited
-      const mode = mode => {
-        console.log(mode);
+  const { mode, transition } = useVisualMode(LIST);
+
+  // Placeholder Functions BELOW
+      function viewEvent() {
+        // responsible for onClick transition to the
+        // selected events show page
+        transition(SHOW)
+        console.log('viewEvent')
       };
-      const back = back => {
-        console.log(back);
+      const join = join => {
+        // the join function will update the attendees count
+        // without refreshing the page
+        // the plus button should toggle with a minus button
+        console.log(join);
       };
-      const save = save => {
-        console.log(save);
-      };
-  // dummy code -- to be edited
+  // Placeholder Functions ABOVE
 
   return (
-    <article className="event">
-      <List />
+    <section className="event">
 
-      {/* ON JOIN IS A PUT REQUEST WITH YOUR ID */}
-      {mode === LIST && <List onJoin={save} />}
-
-      {mode === SHOW && <Show />}
-
-      {mode === CREATE && (
-        <Form
-          onSave={save}
-          onCancel={back}
+      {/* Renders a List of Local Events */}
+      {/* A User can Click on an Event to view its' Show Page */}
+      {mode === LIST && (
+        <List
+          events={props.events}
+          viewEvent={() => viewEvent()}        
         />
       )}
 
-{/* 
-      {mode === LIST && <List />}
-
-      {mode === SAVING && (
-        <Status message="Saving..." />
-      )}
-
-      {mode === DELETING && (
-        <Status message="Deleting..." />
-      )}
-
-      {mode === CONFIRM && (
-        <Confirm
-          message="Are you sure you would like to delete?"
-          // onCancel={back}
-          // onConfirm={destroy}
+      {/* Renders Show Page for a Selected Event */}
+      {/* A User can Join the Event */}
+      {mode === SHOW && (
+        <Show
+          events={props.events}
+          onJoin={join}
         />
       )}
-
-      {mode === EDIT && (
-        <Form
-          // onSave={save}
-          // onCancel={back}
-        />
-      )}
-
-      {mode === ERROR_DELETE && (
-        <Error 
-          message="Could not cancel event."
-          // onClose={back}
-        />
-      )}
-
-      {mode === ERROR_SAVE && (
-        <Error 
-          message="Could not save event."
-          // onClose={back}
-        />
-      )} */}
-
-    </article>
+    </section>
   )
 };

@@ -2,8 +2,8 @@ import 'components/User/styles.scss';
 import React, { useEffect } from 'react';
 import useVisualMode        from 'hooks/useVisualMode';
 import Profile              from 'components/User/Profile';
-import HostEventsList       from 'components/User/HostEventList';
-import Form                 from 'components/Event/Form';
+import EventList            from 'components/User/HostEventList';
+import Form                 from 'components/Common/Form';
 import HostShow             from 'components/User/HostShow';
 import Confirm              from 'components/Common/Confirm';
 import Status               from 'components/Common/Status';
@@ -11,6 +11,7 @@ import Error                from 'components/Common/Error';
 
 const PROFILE               = 'PROFILE';
 const HOSTEVENTLIST         = 'HOSTEVENTLIST';
+const USEREVENTLIST         = 'USEREVENTLIST';
 const HOSTSHOW              = 'HOSTSHOW';
 const EDIT                  = 'EDIT';
 const CONFIRM               = 'CONFIRM';
@@ -29,59 +30,81 @@ export default function UserView(props) {
     }
   }, [props.events, props.user, transition, mode]);
 
-  function viewEvent() {
-    console.log('viewEvent')
-    // transition(STATUS)
-  }
-  function createUserEvent() {
-    console.log('createUserEvent')
-    // transition(STATUS)
-  }
-
-  function deleteUserEvent() {
-    console.log('deleteUserEvent')
-    // transition(STATUS)
-  }
-
   const confirm = () => transition(CONFIRM);
 
   const edit = () => transition(EDIT);
 
-  // Placeholder for Save Function
-  const save = () => console.log(save);
+  const destroy = () => {
+    const event = null;
+    transition(DELETING, true);
+    props.deleteEvent(props.id, event)
+      .then(() => transition(PROFILE));
+  };
+
+  // Placeholder Functions BELOW
+  const save = () => {
+    // save update to Profile Email &&/||Tag
+  };
+  const eventShow = () => {
+    // Transition to Event/Show.js
+  }
+  const hostEventShow = () => {
+    // Transition to User/HostShow.js
+  }
+  const hostEventList = () => {
+    // List of Events Hosted By the User
+    // SEE User/Profile.js
+  };
+  const userEventList = () => {
+    // List of Events the User is Attending
+    // SEE User/Profile.js
+  };
+  const createEvent = () => {
+    // Saves a new event to the db
+  }
+  // Placeholder Functions ABOVE
 
   return (
-    <section>
-      {/* Renders a Users Profile */}
-      {/* A User can Edit their Email & Tag Line */}
+    <section className="user">
+
+      {/* Renders a User Profile */}
+      {/* A User can Update their Email & Tag Line */}
+      {/* A User can view events they are hosting & attending */}
       {mode === PROFILE && (
         <Profile
-          id={props.user[0].id}
+          avatar={props.user[0].avatar}
           first_name={props.user[0].first_name}
           last_name={props.user[0].last_name}
           email={props.user[0].email}
-          avatar={props.user[0].avatar}
           tag_line={props.user[0].tag_line}
-          onSave={save}
+          onUpdate={save}
+          onHosting={hostEventList}
+          onAttending={userEventList}
         />
       )}
 
-      {/* Renders a Users Event List */}
+      {/* Renders a List of the Users' Event */}
       {/* A User can Create a New Event */}
-      {/* A User can Click on an Event to view its' Show Page */}
+      {/* A User can Click on their Event to view its' Host Show Page */}
       {mode === HOSTEVENTLIST && (
-        <HostEventsList
+        <EventList
           events={props.events}
-          avatar={props.user[0].avatar}
-          onCreate={() => createUserEvent()}
-          onEdit={edit}
-          onDelete={confirm}
-          viewEvent={() => viewEvent()}
+          onCreate={() => createEvent()}
+          hostEventShow={() => hostEventShow()}
         />
       )}
 
-      {/* Renders Show Page for a Users Event */}
-      {/* Allows a User to Edit or Delete Their Event */}
+      {/* Renders a List of the Users' Event */}
+      {/* A User can Click on an Event to view its' Show Page */}
+      {mode === USEREVENTLIST && (
+        <EventList
+          events={props.events}
+          eventShow={() => eventShow()}
+        />
+      )}
+
+      {/* Renders Show Page for a Users' Hosted Event */}
+      {/* Allows a User to Edit or Delete their Event */}
       {mode === HOSTSHOW && (
         <HostShow
           user_name={props.user_name}
@@ -92,15 +115,21 @@ export default function UserView(props) {
           end_time={props.end_time}
           tag_line={props.tag_line}
           attendees={props.attendees}
-          onDelete={confirm}
           onEdit={edit}
+          onDelete={confirm}
         />
       )}
 
-      {/* Renders Form to Edit a Users Event */}
+      {/* Renders the Form to Edit a Users' Specified Event */}
       {/* Allows a User to Save or Delete Their Event */}
       {mode === EDIT && (
         <Form
+          bar_id={props.bars.id}
+          name={props.events.name}
+          tag={props.events.tag_line}
+          date={props.events.date}
+          start_time={props.events.start_time}
+          end_time={props.events.end_time}
           onSave={save}
           onCancel={back}
         />
@@ -112,8 +141,8 @@ export default function UserView(props) {
         <Confirm
           message={"Delete the Tag Line?"}
           tag_line={props.user[0].tag_line}
-          onConfirm={deleteUserEvent}
           onCancel={back}
+          onConfirm={destroy}
         />
       )}
 
@@ -124,7 +153,7 @@ export default function UserView(props) {
       {/* Renders Error Pages for Saving & Deleting */}
       {mode === ERROR_SAVE && (
         <Error
-          message={"Could not save tagline."}
+          message={"Could not save event."}
           onClose={back}
         />
       )}

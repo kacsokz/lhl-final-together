@@ -17,7 +17,7 @@ export default function HostEventList(props) {
 
   return (
     <div className="user__card user__card--list">
-      <h1 className="user__card--header text--header">MY EVENTS</h1>
+      <h1 className="user__card--header text--header">{props.message}</h1>
       <section>
         {userEvents}
       </section>

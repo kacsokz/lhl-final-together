@@ -1,7 +1,7 @@
 import React    from 'react';
-import ListItem from 'components/Event/ListItem';
+import ListItem from 'components/Common/EventListItem';
 
-export default function List(props) {
+export default function EventList(props) {
 
   const events = props.events.map(event => {
     return (
@@ -19,7 +19,7 @@ export default function List(props) {
 
   return (
     <main className="event__card event__card--list">
-      <h1 className="event__card--header text--header">LOCAL</h1>
+      <h1 className="event__card--header text--header">{props.message}</h1>
       <section>
         {events}
       </section>

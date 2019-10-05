@@ -1,6 +1,7 @@
 import React          from 'react';
 import Profile        from 'components/User/Profile';
 import HostEventList  from 'components/User/HostEventList';
+import EventList      from 'components/Common/EventList'
 import HostShow       from 'components/User/HostShow';
 import { action }     from '@storybook/addon-actions';
 
@@ -60,6 +61,13 @@ export const host_profile = () =>
 
 export const host_event_list = () =>
   <HostEventList
+    message="HOSTING"
+    events={events}
+  />
+
+export const user_event_list = () =>
+  <EventList
+    message="ATTENDING"
     events={events}
   />
 

@@ -1,11 +1,11 @@
 import React                      from 'react';
 import Button                     from 'components/Common/Button';
 
-import EvtTime, { useTimePicker } from './Form/Time';
-import Date, { useDatePicker }    from './Form/Date';
-import SelectLocation             from  './Form/SelectLocation';
+import SelectLocation             from './Form/SelectLocation';
 import EventName                  from './Form/Name';
+import Date, { useDatePicker }    from './Form/Date';
 import EventTag                   from './Form/Tag';
+import EvtTime, { useTimePicker } from './Form/Time';
 
 export default function Form(props) {
 
@@ -55,16 +55,10 @@ export default function Form(props) {
         <EvtTime {...pickerTimeProps} />
 
         <section>
-          <Button
-            red
-            onClick={cancel}
-          >
+          <Button red onClick={cancel} >
             Cancel
           </Button>
-          <Button
-            blue
-            onClick={validate}
-          >
+          <Button blue onClick={validate}>
             Save
           </Button>
         </section>

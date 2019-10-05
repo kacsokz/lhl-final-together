@@ -2,8 +2,7 @@ import React from 'react';
 
 import 'components/Event/styles.scss';
 
-import Form from 'components/Event/Form';
-import List from 'components/Event/List';
+import List from 'components/Common/EventList';
 import Show from 'components/Event/Show';
 import { action } from '@storybook/addon-actions';
 
@@ -54,15 +53,9 @@ export default {
   title: 'Event',
 };
 
-export const form = () => (
-  <Form
-    onSave={action("onSave")}
-    onCancel={action("onCancel")}
-  />
-);
-
 export const list = () => (
   <List
+    message="LOCAL"
     events={events}
   />
 );

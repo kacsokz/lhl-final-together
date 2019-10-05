@@ -30,7 +30,14 @@
       grid-gap: 20px;
       text-align: center;
 
-      // User name
+      // User Name
+      &-name {
+        font-size: 30px;
+        padding: 10px;
+        text-align: center;
+      }
+
+      // User Email
       &-name {
         font-size: 30px;
         padding: 10px;
@@ -42,10 +49,18 @@
         font-size: 30px;
         padding: 10px;
         text-align: center;
+      }
 
-        &-text {
-          
-        }
+      // Save Button
+      &-save {
+        justify-items: center;
+      }
+
+      // List User Events
+      &-list {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
       }
     }
 

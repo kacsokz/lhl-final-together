@@ -1,14 +1,21 @@
 import React      from 'react';
+import { action } from '@storybook/addon-actions';
 
+import Form       from 'components/Common/Form';
 import Confirm    from 'components/Common/Confirm';
 import Error      from 'components/Common/Error';
 import Status     from 'components/Common/Status';
 
-import { action } from '@storybook/addon-actions';
-
 export default {
   title: 'Common Views',
 };
+
+export const form = () => (
+  <Form
+    onSave={action("onSave")}
+    onCancel={action("onCancel")}
+  />
+);
 
 export const confirm = () =>
   <Confirm

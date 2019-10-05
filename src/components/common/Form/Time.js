@@ -8,7 +8,7 @@ import {
   KeyboardTimePicker,
 } from '@material-ui/pickers';
 
-import TimePickerToolbar from '../TimePickerToolbar';
+import TimePickerToolbar from './TimePickerToolbar';
 
 export const useTimePicker = () => {
 
