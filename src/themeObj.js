@@ -10,6 +10,7 @@ export default {
   },
   typography: {
     fontFamily: 'Lexend Tera',
+    display: 'block',
   },
   spacing: (n) => n * 4,
 }

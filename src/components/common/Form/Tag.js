@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 200,
+    width: 390,
   },
   dense: {
     marginTop: 19,
@@ -38,7 +38,8 @@ export default function EventTag() {
         className={classes.textField}
         onChange={handleTagChange('tag')}
         margin="normal"
+        multiline={true}
       />
     </form>
   );
-}
+};

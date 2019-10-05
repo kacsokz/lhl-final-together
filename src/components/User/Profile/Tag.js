@@ -6,7 +6,6 @@ const useStyles = makeStyles(theme => ({
   textField: {
     margin: theme.spacing(1),
     width: 400,
-    fontFamily: theme.brand.bodyFont,
   }
 }));
 
@@ -31,11 +30,10 @@ export default function TagLine(props) {
         id="standard-tag"
         label="Tag Line"
         className={classes.textField}
-        value="Software Engineer with a Flair for Design"
-        // value={values.tag}
+        value={values.tag}
         onChange={handleTagChange('tag')}
         margin="normal"
-        multiline="true"
+        multiline={true}
       />
     </form>
   );

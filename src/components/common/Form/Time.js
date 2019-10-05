@@ -34,6 +34,9 @@ export const useTimePicker = () => {
 const useTimePickerStyles = makeStyles({
   dialog: {
     '& .MuiPickersBasePicker-pickerView': { display: 'none' }
+  },
+  textField: {
+    width: 390,
   }
 })
 
@@ -48,7 +51,8 @@ const EvtTime = ({
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <section>
         <KeyboardTimePicker
-          ampm={ false }
+          className={classes.textField}
+          ampm={false}
           DialogProps={{ className: classes.dialog }}
           margin="normal"
           variant="dialog"
@@ -64,7 +68,8 @@ const EvtTime = ({
       </section>
       <section>
         <KeyboardTimePicker
-          ampm={ false }
+          className={classes.textField}
+          ampm={false}
           DialogProps={{ className: classes.dialog }}
           margin="normal"
           variant="dialog"

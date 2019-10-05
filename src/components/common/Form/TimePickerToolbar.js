@@ -1,13 +1,12 @@
 import React from 'react';
 import { InputBase, makeStyles } from '@material-ui/core'
-import { darken } from '@material-ui/core/styles';
-
 import { getHours, getMinutes, setHours, setMinutes } from 'date-fns';
 
 const flex = {
   display: 'flex',
   alignItems: 'center'
 }
+
 const useToolbarStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.brand.main,
@@ -29,31 +28,17 @@ const useToolbarStyles = makeStyles(theme => ({
   timeWrapper: {
     ...flex,
   },
-  amPmClass: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: theme.spacing(2),
-    '& button': {
-      fontSize: '1em',
-      padding: theme.spacing(2),
-      border: 'none',
-      backgroundColor: darken(theme.brand.main, 0.5),
-      '&:hover': {
-        backgroundColor: theme.brand.accentLight
-      }
-    }
-  },
   selected: {
     backgroundColor: `${theme.brand.accentLight} !important`
   }
 }))
 
-function pad(num, size) {
+const pad = (num, size) => {
   var s = "00" + num;
   return s.substr(s.length-size);
 }
 
-const useTime = (initDate) => {
+const useTime = initDate => {
   const [date] = React.useState(initDate);
 
   const initHr = pad(getHours(initDate), 2)
@@ -73,10 +58,11 @@ const useTime = (initDate) => {
     )
     onChange(newDate)
   }
+
   const handleMinuteChange = onChange => ({ target: { value }}) => {
     let min = value;
-    if(min > 59) min -= 60;
     if(min < 0) min += 59;
+    if(min > 59) min -= 60;
     
     setMinuteStr(pad(min, 2))
     const newDate = setHours(
@@ -94,37 +80,40 @@ const useTime = (initDate) => {
   }
 }
 
-const TimePickerToolbar = (props) => {
-  console.log("PROPS TOOLBAR", props)
+const TimePickerToolbar = props => {
   const { onChange } = props;
+
   const {
     root,
     timeInput,
     timeWrapper,
   } = useToolbarStyles();
+
   const { handleHourChange, handleMinuteChange, hour, minute } = useTime(props.date);
-return (
-  <div className={root}>
-    <div className={timeWrapper}>
-      <InputBase
-        className={timeInput}
-        value={hour}
-        type="number"
-        min="01"
-        max="23"
-        onChange={handleHourChange(onChange)}
-      />
-      <h1>:</h1>
-      <InputBase
-        className={timeInput}
-        value={minute}
-        type="number"
-        min="00"
-        max="59"
-        onChange={handleMinuteChange(onChange)}
-      />
+
+  return (
+    <div className={root}>
+      <div className={timeWrapper}>
+        <InputBase
+          className={timeInput}
+          value={hour}
+          type="number"
+          min="01"
+          max="23"
+          onChange={handleHourChange(onChange)}
+        />
+        <h1>:</h1>
+        <InputBase
+          className={timeInput}
+          value={minute}
+          type="number"
+          min="00"
+          max="59"
+          onChange={handleMinuteChange(onChange)}
+        />
+      </div>
     </div>
-  </div>
-)}
+  )
+};
 
 export default TimePickerToolbar;
