@@ -35,7 +35,7 @@ export default function User(props) {
     if (props.user && mode === PROFILE) {
       transition(PROFILE);
     }
-  }, [props.events, props.user, transition, mode]);
+  }, [props.user, transition, mode]);
 
   const confirm = () => transition(CONFIRM);
 
