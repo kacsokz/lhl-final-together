@@ -6,8 +6,8 @@ import axios from 'axios';
 import config from 'config';
 
 const mapStyles = {
-  width: '35rem',
-  height: '30rem'
+  width: '70rem',
+  height: '40rem'
 };
 
 let markersFromDB = [
