@@ -75,14 +75,20 @@ export default function App() {
     <div className="App">
       <main className="layout">
         <NavBarFinal />
-        <Map />
-        <List
+        {/* <List
           message="LOCAL"
           events={events}
-        />
-        <Event />
+        /> */}
+        <div class="main-container">
+        <div className="right-side">
+          <Event />
+          </div>
+          <div className="left-side">
+          <Map />
+          </div>
+        </div>
         {/* <User /> */}
       </main>
     </div>
   );
-};
+}
