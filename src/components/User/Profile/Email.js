@@ -13,13 +13,8 @@ const useStyles = makeStyles(theme => ({
 export default function Email(props) {
   const classes = useStyles();
 
-  const [values, setValues] = React.useState(
-    // Init State is Tag_Line if Existing || ""
-    "k.connolly@nomail.com"
-  );
-
-  const handleEmailChange = email => event => {
-    setValues({ ...values, [email]: event.target.value });
+  const handleChange = name => event => {
+    props.setEmail(event.target.value);
   };
 
   return (
@@ -31,11 +26,10 @@ export default function Email(props) {
         id="standard-email"
         label="Email"
         className={classes.textField}
-        value="kat.connolly@nomail.com"
-        // value={values.email}
-        onChange={handleEmailChange('email')}
+        defaultValue={props.email}
+        onChange={handleChange('email')}
         margin="normal"
-        required="true"
+        required={true}
       />
     </form>
   );

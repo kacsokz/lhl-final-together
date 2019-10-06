@@ -10,13 +10,13 @@ const useStyles = makeStyles({
   },
 });
 
-export default function UserAvatar() {
+export default function UserAvatar(props) {
   const classes = useStyles();
 
   return (
       <Avatar
         alt="Avatar"
-        src="https://media.licdn.com/dms/image/C5603AQFUiMn0YgEGvQ/profile-displayphoto-shrink_800_800/0?e=1575504000&v=beta&t=pfCRLAtRZ0Pj6HlofNazjfwg-oEuH3mxf1TTM1gStgQ"
+        src={props.src}
         className={classes.bigAvatar}
       />
   );

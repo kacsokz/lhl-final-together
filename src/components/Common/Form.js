@@ -38,6 +38,9 @@ export default function Form(props) {
     //   eventStart,
     //   eventEnd
     // })
+    // console.log('event Saved')
+    let eventData = 'event form function'
+    props.onSave(eventData)
   };
 
   return (
