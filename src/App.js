@@ -1,28 +1,29 @@
-import './app.scss';
-import React        from 'react';
-import queryString  from 'query-string'
-import NavBarFinal  from 'components/Navbar/NavBarFinal';
-import Map          from 'components/Map/Map';
-import Event        from 'components/Event/';
+import "./app.scss";
+import React from "react";
+import queryString from "query-string";
+import NavBarFinal from "components/Navbar/NavBarFinal";
+import Map from "components/Map/Map";
+import Event from "components/Event/";
 // import User         from 'components/User';
 
 export default function App() {
-
-  let parsed = queryString.parse(window.location.search)
-  console.log(parsed)
+  let parsed = queryString.parse(window.location.search);
+  console.log(parsed);
 
   return (
     <div className="App">
       <main className="layout">
         <NavBarFinal />
-        <div style= {{display:"flex"}}>
-          
-        <Map />
-        
-        <Event />
+        <div class="main-container">
+        <div className="right-side">
+          <Event />
+          </div>
+          <div className="left-side">
+          <Map />
+          </div>
         </div>
         {/* <User /> */}
       </main>
     </div>
   );
-};
+}

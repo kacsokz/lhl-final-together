@@ -6,8 +6,8 @@ import axios from 'axios';
 import config from 'config';
 
 const mapStyles = {
-  width: '70rem',
-  height: '50rem'
+  width: '60%',
+  height: '90%'
 };
 
 let markersFromDB = [
@@ -31,11 +31,11 @@ export class MapContainer extends Component {
 
   render() {
     return (
-      <div className="map-header" style= {{flex: "1 1 50%"}}>
-        <div className="something">
-          <div>
+      <div className="map-object">
+        <div className="map-header">
             <div className="text-header">Happy hours</div>
           </div>
+          <div className="map-body">
           <Map
             google={this.props.google}
             zoom={15}

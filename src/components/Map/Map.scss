@@ -1,21 +1,28 @@
 .map-header {
-    // display: flex;
+    // display: grid;
     // flex: 1 1 50%;
-    border-width: 2px;
+    // border-width: 2px;
     border-style : solid;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+    // border-top-right-radius: 20px;
+    // border-top-left-radius: 20px;
     border-color: white;
-    width: 70rem;
-    height: 50px;
+    // width: 70rem;
+    // height: 50px;
     background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(255, 255, 227));
 
     div {
-      height: 40px;
+      position: relative;
+      // height: 40px;
       .text-header {
         // font-family: $openSansCondensed;
-        padding-left: 20px;
-        padding-top: 10px;
+        // padding-left: 20px;
+        // padding-top: 10px;
       }
     }
+}
+.map-body {
+  // height: 500px;
+  div {
+    // position: relative!important;
+  }
 }
