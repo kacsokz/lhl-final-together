@@ -6,6 +6,7 @@ const SET_APP_DATA = "SET_APP_DATA"
 const SET_USER_ID = "SET_USER_ID"
 const SET_USER_EMAIL = "SET_USER_EMAIL"
 const SET_USER_TAGLINE = "SET_USER_TAGLINE"
+const SET_USER_INFO = "SET_USER_INFO"
 
 
 function reducer(state, action) {
@@ -37,4 +38,4 @@ function reducer(state, action) {
   }
 }
 
-export { reducer, SET_USER_ID, SET_USER_EMAIL, SET_USER_TAGLINE };
+export { reducer, SET_USER_ID, SET_USER_EMAIL, SET_USER_TAGLINE, SET_EVENT, SET_USER_INFO };
