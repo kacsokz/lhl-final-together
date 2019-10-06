@@ -7,11 +7,13 @@ export default function HostEventList(props) {
   const userEvents = props.events.map(event => (
     <HostEventListItem
       key={event.id}
+      id={event.id}
       name={event.bar_name}
       date={event.date}
       start_time={event.start_time}
       end_time={event.end_time}
       attendees={event.attendees}
+      hostEventShow={props.hostEventShow} 
     />
   ));
 
