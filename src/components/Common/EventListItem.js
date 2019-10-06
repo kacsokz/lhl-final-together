@@ -3,7 +3,7 @@ import React from "react";
 export default function EventListItem(props) {
   return (
     <article
-      className="event__card--list-item"
+      className="event__card--list-item" onClick={() => props.eventShow()}
     >
       <h5 className="event__card--list-item-name text--body">{props.event_name}</h5>
       <h6 className="event__card--list-item-date text--header">{props.date} from {props.start_time} to {props.end_time}</h6>
