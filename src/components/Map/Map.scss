@@ -1,28 +1,15 @@
 .map-header {
-    // display: grid;
-    // flex: 1 1 50%;
-    // border-width: 2px;
-    border-style : solid;
-    // border-top-right-radius: 20px;
-    // border-top-left-radius: 20px;
-    border-color: white;
-    // width: 70rem;
-    // height: 50px;
-    background-image: linear-gradient(to bottom right, rgb(126, 118, 118), rgb(255, 255, 227));
-
-    div {
-      position: relative;
-      // height: 40px;
-      .text-header {
-        // font-family: $openSansCondensed;
-        // padding-left: 20px;
-        // padding-top: 10px;
-      }
-    }
+  display: flex;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(90, 122, 170),
+    rgb(241, 241, 241)
+  );
 }
-.map-body {
-  // height: 500px;
-  div {
-    // position: relative!important;
-  }
+
+.text-header {
+  display: flex;
+  align-items: center;
+  // padding-left: 20px;
+  // padding-top: 10px;
 }
