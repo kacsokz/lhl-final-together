@@ -4,7 +4,7 @@ import UserAvatar from '../Common/Avatar';
 
 export default function HostShow(props) {
   return (
-    <main className="user__card user__card--show">
+    <main className="user__card user__card--show" >
 
       <h1 className="user__card--header text--header">EVENT</h1>
 
@@ -26,13 +26,15 @@ export default function HostShow(props) {
       <section className="user__card--show-footer">
         <Button
           blue
-          onClick={props.onEdit}
+          // onClick={props.onEdit}
+          onClick={() => props.onEdit()}
         >
           Edit
         </Button>
         <Button
           red
-          onClick={props.onConfirm}
+          // onClick={props.onConfirm}
+          onClick={() => props.onDelete()}
         >
           Delete
         </Button>
