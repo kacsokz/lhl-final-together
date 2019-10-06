@@ -6,7 +6,10 @@ import NavBar from "components/Navbar/NavBar";
 
 export default function NavBarFinal(props) {
    const username = window.location.search.replace("?username=", "")
-   let mode = username ? "LOGGEDIN" : "LOGGEDOUT";
+
+   let mode = username ? "LOGGEDOUT" : "LOGGEDIN";
+   // let mode = username ? "LOGGEDIN" : "LOGGEDOUT";
+   
    
 
    return (
@@ -23,6 +26,7 @@ export default function NavBarFinal(props) {
     <NavBar
     user1="Profile"
     user2="Log Out"
+    //onClick render profile component
     action1= {() => console.log("MeProfile")}
     action2= {() => console.log("LogMeOut")}
     />
