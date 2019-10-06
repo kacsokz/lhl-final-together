@@ -1,6 +1,6 @@
-import React          from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField      from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
   textField: {
@@ -12,13 +12,8 @@ const useStyles = makeStyles(theme => ({
 export default function TagLine(props) {
   const classes = useStyles();
 
-  const [values, setValues] = React.useState(
-    // Init State is Tag_Line if Existing || ""
-    "Software Engineer with a Flair for Design"
-  );
-
-  const handleTagChange = tag => event => {
-    setValues({ ...values, [tag]: event.target.value });
+  const handleChange = name => event => {
+    props.setTagLine(event.target.value);
   };
 
   return (
@@ -30,8 +25,9 @@ export default function TagLine(props) {
         id="standard-tag"
         label="Tag Line"
         className={classes.textField}
-        value={values.tag}
-        onChange={handleTagChange('tag')}
+        defaultValue={props.tag_line}
+        // value={props.tag_line}
+        onChange={handleChange('tagLine')}
         margin="normal"
         multiline={true}
       />
