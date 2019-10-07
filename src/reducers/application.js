@@ -40,6 +40,10 @@ function reducer(state, action) {
     case SET_USER_INFO:
       return { ...state, userInfo: { ...action.value } }
 
+      case SET_EVENT:
+        // console.log(action.value)
+      return { ...state, event: action.value }
+
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
