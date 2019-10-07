@@ -3,12 +3,19 @@ import Button         from 'components/Common/Button';
 import SelectLocation from './Form/SelectLocation';
 import EventName      from './Form/Name';
 import EventTag       from './Form/Tag';
-import EventDate      from './Form/Date';
+import Date, { useDatePicker } from './Form/EvtDate';
+
+import EvtTime, { useTimePicker } from './Form/Time';
 
 export default function Form(props) {
+  const { eventDate, eventStart, eventEnd } = props;
 
-  // const pickerDateProps = useDatePicker();
-
+  const pickerDateProps = useDatePicker(eventDate);
+  const pickerTimeProps = useTimePicker({
+    date: pickerDateProps.eventDate,
+    start: eventStart,
+    end: eventEnd
+  });
 
   const reset = () => {
 
@@ -17,12 +24,16 @@ export default function Form(props) {
   const cancel = () => props.onCancel(reset());
 
   const validate = () => {
-    // const { eventStart, eventEnd } = pickerDateProps;
+    const { eventDate } = pickerDateProps;
 
-    // console.log({ eventStart, eventEnd });
+    const { eventStart, eventEnd } = pickerTimeProps;
+
+
+    console.log({ eventDate, eventStart, eventEnd });
   };
 
   return (
+
     <main className="event__card event__card--form">
       <h1 className="event__card--header text--header">EVENT ADMIN</h1>
       
@@ -31,7 +42,9 @@ export default function Form(props) {
         <SelectLocation />
         <EventName />
         <EventTag />
-        <EventDate />
+        <Date {...pickerDateProps} />
+
+        <EvtTime {...pickerTimeProps} />
 
         {/* <Date {...pickerDateProps}
           className="event__card--form-body-date"
