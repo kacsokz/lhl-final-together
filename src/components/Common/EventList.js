@@ -2,7 +2,6 @@ import React from 'react';
 import EventListItem from 'components/Common/EventListItem';
 export default function EventList(props) {
 
-
   const events = props.localEvents.map(event => {
     
     return (
@@ -15,7 +14,7 @@ export default function EventList(props) {
         start_time={event.event_start_time}
         end_time={event.event_end_time}
         attendees={event.attendees_count}
-        onClick={props.onClick}
+        fromList={props.fromIndex}
       />
     )
   });
