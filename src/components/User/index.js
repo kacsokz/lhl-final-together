@@ -150,7 +150,7 @@ return (
       <List
         message={props.attendingMessage}
         events={props.attendingEvents}
-        eventShow={joinShow}
+        onClick={joinShow}
       />
     )}
 

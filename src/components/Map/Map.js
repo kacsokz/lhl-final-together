@@ -4,36 +4,37 @@ import "components/Map/Map.scss";
 import axios from "axios";
 
 import config from "config";
+import { getAllBars } from "../../helpers/selecters";
+import { useApplicationData } from "../../hooks/useApplicationData";
 
 const mapStyles = {
   width: "60%",
   height: "90%"
 };
 
+
+
 let markersFromDB = [
-  {
-    id: "1",
-    name: "happyHour1",
-    start_time: "15:00",
-    end_time: "16:40",
-    lat: 51.0447,
-    lng: -114.0719
-  }
-  // { id: "2", name: "happyHour2", start_time: "15:00", end_time: "16:40", lat: 51.0457, lng: -114.0719 },
-  // { id: "3", name: "happyHour3", start_time: "15:00", end_time: "16:40", lat: 51.0447, lng: -114.0739 },
-  // { id: "3", name: "happyHour3", start_time: "15:00", end_time: "16:40", lat: 51.0467, lng: -114.0759 }
+  { id: "2", name: "happyHour2", start_time: "15:00", end_time: "16:40", lat: 51.0457, lng: -114.0719 },
+  { id: "3", name: "happyHour3", start_time: "15:00", end_time: "16:40", lat: 51.0447, lng: -114.0739 },
+  { id: "3", name: "happyHour3", start_time: "15:00", end_time: "16:40", lat: 51.0467, lng: -114.0759 }
 ];
 
+
 export class MapContainer extends Component {
-  displayMarkers = () => {
-    return markersFromDB.map((happyHour, index) => {
+  
+  displayMarkers = (arg) => {
+    // console.log(arg)
+    return arg.map((happyHour, index) => {
+
+      
       return (
         <Marker
-          key={index}
-          id={index}
+          key={happyHour.id}
+          id={happyHour.id}
           position={{
-            lat: happyHour.lat,
-            lng: happyHour.lng
+            lat: happyHour.longitude,
+            lng: happyHour.latitude
           }}
           onClick={() => console.log("You clicked me again!")}
         />
@@ -57,7 +58,7 @@ export class MapContainer extends Component {
               lng: -114.0719
             }}
           >
-            {this.displayMarkers()}
+            {this.displayMarkers(this.props.bars)}
           </Map>
         </div>
       </div>
