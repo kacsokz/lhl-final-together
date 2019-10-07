@@ -7,6 +7,10 @@
   );
 }
 
+.map-body > div {
+  z-index: -1;
+}
+
 .text-header {
   display: flex;
   align-items: center;

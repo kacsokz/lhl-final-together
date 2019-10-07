@@ -3,7 +3,7 @@ import Email from './Profile/Email';
 import TagLine from './Profile/Tag';
 import UserAvatar from '../Common/Avatar';
 import Button from '../Common/Button';
-import useApplicationData from "../../hooks/useApplicationData";
+import { useApplicationData } from "../../hooks/useApplicationData";
 import queryString from 'query-string'
 
 
