@@ -39,7 +39,8 @@ export default function Event(props) {
       )}
 
       {/* Renders Show Page for a Selected Event */}
-      {/* A User can Join the Event */}
+      {/* If a User is LoggedIn, they can Join the Event */}
+      {/* If a User is LoggedOut, clicking the Join button will redirect to LogIn */}
       {mode === SHOW && (
         <Show
           events={props.events}
