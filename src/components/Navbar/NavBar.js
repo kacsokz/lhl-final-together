@@ -15,10 +15,11 @@ export default function NavBar(props) {
       src="images/Logo_TogetherW.png"
       alt="Together"
     />
+    {props.user1 ? (
     <div>
     <NavButton confirm onClick={props.action1}>{props.user1}</NavButton>
     <NavButton confirm onClick={props.action2}>{props.user2}</NavButton>
-    </div>
+    </div>) : props.children}
 </section>
    );
 };

@@ -6,8 +6,8 @@ import Button from "components/Common/Button";
 
 export default function NavButton(props) {
    const buttonClass = classnames("Navbutton", {
-      "Navbutton--confirm": props.confirm,
-      "Navbutton--cancel": props.cancel
+      "Navbutton--logout": props.logout,
+      "Navbutton--profile": props.profile
    });
 
    return (

@@ -2,23 +2,12 @@ import React from "react";
 import NavButton from "components/Navbar/NavButton";
 import { action } from "@storybook/addon-actions";
 import NavBarFinal from "components/Navbar/NavBarFinal";
+import LinkedInBtn from "components/Navbar/LinkedInBtn";
 
 
 export default {
-  title: "NavigationBar"
+  title: "Navigation Bar"
 };
-
-export const Register = () => (
-  <NavButton confirm onClick={action("clicked")}>
-    Register
-  </NavButton>
-);
-
-export const SignIn = () => (
-  <NavButton confirm onClick={action("clicked")}>
-    Sign In
-  </NavButton>
-);
 
 export const Profile = () => (
   <NavButton confirm onClick={action("clicked")}>
@@ -32,6 +21,10 @@ export const LogOut = () => (
   </NavButton>
 );
 
-export const FinalNavBar = () => (
+export const LinkedinButton = () => (
+  <LinkedInBtn></LinkedInBtn>
+);
+
+export const NavigationBar = () => (
   <NavBarFinal></NavBarFinal>
 );

@@ -12,22 +12,22 @@
   vertical-align: middle;
 }
 
-.Navbutton--confirm {
+.Navbutton--profile {
   color: $white;
   background-color: transparent;
 }
 
-.Navbutton--confirm:hover {
+.Navbutton--profile:hover {
   color: white;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.Navbutton--cancel {
+.Navbutton--logout {
   color: $cancel-color;
   background-color: transparent;
 }
 
-.Navbutton--cancel:hover {
+.Navbutton--logout:hover {
   color: $white;
   background-color: $cancel-color;
 }
