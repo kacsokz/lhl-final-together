@@ -1,5 +1,5 @@
 import './app.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
 import queryString from 'query-string'
 import NavBarFinal from 'components/Navbar/NavBarFinal';
 import Map from 'components/Map/Map';
@@ -8,73 +8,32 @@ import List from 'components/Common/EventList';
 import useVisualMode from './hooks/useVisualMode';
 import User from 'components/User/index';
 import axios from "axios";
-// import User         from 'components/User';
-
-// import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../helpers/selectors";
 import { useApplicationData } from "./hooks/useApplicationData";
+import { set } from 'date-fns';
+import { getAllBars } from "./helpers/selecters";
+
 
 const MAINVIEW = 'MAINVIEW';
 const PROFILEVIEW = 'PROFILEVIEW';
+const VIEWLOCALEVENT = 'VIEWLOCALEVENT'
+
 
 export default function App() {
-  let id = queryString.parse(window.location.search)
-  // const username = window.location.search.replace("?user_id=", "")
+  let id = queryString.parse(window.location.search).user_id
   const { mode, transition } = useVisualMode(MAINVIEW);
+  const {
+    state,
+    getUserById
+  } = useApplicationData();
+  // console.log(state)
 
-  const [userId, setId] = React.useState(id.user_id);
+  const [userId, setId] = React.useState('');
 
-  let userInfo = [
-    {
-      id: id,
-      name: "Kat Connolly",
-      email: "k.connolly@nomail.com",
-      tag_line: "Software Engineer with a Flair for Design",
-      avatar: "https://media.licdn.com/dms/image/C5603AQFUiMn0YgEGvQ/profile-displayphoto-shrink_800_800/0?e=1575504000&v=beta&t=pfCRLAtRZ0Pj6HlofNazjfwg-oEuH3mxf1TTM1gStgQ"
-    }
-  ]
-
-  const events = [
-    {
-      event_name: 'Graduation & Celebration Drinks',
-      bar_name: 'The Last Best Brewing Company',
-      date: 'Oct. 10, 2019',
-      start_time: '20:00',
-      end_time: '23:00',
-      attendees: 18,
-    },
-    {
-      event_name: 'Halloween Costume Showdown',
-      bar_name: 'Greta Bar',
-      date: 'Oct. 31, 2019',
-      start_time: '16:00',
-      end_time: '17:00',
-      attendees: 18,
-    },
-    {
-      event_name: 'Pixels & Pints 10th Anniversary',
-      bar_name: 'Hudsons Canadas Pub',
-      date: 'Nov. 7, 2019',
-      start_time: '17:00',
-      end_time: '21:00',
-      attendees: 18,
-    },
-    {
-      event_name: 'Holiday Party',
-      bar_name: 'El Furniture Warehouse',
-      date: 'Dec. 7, 2019',
-      start_time: '15:00',
-      end_time: '16:00',
-      attendees: 18,
-    },
-    {
-      event_name: 'KVs NY PBs',
-      bar_name: 'Craft Beer Market',
-      date: 'Jan. 1, 2019',
-      start_time: '16:00',
-      end_time: '17:00',
-      attendees: 18,
-    }
-  ];
+  useEffect(() => {
+    setId(id)
+    getUserById(id)
+  }, []);
+  // console.log(state)
 
   const hostingEvents = [
     {
@@ -145,27 +104,25 @@ export default function App() {
     },
   ];
 
-  // const {
-  //   state,
-  //   setDay,
-  //   bookInterview,
-  //   cancelInterview,
-  //   editInterview
-  // } = useApplicationData();
+  const selectLocalEvent = (event_id) => {
+    // getEventSelecter(event_id)
+    // .then(transition(VIEWLOCALEVENT))
+    console.log('hello')
 
-  // const appointments = getAppointmentsForDay(state, state.day)
-  // const appointmentsList = appointments.map((appointment) => {
-  //   const interview = getInterview(state, appointment.interview);
-  //   const interviewersForDay = getInterviewersForDay(state, state.day)
+  }
 
   return (
     <div className="App">
       <main className="layout">
         <NavBarFinal />
-        <div class="main-container">
+        <div className="main-container">
           {mode === MAINVIEW && (
             <div className="right-side">
-              <Event />
+              {state.allEvents.length > 0
+                ? (<List message={'LOCAL'}
+                  localEvents={state.allEvents}
+                />)
+                : 'Loading...'}
             </div>
           )}
 
@@ -174,10 +131,10 @@ export default function App() {
               <User
                 key={userId}
                 id={userId}
-                name={userInfo[0].name}
-                email={userInfo[0].email}
-                tag_line={userInfo[0].tag_line}
-                avatar={userInfo[0].avatar}
+                name={state.userInfo.name}
+                email={state.user.email}
+                tag_line={state.userInfo.tag_line}
+                avatar={state.userInfo.avatar}
                 updateProfile={'from application passed from useApplicationData'}
                 hostingEvents={hostingEvents}
                 attendingEvents={attendingEvents}
@@ -189,7 +146,7 @@ export default function App() {
           )}
 
           <div className="left-side">
-            <Map />
+            <Map bars={state.allBars}/>
           </div>
         </div>
       </main>
