@@ -1,54 +1,74 @@
-import React          from 'react';
-import { makeStyles } from '@material-ui/core';
-import DateFnsUtils   from '@date-io/date-fns';
 import 'date-fns';
+import { addHours }       from 'date-fns';
+import React, { useState } from 'react';
 import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
+  KeyboardDateTimePicker,
+  MuiPickersUtilsProvider
 } from '@material-ui/pickers';
+import { makeStyles } from '@material-ui/core/styles';
+import DateFnsUtils from '@date-io/date-fns';
+
+const useStyles = makeStyles(theme => ({
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    paddingBottom: theme.spacing(5),
+    width: 390,
+  },
+}));
 
 export const useDatePicker = () => {
-  const [eventDate, setEventDate] = React.useState();
+  const [eventStart, setEventStart] = useState(new Date());
+  const [eventEnd, setEventEnd] = useState(new Date());
   const FIELDS = {
-    eventDate: setEventDate,
+    eventStart: setEventStart,
+    eventEnd: setEventEnd,
   }
-  const handleDateChange = (fieldName) => (date) => {
+  const handleDateChange = (fieldName) => (date, value) => {
+    if (fieldName === 'eventStart') {
+      setEventEnd(addHours(date, 1));
+    }
     FIELDS[fieldName](date)
   }
 
-  return { eventDate, handleDateChange }
+  return { eventStart, eventEnd, handleDateChange };
 }
 
-const useStyles = makeStyles({
-  textField: {
-    width: 390,
-  }
-})
-
-const Date = ({
-  eventDate,
+export default function EventDate({
+  eventStart,
+  eventEnd,
   handleDateChange
-}) => {
-
+}) {
   const classes = useStyles();
+
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <KeyboardDatePicker
-            className={classes.textField}
-            disableToolbar
-            variant="inline"
-            format="MM/dd/yyyy"
-            margin="normal"
-            id="date-picker-inline"
-            label="Select Event Date"
-            value={eventDate}
-            onChange={handleDateChange('eventDate')}
-            KeyboardButtonProps={{
-              'aria-label': 'change date',
-            }}
-          />
-      </MuiPickersUtilsProvider>
-  )
+      <section>
+        <KeyboardDateTimePicker
+          className={classes.textField}
+          variant="inline"
+          ampm={false}
+          label="Event Start"
+          value={eventStart}
+          onChange={handleDateChange('eventStart')}
+          onError={console.log}
+          disablePast
+          format="yyyy/MM/dd HH:mm"
+        />
+      </section>
+      <section>
+        <KeyboardDateTimePicker
+          className={classes.textField}
+          variant="inline"
+          ampm={false}
+          label="Event End"
+          value={eventEnd}
+          onChange={handleDateChange('eventEnd')}
+          onError={console.log}
+          disablePast
+          format="yyyy/MM/dd HH:mm"
+        />
+      </section>
+    </MuiPickersUtilsProvider>
+  );
 }
-
-export default Date;

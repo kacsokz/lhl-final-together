@@ -1,16 +1,14 @@
-import React                      from 'react';
-import Button                     from 'components/Common/Button';
-
-import SelectLocation             from './Form/SelectLocation';
-import EventName                  from './Form/Name';
-import Date, { useDatePicker }    from './Form/Date';
-import EventTag                   from './Form/Tag';
-import EvtTime, { useTimePicker } from './Form/Time';
+import React          from 'react';
+import Button         from 'components/Common/Button';
+import SelectLocation from './Form/SelectLocation';
+import EventName      from './Form/Name';
+import EventTag       from './Form/Tag';
+import EventDate      from './Form/Date';
 
 export default function Form(props) {
 
-  const pickerDateProps = useDatePicker();
-  const pickerTimeProps = useTimePicker();
+  // const pickerDateProps = useDatePicker();
+
 
   const reset = () => {
 
@@ -19,28 +17,9 @@ export default function Form(props) {
   const cancel = () => props.onCancel(reset());
 
   const validate = () => {
-    // const {
-    //   eventDate
-    // } = pickerDateProps;
+    // const { eventStart, eventEnd } = pickerDateProps;
 
-    // const {
-    //   eventStart,
-    //   eventEnd,
-    // } = pickerTimeProps;
-
-    // console.log(`{
-    //   eventDate,
-    //   eventStart,
-    //   eventEnd
-    // }`,
-    // eventDate.value,
-    // {
-    //   eventStart,
-    //   eventEnd
-    // })
-    // console.log('event Saved')
-    let eventData = 'event form function'
-    props.onSave(eventData)
+    // console.log({ eventStart, eventEnd });
   };
 
   return (
@@ -52,10 +31,12 @@ export default function Form(props) {
         <SelectLocation />
         <EventName />
         <EventTag />
-        <Date {...pickerDateProps}
+        <EventDate />
+
+        {/* <Date {...pickerDateProps}
           className="event__card--form-body-date"
         />
-        <EvtTime {...pickerTimeProps} />
+        <EvtTime {...pickerTimeProps} /> */}
 
         <section>
           <Button red onClick={cancel} >
