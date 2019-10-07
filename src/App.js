@@ -115,13 +115,12 @@ export default function App() {
     <div className="App">
       <main className="layout">
         <NavBarFinal />
+        
         <div className="main-container">
           {mode === MAINVIEW && (
             <div className="right-side">
-              {state.allEvents.length > 0
-                ? (<List message={'LOCAL'}
-                  localEvents={state.allEvents}
-                />)
+                {state.allEvents.length > 0
+                ? (<Event localEvents={state.allEvents}></Event>)
                 : 'Loading...'}
             </div>
           )}
@@ -141,6 +140,7 @@ export default function App() {
                 hostingMessage="HOSTING"
                 getEventById='function to display single event'
                 attendingMessage="Attending"
+                event={state.event}
               />
             </div>
           )}
