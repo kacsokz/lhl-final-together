@@ -9,7 +9,7 @@ export default function Show(props) {
       <h1 className="event__card--header text--header">HOST</h1>
 
       <section className="event__card--show-body-host">
-        <UserAvatar />
+        <UserAvatar src={props.avatar}/>
         <h1 className="event__card--show-body-host-name text--body">{props.user_name}</h1>
         <h3 className="event__card--show-body-host-tag text--body">{props.tag_line}</h3>
       </section>
@@ -28,10 +28,11 @@ export default function Show(props) {
       <h1 className="event__card--header text--header">JOIN {props.attendees} OTHERS</h1>
       <section className="event__card--show-footer">
         <img
+        style={{ cursor: 'pointer' }}
           className="event__card--show-footer-join"
           src="images/add.png"
           alt="Join"
-          onClick={props.onJoin}
+          onClick={() => props.onJoin(props.event_id)}
         />
       </section>
 
