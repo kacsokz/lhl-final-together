@@ -34,8 +34,8 @@ export function useApplicationData() {
   };
 
   const getEventById = (id) => {
-    return axios.get(`/api/events/${id}`)
-      .then((response) => dispatch({ type: SET_EVENT, id, response }))
+    return axios.get(`http://localhost:3000/api/events/${id}`)
+      .then((response) => dispatch({ type: SET_EVENT, value: response.data }))
       .catch(() => "ERROR_DELETE");
   };
 
@@ -53,7 +53,7 @@ export function useApplicationData() {
 
   const getUserById = (id) => {
     return axios.get(`http://localhost:3000/api/users/${id}`)
-      .then((response) => dispatch({ type: SET_USER_INFO, value: response.data[0] }))
+      .then((response) => dispatch({ type: SET_USER_INFO, value: {event:response.data[0]} }))
       
       .catch(() => "ERROR_DELETE");
   };
