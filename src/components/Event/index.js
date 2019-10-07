@@ -34,7 +34,7 @@ export default function Event(props) {
       {mode === LIST && (
         <List
           events={props.events}
-          viewEvent={() => viewEvent()}        
+          onClick={viewEvent}        
         />
       )}
 
