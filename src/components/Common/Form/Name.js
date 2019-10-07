@@ -20,24 +20,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function EventName() {
+export default function EventName({ state: { name }, handleChange }) {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    name: '',
-  });
-
-  const handleNameChange = name => event => {
-    setValues({ ...values, [name]: event.target.value });
-  };
 
   return (
     <form className={classes.container} noValidate autoComplete="off">
       <TextField
         id="standard-name"
+        name="name"
         label="Event Name"
         className={classes.textField}
-        value={values.name}
-        onChange={handleNameChange('name')}
+        defaultValue={name}
+        onBlur={handleChange}
         margin="normal"
         multiline={true}
       />

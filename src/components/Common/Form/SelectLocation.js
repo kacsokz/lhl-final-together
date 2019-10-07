@@ -19,30 +19,19 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SelectLocation() {
+export default function SelectLocation({ state: { bar_id }, handleChange}) {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    bar: '',
-    name: 'hai',
-  });
-
-  const handleChange = event => {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-  };
 
   return (
     <form className={classes.root} autoComplete="off">
       <FormControl className={classes.formControl}>
         <InputLabel>Location</InputLabel>
         <Select
-          value={values.bar}
+          value={bar_id}
           onChange={handleChange}
           inputProps={{
-            name: 'bar',
-            id: 'bar',
+            name: 'bar_id',
+            id: 'bar_id',
           }}
         >
           <MenuItem value={1}>The Last Best Brewing Company</MenuItem>

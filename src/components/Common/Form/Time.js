@@ -55,7 +55,7 @@ export const useTimePicker = ({ date: propsDate, start, end }) => {
   return { eventStart, eventEnd, handleTimeChange }
 }
 
-export default function EvtTime({
+export default function EventTime({
   eventStart,
   eventEnd,
   date,

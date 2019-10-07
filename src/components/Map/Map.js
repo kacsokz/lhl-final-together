@@ -4,21 +4,11 @@ import "components/Map/Map.scss";
 import axios from "axios";
 
 import config from "config";
-import { getAllBars } from "../../helpers/selecters";
-import { useApplicationData } from "../../hooks/useApplicationData";
 
 const mapStyles = {
   width: "60%",
   height: "90%"
 };
-
-
-
-let markersFromDB = [
-  { id: "2", name: "happyHour2", start_time: "15:00", end_time: "16:40", lat: 51.0457, lng: -114.0719 },
-  { id: "3", name: "happyHour3", start_time: "15:00", end_time: "16:40", lat: 51.0447, lng: -114.0739 },
-  { id: "3", name: "happyHour3", start_time: "15:00", end_time: "16:40", lat: 51.0467, lng: -114.0759 }
-];
 
 
 export class MapContainer extends Component {

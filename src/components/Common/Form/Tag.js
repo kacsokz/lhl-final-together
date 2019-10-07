@@ -20,23 +20,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function EventTag() {
+export default function EventTag({ state: { tag }, handleChange }) {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    tag: '',
-  });
-
-  const handleTagChange = tag => event => {
-    setValues({ ...values, [tag]: event.target.value });
-  };
 
   return (
     <form className={classes.container} noValidate autoComplete="off">
       <TextField
         id="standard-tag"
+        name="tag"
         label="Tag Line"
+        defaultValue={tag}
         className={classes.textField}
-        onChange={handleTagChange('tag')}
+        onBlur={handleChange}
         margin="normal"
         multiline={true}
       />
