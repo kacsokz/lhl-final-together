@@ -32,12 +32,13 @@ export default function App() {
     transition(PROFILEVIEW)
   }
 
+
   return (
     <main className="frame">
 
       {/* Nav Section */}
       <section className="frame__navbar">
-        <NavBarFinal />
+        <NavBarFinal action1={viewProfile}/>
       </section>
 
       {/* Map Section */}
