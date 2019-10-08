@@ -4,13 +4,9 @@ import queryString from 'query-string'
 import NavBarFinal from 'components/Navbar/NavBarFinal';
 import Map from 'components/Map/Map';
 import Event from 'components/Event/';
-import List from 'components/Common/EventList';
 import useVisualMode from './hooks/useVisualMode';
 import User from 'components/User/index';
-import axios from "axios";
 import { useApplicationData } from "./hooks/useApplicationData";
-import { set } from 'date-fns';
-import { getAllBars } from "./helpers/selecters";
 
 
 const MAINVIEW = 'MAINVIEW';

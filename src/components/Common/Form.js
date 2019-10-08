@@ -3,14 +3,31 @@ import Button         from 'components/Common/Button';
 import SelectLocation from './Form/SelectLocation';
 import EventName      from './Form/Name';
 import EventTag       from './Form/Tag';
-import Date, { useDatePicker } from './Form/EvtDate';
+import EventDate, { useDatePicker } from './Form/Date';
+import EventTime, { useTimePicker } from './Form/Time';
 
-import EvtTime, { useTimePicker } from './Form/Time';
+const useInputState = (init) => {
+  const [state, setState] = React.useState(init);
+  
+  const handleChange = event => {
+    setState(pState => ({
+      ...pState,
+      [event.target.name]: event.target.value,
+    }));
+  }
+
+  return { state, handleChange };
+};
 
 export default function Form(props) {
-  const { eventDate, eventStart, eventEnd } = props;
+  const { eventDate, eventStart, eventEnd, bar_id = "", name, tag } = props;
 
-  const pickerDateProps = useDatePicker(eventDate);
+  const  stateAndHandler = useInputState({
+    bar_id,
+    name,
+    tag,
+  });
+  const pickerDateProps = useDatePicker(eventDate || new Date());
   const pickerTimeProps = useTimePicker({
     date: pickerDateProps.eventDate,
     start: eventStart,
@@ -28,8 +45,7 @@ export default function Form(props) {
 
     const { eventStart, eventEnd } = pickerTimeProps;
 
-
-    console.log({ eventDate, eventStart, eventEnd });
+    console.log({ eventDate, eventStart, eventEnd, ...stateAndHandler.state });
   };
 
   return (
@@ -39,17 +55,11 @@ export default function Form(props) {
       
       <section className="event__card--form-body">
 
-        <SelectLocation />
-        <EventName />
-        <EventTag />
-        <Date {...pickerDateProps} />
-
-        <EvtTime {...pickerTimeProps} />
-
-        {/* <Date {...pickerDateProps}
-          className="event__card--form-body-date"
-        />
-        <EvtTime {...pickerTimeProps} /> */}
+        <SelectLocation {...stateAndHandler} />
+        <EventName {...stateAndHandler} />
+        <EventTag {...stateAndHandler} />
+        <EventDate {...pickerDateProps} />
+        <EventTime {...pickerTimeProps} />
 
         <section>
           <Button red onClick={cancel} >

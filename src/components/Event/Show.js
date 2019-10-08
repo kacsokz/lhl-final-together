@@ -30,7 +30,7 @@ export default function Show(props) {
         <img
         style={{ cursor: 'pointer' }}
           className="event__card--show-footer-join"
-          src="images/add.png"
+          src="images/add-64.png"
           alt="Join"
           onClick={() => props.onJoin(props.event_id)}
         />
