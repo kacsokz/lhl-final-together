@@ -7,14 +7,11 @@ import NavBar from "components/Navbar/NavBar";
 import LinkedInBtn from "./LinkedInBtn";
 
 export default function NavBarFinal(props) {
-   // const username = window.location.search.replace("?username=", "")
-   let id = queryString.parse(window.location.search.replace("?user_id=", ""))
-   // console.log(id['user_id'])
 
-   // let mode = id ? "LOGGEDOUT" : "LOGGEDIN";
-   // let mode = username ? "LOGGEDIN" : "LOGGEDOUT";
-   
-   let mode = "LOGGEDIN";
+   let id = queryString.parse(window.location.search).user_id
+
+   let mode = id ? "LOGGEDIN" : "LOGGEDOUT";
+
 
    return (
       <div>
@@ -28,17 +25,10 @@ export default function NavBarFinal(props) {
     user1="Profile"
     user2="Log Out"
     //onClick render profile component
-    action1= {() => console.log("MeProfile")}
+    action1= {props.action}
     action2= {() => console.log("LogMeOut")}
     />
    )}
    </div>
    )
 }
-
-// {mode === ERROR_SAVE && (
-//    <Error
-//    message="Error saving interview"
-//    onClose={() => back()}
-//    />
-//  )}
