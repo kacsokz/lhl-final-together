@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Email from './Profile/Email';
 import TagLine from './Profile/Tag';
 import UserAvatar from '../Common/Avatar';
@@ -11,17 +11,25 @@ export default function Profile(props) {
   const {
     state
   } = useApplicationData();
-
+  
   const [id, setId] = React.useState(state.userInfo.id);
+
+  useEffect(() => {
+    if (typeof queryString.parse(window.location.search) === 'number') {
+      setId(queryString.parse(window.location.search).uer_id)
+    }
+  }, []);
+
+  
   const [email, setEmail] = React.useState(state.userInfo.email);
   const [tagLine, setTagLine] = React.useState(state.userInfo.tagLine);
-  if (typeof queryString.parse(window.location.search) === 'number') {
-    setId(queryString.parse(window.location.search))
-  }
-
+ 
+// console.log(queryString.parse(window.location.search).user_id)
   // Placeholder Functions BELOW
+  // console.log(queryString.parse(window.location.search))
   const save = () => {
-    props.onUpdateProfile(id, email, tagLine)
+    props.onUpdateProfile(queryString.parse(window.location.search).user_id
+    , email, tagLine)
   };
   const hostEventList = () => {
     props.onHosting()
