@@ -33,21 +33,20 @@ export default function App() {
   }
 
   return (
-    <main className="frame">
+    <main className="wrapper">
 
       {/* Nav Section */}
-      <section className="frame__navbar">
+      <nav className="wrapper__navbar">
         <NavBarFinal />
-      </section>
+      </nav>
 
       {/* Map Section */}
-      <section className="frame__map">
-      {/* <div className="left-side"> */}
-        <Map bars={state.allBars}/>
-      </section>
+      <article className="wrapper__map">
+        <Map bars={state.allBars} />
+      </article>
       
       {/* Card Section */}
-      <section className="frame__card">
+      <article className="wrapper__card">
         {mode === MAINVIEW && (
           <div>
               {state.allEvents.length > 0
@@ -73,7 +72,7 @@ export default function App() {
             />
           </div>
         )}
-      </section>
+      </article>
       
     </main>
   );

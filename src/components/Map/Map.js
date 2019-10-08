@@ -6,11 +6,11 @@ import axios from "axios";
 import config from "config";
 
 const mapStyles = {
-  width: "50%",
+  width: "100%",
   height: "70%",
   display: "grid",
-  marginLeft: '50px',
-  marginTop: '25px',
+  marginLeft: '15px',
+  // marginTop: '25px',
   // margin: "0 auto",
   borderStyle: "double",
   borderWidth: "thick",

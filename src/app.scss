@@ -1,57 +1,37 @@
 @import 'styles/variables.scss';
 
-body {
-  background-color: $accent1-color;
+.wrapper__navbar {
+  grid-area: nav;
 }
 
-.frame {
+.wrapper__map {
+  position: relative;
+  grid-area: map;
+}
+
+.wrapper__card {
+  grid-area: card;
+}
+
+.wrapper {
+  min-height: 100vh;
   display: grid;
-  // width: 100%;
-  grid-template: 10% 90% / 60% 40%;
+  grid-column-gap: 25px;
+  grid-template-areas:
+    "nav"
+    "map"
+    "card";
 
-  &__navbar {
-    grid-column: 1 / span 2;
+  &__card {
+    justify-self: center;
   }
-
 }
 
-
-
-
-// .topbar {
-//   background-color: $main-color;
-//   box-shadow: 0px 4px 8px rgba($main-color, 0.5);
-//   display: flex;
-//   &__together {
-//     height: 70px;
-//   }
-//   &--centered {
-//     align-self: center;
-//   }
-//   &__separator {
-//     width: 90%;
-//     margin: $spacing 0;
-//     border: solid 1px;
-//     color: darken($white, 5%);
-//   }
-//   &__menu {
-//     flex: 1;
-//   }
-//   &__lhl {
-//     margin-top: 2rem;
-//   }
-// }
-
-// .right-side {
-//   float: right;
-//   width: 40%;
-//   height: 100%;
-//   // display: inline;
-// }
-
-// .left-side {
-//   float: left;
-//   width: 60%;
-//   // height: 100%;
-//   // display: inline-block;
-// }
+@media (min-width: 500px) {
+  .wrapper {
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-areas: 
+      "nav  nav"
+      "map  card";
+  }
+}

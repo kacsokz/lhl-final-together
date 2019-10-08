@@ -4,7 +4,6 @@ import useVisualMode from 'hooks/useVisualMode';
 import List from 'components/Common/EventList';
 import Show from 'components/Event/Show';
 import { useApplicationData } from "../../hooks/useApplicationData";
-import Button from '../Common/Button';
 import Status from '../../components/Common/Status';
 const JOINING = 'JOINING';
 
