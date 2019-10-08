@@ -32,12 +32,13 @@ export default function App() {
     transition(PROFILEVIEW)
   }
 
+
   return (
     <main className="wrapper">
 
       {/* Nav Section */}
       <nav className="wrapper__navbar">
-        <NavBarFinal />
+        <NavBarFinal action1={viewProfile}/>
       </nav>
 
       {/* Map Section */}

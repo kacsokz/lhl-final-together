@@ -1,4 +1,5 @@
 import axios from "axios";
+import config from '../config';
 
 import {
   useEffect,
@@ -29,50 +30,50 @@ export function useApplicationData() {
   );
 
   const deleteEvent = (id, event) => {
-    return axios.delete(`http://localhost:3000/api/users/event/${id}`, { event })
+    return axios.delete(`${config.API_PATH}/api/users/event/${id}`, { event })
       .then(() => dispatch({ type: SET_EVENT, value: event }))
       .catch(() => "ERROR_DELETE");
   };
 
   const getEventById = (id) => {
-    return axios.get(`http://localhost:3000/api/events/${id}`)
+    return axios.get(`${config.API_PATH}/api/events/${id}`)
       .then((response) => dispatch({ type: SET_EVENT, value: response.data }))
       .catch(() => "ERROR_DELETE");
   };
 
   const getHostedEventsByUserID = (id) => {
-    return axios.get(`http://localhost:3000/api/events/?user_id=${id}`)
+    return axios.get(`${config.API_PATH}/api/events/?user_id=${id}`)
       .then((response) => dispatch({ type: SET_HOSTED_EVENTS, value: response.data }))
       .catch(() => "ERROR_DELETE");
   };
 
   const getAttendedEventsByUserID = (id) => {
-    return axios.get(`http://localhost:3000/api/events/attend/${id}`)
+    return axios.get(`${config.API_PATH}/api/events/attend/${id}`)
       .then((response) => dispatch({ type: SET_ATTENDING_EVENTS, value: response.data }))
       .catch(() => "ERROR_DELETE");
   };
 
 const saveNewEvent = (id, eventData) => {
-  return axios.post(`http://localhost:3000/api//users/event/new/${id}`, { eventData })
+  return axios.post(`${config.API_PATH}/api//users/event/new/${id}`, { eventData })
     .then((response) => dispatch({ type: SET_ALL_EVENTS, response }))
     .catch(() => "ERROR_DELETE");
 };
 
   const getAllEvents = () => {
-    return axios.get(`http://localhost:3000/api/events`)
+    return axios.get(`${config.API_PATH}/api/events`)
       .then((response) => dispatch({ type: SET_ALL_EVENTS, response }))
       .catch(() => "ERROR_DELETE");
   };
 
   const getUserById = (id) => {
-    return axios.get(`http://localhost:3000/api/users/${id}`)
+    return axios.get(`${config.API_PATH}/api/users/${id}`)
       .then((response) => dispatch({ type: SET_USER_INFO, value: response.data[0] }))
       
       .catch(() => "ERROR_DELETE");
   };
 
   const joinEvent = (user_id, event_id, bar_id) => {
-    return axios.put(`http://localhost:3000/api/users/join/${user_id}`, { event_id, bar_id })
+    return axios.put(`${config.API_PATH}/api/users/join/${user_id}`, { event_id, bar_id })
       .then((response) => dispatch({ type: SET_USER_INFO, value: response.data[0] }))
       
       .catch(() => "ERROR_DELETE");
@@ -80,7 +81,7 @@ const saveNewEvent = (id, eventData) => {
 
   const updateProfile = (id, email, tagLine) => {
 
-    return axios.put(`http://localhost:3000/api/users/${id}`, { id, email, tagLine })
+    return axios.put(`${config.API_PATH}/api/users/${id}`, { id, email, tagLine })
       .then(response => {
         const userInfo = {
           response
@@ -93,12 +94,12 @@ const saveNewEvent = (id, eventData) => {
 
   // sets state with data retrieved from db server
   useEffect(() => {
-
+console.log(config.API_PATH)
     // Fetching and setting initial state from scheduler-api
     Promise.all([
-      axios.get("http://localhost:3000/api/users"),
-      axios.get("http://localhost:3000/api/events/list"),
-      axios.get("http://localhost:3000/api/bars")
+      axios.get(`${config.API_PATH}/api/users`),
+      axios.get(`${config.API_PATH}/api/events/list`),
+      axios.get(`${config.API_PATH}/api/bars`)
     ])
       .then(all => {
         dispatch({
@@ -111,9 +112,9 @@ const saveNewEvent = (id, eventData) => {
         });
       })
       .catch(err => {
-        console.log(err.response.status);
-        console.log(err.response.headers);
-        console.log(err.response.data);
+        // console.log(err.response.status);
+        // console.log(err.response.headers);
+        // console.log(err.response.data);
       });
 
   }, []);
