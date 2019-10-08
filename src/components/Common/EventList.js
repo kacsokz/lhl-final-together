@@ -2,7 +2,7 @@ import React from 'react';
 import EventListItem from 'components/Common/EventListItem';
 export default function EventList(props) {
 
-  const events = props.localEvents.map(event => {
+  const events = props.events.map(event => {
     
     return (
       <EventListItem

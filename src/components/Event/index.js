@@ -4,6 +4,7 @@ import useVisualMode from 'hooks/useVisualMode';
 import List from 'components/Common/EventList';
 import Show from 'components/Event/Show';
 import { useApplicationData } from "../../hooks/useApplicationData";
+import Button from '../Common/Button';
 
 const LIST = 'LIST';
 const SHOW = 'SHOW';
@@ -20,10 +21,8 @@ export default function Event(props) {
   const viewEvent = (id) => {
     // responsible for onClick transition to the
     // selected events show page
-
     getEventById(id)
       .then(transition(SHOW))
-    // .then(console.log(state))
   };
   const join = join => {
     // the join function will update the attendees count
@@ -36,12 +35,18 @@ export default function Event(props) {
   return (
 
     <section className="event">
+      <h2 className="user__card--header">
+        <Button blue onClick={() => transition(LIST)} >
+          Local Events
+          </Button>
+      </h2>
 
       {/* Renders a List of Local Events */}
       {/* A User can Click on an Event to view its' Show Page */}
       {mode === LIST && (
         <List
-          localEvents={props.localEvents}
+          message={'LOCAL'}
+          events={props.localEvents}
           fromIndex={viewEvent}
         />
       )}

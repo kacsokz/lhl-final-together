@@ -64,10 +64,10 @@ export default function Profile(props) {
       <h1 className="user__card--header text--header">MY EVENTS</h1>
 
       <section className="user__card--profile-list">
-        <Button blue onClick={hostEventList} >
+        <Button blue onClick={() =>hostEventList()} >
           Hosting
         </Button>
-        <Button blue onClick={userEventList} >
+        <Button blue onClick={() => props.onAttending()} >
           Attending
         </Button>
       </section>
