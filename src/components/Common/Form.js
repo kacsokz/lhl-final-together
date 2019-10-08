@@ -49,7 +49,7 @@ export default function Form(props) {
 const event = {date: eventDate, start_time: eventStart,
 end_time: eventEnd, bar_id: stateAndHandler.state.bar_id,
 event_name: stateAndHandler.state.name, tag_line: stateAndHandler.state.tag }
-    console.log( event );
+    // console.log( event );
   };
 
   return (
