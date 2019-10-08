@@ -1,7 +1,7 @@
 @import "styles/mixins.scss";
 @import "styles/variables.scss";
 
-.Navbutton {
+.nav_button {
   font-size: 1.5rem;
   height: 100%;
   line-height: 1.2rem;
@@ -10,24 +10,15 @@
   border-style: solid;
   border-color: $main-color;
   vertical-align: middle;
-}
-
-.Navbutton--confirm {
   color: $white;
   background-color: transparent;
 }
 
-.Navbutton--confirm:hover {
+.nav_button {
+  
+}
+
+.nav_button:hover {
   color: white;
   background-color: rgba(0, 0, 0, 0.4);
-}
-
-.Navbutton--cancel {
-  color: $cancel-color;
-  background-color: transparent;
-}
-
-.Navbutton--cancel:hover {
-  color: $white;
-  background-color: $cancel-color;
 }
