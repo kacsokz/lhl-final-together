@@ -9,6 +9,8 @@ const SET_USER_INFO = "SET_USER_INFO"
 const SET_ALL_EVENTS = 'SET_ALL_EVENTS'
 const SET_HOSTED_EVENTS = 'SET_HOSTED_EVENTS'
 const SET_BARS_LOCATIONS = 'SET_BARS_LOCATIONS'
+const SET_ATTENDING_EVENTS = 'SET_ATTENDING_EVENTS'
+
 
 
 function reducer(state, action) {
@@ -41,9 +43,21 @@ function reducer(state, action) {
       return { ...state, userInfo: { ...action.value } }
 
       case SET_EVENT:
-        // console.log(action.value)
+
       return { ...state, event: action.value }
 
+      case SET_HOSTED_EVENTS:
+
+      return {
+        ...state, userHostedEvents: action.value
+      }
+
+      case SET_ATTENDING_EVENTS:
+      return {
+        
+        ...state, userattendingEvents: action.value
+      }
+      
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -61,5 +75,6 @@ export {
   SET_HOSTED_EVENTS,
   SET_ALL_EVENTS,
   SET_APP_DATA,
-  SET_BARS_LOCATIONS
+  SET_BARS_LOCATIONS,
+  SET_ATTENDING_EVENTS
 };
