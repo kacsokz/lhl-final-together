@@ -11,6 +11,8 @@
     width: 500px;
     color: $main-color;
     background-color: $accent1-color;
+    border-style: double;
+    border-color: $main-color;
 
     // Common Header Styles
     &--header {
@@ -21,6 +23,15 @@
       background-color: $accent2-color;
       text-align: center;
       background-image: url('../Common/evt-bg2.png');
+    }
+
+    // Profile Nav
+    &--nav {
+      width: 500px;
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: center;
     }
 
     // User Profile Page Styles
@@ -154,12 +165,3 @@ h1.user__card--header {
   align-items: center;
   justify-content: center;
 }
-
-h2.user__card--header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 493px;
-  height: 33px;
-}
-

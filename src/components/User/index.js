@@ -123,16 +123,18 @@ export default function User(props) {
   // Placeholder Functions ABOVE
   return (
     <section className="user">
-      <h2 className="user__card--header">
-        <Button blue onClick={() => transition(PROFILE)} >
+
+      <section className="user__card--nav">
+        <Button nav onClick={() => transition(PROFILE)} >
           Profile
-          </Button>
-        <Button blue onClick={() => hostEventList(props.id)} >
+        </Button>
+        <Button nav onClick={() => hostEventList(props.id)} >
           Hosting
-          </Button>
-        <Button blue onClick={() => userEventList()} >
+        </Button>
+        <Button nav onClick={() => userEventList()} >
           Attending
-          </Button></h2>
+        </Button>
+      </section>
 
       {/* Renders a User Profile */}
       {/* A User can Update their Email & Tag Line */}

@@ -2,13 +2,10 @@
 @import "styles/variables.scss";
 
 .button {
-  border-radius: 1rem;
   border: 0;
   font-size: 1rem;
   height: 2rem;
   line-height: 1.2rem;
-  margin-right: 1rem;
-  width: 8rem;
   border-width: 2px;
   border-style: solid;
   border-color: $white;
@@ -25,15 +22,33 @@
 }
 
 .button--blue {
+  border-radius: 1rem;
+  width: 8rem;
+  margin-right: 1rem;
   color: $main-color;
   border-color: $main-color;
   background-color: transparent;
 }
 
 .button--red {
+  border-radius: 1rem;
+  width: 8rem;
+  margin-right: 1rem;
   color: $main-color;
   border-color: $main-color;
   background-color: transparent;
+}
+
+.button--nav {
+  border-radius: 10px 7.5px 0px 0px;
+  width: 10.5rem;
+  border-color: $main-color;
+  border-bottom: transparent;
+}
+
+.button--nav:hover {
+  color: $white;
+  background-color: $accent2-color;
 }
 
 .button--blue:hover {
