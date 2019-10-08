@@ -39,7 +39,7 @@ export default function Show(props) {
           onClick={() => props.onJoin(user_id, props.event.event_id, props.event.bar_id)}
         />
         )}
-        {user_id && (
+        {user_id && user_id !== props.event.host_id && (
           <h1 className="event__card--header text--header">GOING WITH {props.event.attendees_count} OTHERS</h1>
         )}
         {user_id && user_id !== props.event.host_id && (<img
@@ -47,7 +47,7 @@ export default function Show(props) {
           className="event__card--show-footer-join"
           src="images/minus-64.png"
           alt="Join"
-          onClick={() => props.onJoin(user_id, props.event.event_id, props.event.bar_id)}
+          onClick={() => props.onJoin(user_id, props.event.event_id, props.event.bar_id, props.event.event_id)}
         />
         )}
       </section>
