@@ -141,6 +141,7 @@ export default function User(props) {
       {/* A User can view events they are hosting & attending */}
       {mode === PROFILE && (
         <Profile
+          user_id={props.id}
           avatar={props.avatar}
           name={props.name}
           email={props.email}

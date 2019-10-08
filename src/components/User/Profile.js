@@ -12,25 +12,13 @@ export default function Profile(props) {
     state
   } = useApplicationData();
   
-  const [id, setId] = React.useState(state.userInfo.id);
+  const [email, setEmail] = React.useState();
+  const [tagLine, setTagLine] = React.useState();
 
-  useEffect(() => {
-    if (typeof queryString.parse(window.location.search) === 'number') {
-      setId(queryString.parse(window.location.search).uer_id)
-    }
-  }, []);
-
-  
-  const [email, setEmail] = React.useState(state.userInfo.email);
-  const [tagLine, setTagLine] = React.useState(state.userInfo.tagLine);
- 
-// console.log(queryString.parse(window.location.search).user_id)
-  // Placeholder Functions BELOW
-  // console.log(queryString.parse(window.location.search))
   const save = () => {
-    props.onUpdateProfile(queryString.parse(window.location.search).user_id
-    , email, tagLine)
+    props.onUpdateProfile(props.user_id, email, tagLine)
   };
+
   const hostEventList = () => {
     props.onHosting()
     // Transitions to HostEventList
@@ -57,9 +45,9 @@ export default function Profile(props) {
 
         <h1 className="user__card--profile-name text--body">{props.name}</h1>
 
-        <Email email={props.email} updateEmail={props.onUpdateEmail} setEmail={setEmail} />
+        <Email email={props.email} updateEmail={props.onUpdateEmail} setEmail={setEmail} emailFromState={email} />
 
-        <TagLine tag_line={props.tag_line} updateTagLine={props.onUpdateTagLine} setTagLine={setTagLine} />
+        <TagLine tag_line={props.tag_line} updateTagLine={props.onUpdateTagLine} setTagLine={setTagLine} tagLineFromState={tagLine} />
 
         <section className="user__card--profile-save">
           <Button blue onClick={save} >
