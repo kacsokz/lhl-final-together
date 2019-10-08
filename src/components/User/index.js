@@ -65,7 +65,7 @@ export default function User(props) {
   const onUpdateProfile = (id, email, tagline) => {
     transition(UPDATING)
     updateProfile(id, email, tagline)
-      .then(() => transition(PROFILE))
+      .then(transition(PROFILE))
       .catch(error => transition(ERROR_SAVE, true));
     // save update to Profile Email &&/||Tag
   }
