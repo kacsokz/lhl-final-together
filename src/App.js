@@ -30,6 +30,7 @@ export default function App() {
 
   const viewProfile = () => {
     transition(PROFILEVIEW)
+
   }
 
 
@@ -38,7 +39,7 @@ export default function App() {
 
       {/* Nav Section */}
       <section className="frame__navbar">
-        <NavBarFinal action1={viewProfile}/>
+        <NavBarFinal action={viewProfile}/>
       </section>
 
       {/* Map Section */}
