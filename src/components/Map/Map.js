@@ -6,8 +6,9 @@ import axios from "axios";
 import config from "config";
 
 const mapStyles = {
-  width: "60%",
-  height: "90%"
+  width: "30%",
+  height: "50%",
+  margin: "0 auto"
 };
 
 
@@ -35,9 +36,6 @@ export class MapContainer extends Component {
   render() {
     return (
       <div className="map-object">
-        <div className="map-header">
-          <div className="text-header">Happy Hours</div>
-        </div>
         <div className="map-body">
           <Map
             google={this.props.google}
