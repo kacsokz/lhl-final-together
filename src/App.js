@@ -20,12 +20,11 @@ const VIEWLOCALEVENT = 'VIEWLOCALEVENT'
 
 export default function App() {
   let id = queryString.parse(window.location.search).user_id
-  const { mode, transition } = useVisualMode(MAINVIEW);
+  const { mode, transition } = useVisualMode(PROFILEVIEW);
   const {
     state,
     getUserById
   } = useApplicationData();
-  // console.log(state)
 
   const [userId, setId] = React.useState('');
 
@@ -33,82 +32,12 @@ export default function App() {
     setId(id)
     getUserById(id)
   }, []);
-  // console.log(state)
 
-  const hostingEvents = [
-    {
-      id: 1,
-      event_name: 'Graduation & Celebration Drinks',
-      bar_name: 'The Last Best Brewing Company',
-      date: 'Oct. 10, 2019',
-      start_time: '20:00',
-      end_time: '23:00',
-      attendees: 18,
-    },
-    {
-      id: 2,
-      event_name: 'Halloween Costume Showdown',
-      bar_name: 'Greta Bar',
-      date: 'Oct. 31, 2019',
-      start_time: '16:00',
-      end_time: '17:00',
-      attendees: 18,
-    },
-    {
-      id: 3,
-      event_name: 'Pixels & Pints 10th Anniversary',
-      bar_name: 'Hudsons Canadas Pub',
-      date: 'Nov. 7, 2019',
-      start_time: '17:00',
-      end_time: '21:00',
-      attendees: 18,
-    },
-    {
-      id: 4,
-      event_name: 'Holiday Party',
-      bar_name: 'El Furniture Warehouse',
-      date: 'Dec. 7, 2019',
-      start_time: '15:00',
-      end_time: '16:00',
-      attendees: 18,
-    },
-    {
-      id: 5,
-      event_name: 'KVs NY PBs',
-      bar_name: 'Craft Beer Market',
-      date: 'Jan. 1, 2019',
-      start_time: '16:00',
-      end_time: '17:00',
-      attendees: 18,
-    }
-  ];
 
-  const attendingEvents = [
-    {
-      id: 1,
-      event_name: 'Graduation & Celebration Drinks',
-      bar_name: 'The Last Best Brewing Company',
-      date: 'Oct. 10, 2019',
-      start_time: '20:00',
-      end_time: '23:00',
-      attendees: 18,
-    },
-    {
-      id: 2,
-      event_name: 'Halloween Costume Showdown',
-      bar_name: 'Greta Bar',
-      date: 'Oct. 31, 2019',
-      start_time: '16:00',
-      end_time: '17:00',
-      attendees: 18,
-    },
-  ];
 
   const selectLocalEvent = (event_id) => {
     // getEventSelecter(event_id)
     // .then(transition(VIEWLOCALEVENT))
-    console.log('hello')
-
   }
 
   return (
@@ -125,18 +54,16 @@ export default function App() {
             </div>
           )}
 
-          {mode === PROFILEVIEW && (
+          {mode === PROFILEVIEW && state.userInfo && (
             <div className="right-side">
               <User
-                key={userId}
-                id={userId}
-                name={state.userInfo.name}
-                email={state.user.email}
+                key={state.userInfo.id}
+                id={state.userInfo.id}
+                name={`${state.userInfo.first_name} ${state.userInfo.last_name}`}
+                email={state.userInfo.email}
                 tag_line={state.userInfo.tag_line}
                 avatar={state.userInfo.avatar}
                 updateProfile={'from application passed from useApplicationData'}
-                hostingEvents={hostingEvents}
-                attendingEvents={attendingEvents}
                 hostingMessage="HOSTING"
                 getEventById='function to display single event'
                 attendingMessage="Attending"
