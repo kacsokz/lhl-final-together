@@ -3,12 +3,36 @@ import Button         from 'components/Common/Button';
 import SelectLocation from './Form/SelectLocation';
 import EventName      from './Form/Name';
 import EventTag       from './Form/Tag';
-import EventDate      from './Form/Date';
+import EventDate, { useDatePicker } from './Form/Date';
+import EventTime, { useTimePicker } from './Form/Time';
+
+const useInputState = (init) => {
+  const [state, setState] = React.useState(init);
+  
+  const handleChange = event => {
+    setState(pState => ({
+      ...pState,
+      [event.target.name]: event.target.value,
+    }));
+  }
+
+  return { state, handleChange };
+};
 
 export default function Form(props) {
+  const { eventDate, eventStart, eventEnd, bar_id = "", name, tag } = props;
 
-  // const pickerDateProps = useDatePicker();
-
+  const  stateAndHandler = useInputState({
+    bar_id,
+    name,
+    tag,
+  });
+  const pickerDateProps = useDatePicker(eventDate || new Date());
+  const pickerTimeProps = useTimePicker({
+    date: pickerDateProps.eventDate,
+    start: eventStart,
+    end: eventEnd
+  });
 
   const reset = () => {
 
@@ -17,26 +41,25 @@ export default function Form(props) {
   const cancel = () => props.onCancel(reset());
 
   const validate = () => {
-    // const { eventStart, eventEnd } = pickerDateProps;
+    const { eventDate } = pickerDateProps;
 
-    // console.log({ eventStart, eventEnd });
+    const { eventStart, eventEnd } = pickerTimeProps;
+
+    console.log({ eventDate, eventStart, eventEnd, ...stateAndHandler.state });
   };
 
   return (
+
     <main className="event__card event__card--form">
       <h1 className="event__card--header text--header">EVENT ADMIN</h1>
       
       <section className="event__card--form-body">
 
-        <SelectLocation />
-        <EventName />
-        <EventTag />
-        <EventDate />
-
-        {/* <Date {...pickerDateProps}
-          className="event__card--form-body-date"
-        />
-        <EvtTime {...pickerTimeProps} /> */}
+        <SelectLocation {...stateAndHandler} />
+        <EventName {...stateAndHandler} />
+        <EventTag {...stateAndHandler} />
+        <EventDate {...pickerDateProps} />
+        <EventTime {...pickerTimeProps} />
 
         <section>
           <Button red onClick={cancel} >

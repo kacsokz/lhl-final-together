@@ -3,7 +3,7 @@ import Email from './Profile/Email';
 import TagLine from './Profile/Tag';
 import UserAvatar from '../Common/Avatar';
 import Button from '../Common/Button';
-import useApplicationData from "../../hooks/useApplicationData";
+import { useApplicationData } from "../../hooks/useApplicationData";
 import queryString from 'query-string'
 
 
@@ -64,10 +64,10 @@ export default function Profile(props) {
       <h1 className="user__card--header text--header">MY EVENTS</h1>
 
       <section className="user__card--profile-list">
-        <Button blue onClick={hostEventList} >
+        <Button blue onClick={() =>hostEventList()} >
           Hosting
         </Button>
-        <Button blue onClick={userEventList} >
+        <Button blue onClick={() => props.onAttending()} >
           Attending
         </Button>
       </section>
