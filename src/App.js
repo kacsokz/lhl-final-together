@@ -13,24 +13,35 @@ const MAINVIEW = 'MAINVIEW';
 const PROFILEVIEW = 'PROFILEVIEW';
 const VIEWLOCALEVENT = 'VIEWLOCALEVENT'
 
-
 export default function App() {
-  let id = queryString.parse(window.location.search).user_id
   const { mode, transition } = useVisualMode(MAINVIEW);
   const {
     state,
     getUserById
   } = useApplicationData();
 
-  const [userId, setId] = React.useState('');
+  const [userId, setId] = React.useState("");
   useEffect(() => {
-    setId(id)
-    getUserById(id)
+    let id = localStorage.getItem("together::user_id");
+    if (!id) {
+      id = queryString.parse(window.location.search).user_id
+      localStorage.setItem("together::user_id", id)
+    }
+    if (id) {
+      window.history.replaceState({},"", "/");
+      setId(id)
+      getUserById(id)
+    }
   }, []);
 
   const viewProfile = () => {
     transition(PROFILEVIEW)
 
+  }
+
+  const logout = () => {
+    localStorage.removeItem("together::user_id")
+    setId();
   }
 
 
@@ -39,7 +50,7 @@ export default function App() {
 
       {/* Nav Section */}
       <section className="frame__navbar">
-        <NavBarFinal action={viewProfile}/>
+        <NavBarFinal action={viewProfile} userId={userId} logout={logout}/>
       </section>
 
       {/* Map Section */}
