@@ -16,35 +16,30 @@ const VIEWLOCALEVENT = 'VIEWLOCALEVENT'
 
 export default function App() {
   let id = queryString.parse(window.location.search).user_id
-  const { mode, transition } = useVisualMode(PROFILEVIEW);
+  const { mode, transition } = useVisualMode(MAINVIEW);
   const {
     state,
     getUserById
   } = useApplicationData();
 
   const [userId, setId] = React.useState('');
-
   useEffect(() => {
     setId(id)
     getUserById(id)
   }, []);
 
-
-
-  const selectLocalEvent = (event_id) => {
-    // getEventSelecter(event_id)
-    // .then(transition(VIEWLOCALEVENT))
+  const viewProfile = () => {
+    transition(PROFILEVIEW)
   }
 
   return (
     <div className="App">
       <main className="layout">
-        <NavBarFinal />
-        
+        <NavBarFinal action={viewProfile}/>
         <div className="main-container">
           {mode === MAINVIEW && (
             <div className="right-side">
-                {state.allEvents.length > 0
+              {state.allEvents.length > 0
                 ? (<Event localEvents={state.allEvents}></Event>)
                 : 'Loading...'}
             </div>
@@ -69,7 +64,7 @@ export default function App() {
           )}
 
           <div className="left-side">
-            <Map bars={state.allBars}/>
+            <Map bars={state.allBars} />
           </div>
         </div>
       </main>
