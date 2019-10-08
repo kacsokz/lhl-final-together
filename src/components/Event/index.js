@@ -43,11 +43,11 @@ export default function Event(props) {
 
     <section className="event">
 
-      <section className="event__card--nav">
+      {/* <section className="event__card--nav">
         <Button nav onClick={() => transition(LIST)} >
           Local Events
         </Button>
-      </section>
+      </section> */}
 
       {/* Renders a List of Local Events */}
       {/* A User can Click on an Event to view its' Show Page */}
