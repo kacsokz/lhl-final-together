@@ -7,7 +7,7 @@ body {
 .frame {
   display: grid;
   // width: 100%;
-  grid-template: 10% 90% / 60% 40%;
+  grid-template: 7% 93% / 60% 40%;
 
   &__navbar {
     grid-column: 1 / span 2;

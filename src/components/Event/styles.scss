@@ -25,6 +25,14 @@
       background-image: url('../Common/evt-bg2.png');
     }
 
+    // Profile Nav
+    &--nav {
+      width: 500px;
+      margin-top: 10px;
+      display: grid;
+      justify-items: center;
+    }
+
     // Show Page Styles
     &--show {
 

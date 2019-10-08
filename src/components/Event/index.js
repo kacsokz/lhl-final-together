@@ -42,11 +42,12 @@ export default function Event(props) {
   return (
 
     <section className="event">
-      <h2 className="user__card--header">
-        <Button blue onClick={() => transition(LIST)} >
+
+      <section className="event__card--nav">
+        <Button nav onClick={() => transition(LIST)} >
           Local Events
-          </Button>
-      </h2>
+        </Button>
+      </section>
 
       {/* Renders a List of Local Events */}
       {/* A User can Click on an Event to view its' Show Page */}
