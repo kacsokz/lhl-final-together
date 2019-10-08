@@ -45,7 +45,11 @@ export default function Form(props) {
 
     const { eventStart, eventEnd } = pickerTimeProps;
 
-    console.log({ eventDate, eventStart, eventEnd, ...stateAndHandler.state });
+    // props.onSave( eventDate, eventStart, eventEnd, stateAndHandler.state.bar_id )
+const event = {date: eventDate, start_time: eventStart,
+end_time: eventEnd, bar_id: stateAndHandler.state.bar_id,
+event_name: stateAndHandler.state.name, tag_line: stateAndHandler.state.tag }
+    console.log( event );
   };
 
   return (
