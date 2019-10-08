@@ -52,9 +52,14 @@ export function useApplicationData() {
       .catch(() => "ERROR_DELETE");
   };
 
+const saveNewEvent = (id, eventData) => {
+  return axios.post(`http://localhost:3000/api//users/event/new/${id}`, { eventData })
+    .then((response) => dispatch({ type: SET_ALL_EVENTS, response }))
+    .catch(() => "ERROR_DELETE");
+};
 
   const getAllEvents = () => {
-    return axios.get(`/api/events`)
+    return axios.get(`http://localhost:3000/api/events`)
       .then((response) => dispatch({ type: SET_ALL_EVENTS, response }))
       .catch(() => "ERROR_DELETE");
   };
@@ -66,13 +71,21 @@ export function useApplicationData() {
       .catch(() => "ERROR_DELETE");
   };
 
+  const joinEvent = (user_id, event_id, bar_id) => {
+    return axios.put(`http://localhost:3000/api/users/join/${user_id}`, { event_id, bar_id })
+      .then((response) => dispatch({ type: SET_USER_INFO, value: response.data[0] }))
+      
+      .catch(() => "ERROR_DELETE");
+  };
+
   const updateProfile = (id, email, tagLine) => {
 
-    return axios.put('/api/users/' + id, { email, tagLine })
+    return axios.put(`http://localhost:3000/api/users/${id}`, { id, email, tagLine })
       .then(response => {
         const userInfo = {
           response
         };
+        // console.log(response.data)
         dispatch({ type: SET_USER_INFO, value: userInfo });
       })
 
@@ -98,10 +111,9 @@ export function useApplicationData() {
         });
       })
       .catch(err => {
-        
-        // console.log(err.response.status);
-        // console.log(err.response.headers);
-        // console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+        console.log(err.response.data);
       });
 
   }, []);
@@ -115,6 +127,7 @@ export function useApplicationData() {
     getAllEvents,
     getHostedEventsByUserID,
     getAttendedEventsByUserID,
-    updateProfile
+    joinEvent,
+    saveNewEvent
   };
 };

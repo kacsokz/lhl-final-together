@@ -37,7 +37,9 @@ export default function User(props) {
     getEventById,
     deleteEvent,
     getAttendedEventsByUserID,
-    updateProfile
+    updateProfile,
+    joinEvent,
+    saveNewEvent
 
 
   } = useApplicationData();
@@ -68,8 +70,9 @@ export default function User(props) {
     // save update to Profile Email &&/||Tag
   }
 
-  const joinShow = () => {
-    transition(JOINSHOW)
+  const joinShow = (event_id) => {
+    getEventById(event_id)
+      .then(transition(JOINSHOW))
     // Transition to Event/Show.js
   }
   const hostEventShow = (event_id) => {
@@ -96,9 +99,9 @@ export default function User(props) {
     transition(CREATING)
   };
 
-  const saveNewEvent = (eventData) => {
+  const onSaveNewEvent = (eventData) => {
     transition(SAVING)
-      .then(props.saveNewEvent(eventData))
+      .then(saveNewEvent(eventData))
       .then(transition(HOSTEVENTLIST))
     // Saves a new event to the db
   }
@@ -110,9 +113,10 @@ export default function User(props) {
     // Update an event to the db
   }
 
-  const joinEvent = (joinData) => {
+  const onJoinEvent = (joinData) => {
     transition(JOINING)
-      .then(props.joinEvent(joinData))
+    joinEvent(joinData)
+      .then(() => getAttendedEventsByUserID(props.id))
       .then(transition(USEREVENTLIST))
     // Join an event to the db
   }
@@ -163,7 +167,7 @@ export default function User(props) {
         <List
           message={'ATTENDING'}
           events={state.userattendingEvents}
-          onClick={joinShow}
+          fromIndex={joinShow}
         />
       )}
 
@@ -171,14 +175,14 @@ export default function User(props) {
       {/* Allows a User to Edit or Delete their Event */}
       {mode === HOSTSHOW && state.event && (
         <HostShow
-          user_name={props.user_name}
-          bar_name={props.bar_name}
-          event_name={props.event_name}
-          date={props.date}
-          start_time={props.start_time}
-          end_time={props.end_time}
-          tag_line={props.tag_line}
-          attendees={props.attendees}
+          // user_name={props.user_name}
+          // bar_name={props.bar_name}
+          // event_name={props.event_name}
+          // date={props.date}
+          // start_time={props.start_time}
+          // end_time={props.end_time}
+          // tag_line={props.tag_line}
+          // attendees={props.attendees}
           event={state.event}
           onEdit={edit}
           onDelete={confirm}
@@ -187,15 +191,16 @@ export default function User(props) {
 
       {mode === JOINSHOW && (
         <Show
-          user_name="Kat Connolly"
-          bar_name="The Last Best Brewing Company"
-          event_name="Graduation & Celebration Drinks"
-          date="Oct. 10, 2019"
-          start_time="20:00"
-          end_time="23:00"
-          tag_line="Join me in celebrating the accomplishments of my favourite LHL cohort, Calgary 22-JUL-2019."
-          attendees="18"
-          onJoin={joinEvent}
+          // user_name="Kat Connolly"
+          // bar_name="The Last Best Brewing Company"
+          // event_name="Graduation & Celebration Drinks"
+          // date="Oct. 10, 2019"
+          // start_time="20:00"
+          // end_time="23:00"
+          // tag_line="Join me in celebrating the accomplishments of my favourite LHL cohort, Calgary 22-JUL-2019."
+          // attendees="18"
+          event={state.event}
+          onJoin={onJoinEvent}
         />
       )}
 
@@ -216,7 +221,7 @@ export default function User(props) {
 
       {mode === CREATING && (
         <Form
-          onSave={saveNewEvent}
+          onSave={onSaveNewEvent}
           onCancel={back}
         />
       )}
