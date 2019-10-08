@@ -11,7 +11,8 @@ import {
   SET_HOSTED_EVENTS,
   SET_ALL_EVENTS,
   SET_APP_DATA,
-  SET_USER_INFO
+  SET_USER_INFO,
+  SET_ATTENDING_EVENTS
 } from "../reducers/application";
 
 export function useApplicationData() {
@@ -19,8 +20,8 @@ export function useApplicationData() {
     {
       // INIT STATE
       userInfo: {},
-      userHostedEvents: {},
-      userattendingEvents: {},
+      userHostedEvents: [],
+      userattendingEvents: [],
       allEvents: [],
       event: {},
       allBars: []
@@ -28,8 +29,8 @@ export function useApplicationData() {
   );
 
   const deleteEvent = (id, event) => {
-    return axios.delete(`/api/events/${id}`, { event })
-      .then(() => dispatch({ type: SET_EVENT, id, event }))
+    return axios.delete(`http://localhost:3000/api/users/event/${id}`, { event })
+      .then(() => dispatch({ type: SET_EVENT, value: event }))
       .catch(() => "ERROR_DELETE");
   };
 
@@ -40,10 +41,17 @@ export function useApplicationData() {
   };
 
   const getHostedEventsByUserID = (id) => {
-    return axios.get(`/api/events/?user_id=${id}`)
-      .then((response) => dispatch({ type: SET_HOSTED_EVENTS, id, response }))
+    return axios.get(`http://localhost:3000/api/events/?user_id=${id}`)
+      .then((response) => dispatch({ type: SET_HOSTED_EVENTS, value: response.data }))
       .catch(() => "ERROR_DELETE");
   };
+
+  const getAttendedEventsByUserID = (id) => {
+    return axios.get(`http://localhost:3000/api/events/attend/${id}`)
+      .then((response) => dispatch({ type: SET_ATTENDING_EVENTS, value: response.data }))
+      .catch(() => "ERROR_DELETE");
+  };
+
 
   const getAllEvents = () => {
     return axios.get(`/api/events`)
@@ -53,7 +61,7 @@ export function useApplicationData() {
 
   const getUserById = (id) => {
     return axios.get(`http://localhost:3000/api/users/${id}`)
-      .then((response) => dispatch({ type: SET_USER_INFO, value: {event:response.data[0]} }))
+      .then((response) => dispatch({ type: SET_USER_INFO, value: response.data[0] }))
       
       .catch(() => "ERROR_DELETE");
   };
@@ -105,6 +113,8 @@ export function useApplicationData() {
     updateProfile,
     getUserById,
     getAllEvents,
-    getHostedEventsByUserID
+    getHostedEventsByUserID,
+    getAttendedEventsByUserID,
+    updateProfile
   };
 };
