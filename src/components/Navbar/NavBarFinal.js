@@ -14,7 +14,7 @@ export default function NavBarFinal(props) {
    // let mode = id ? "LOGGEDOUT" : "LOGGEDIN";
    // let mode = username ? "LOGGEDIN" : "LOGGEDOUT";
    
-   let mode = "LOGGEDOUT";
+   let mode = "LOGGEDIN";
 
    return (
       <div>

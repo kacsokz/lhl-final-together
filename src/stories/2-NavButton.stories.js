@@ -10,13 +10,13 @@ export default {
 };
 
 export const Profile = () => (
-  <NavButton confirm onClick={action("clicked")}>
+  <NavButton style onClick={action("clicked")}>
     Profile
   </NavButton>
 );
 
 export const LogOut = () => (
-  <NavButton cancel onClick={action("clicked")}>
+  <NavButton style onClick={action("clicked")}>
     Log Out
   </NavButton>
 );

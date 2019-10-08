@@ -6,7 +6,7 @@ export default function LinkedInBtn(props) {
 
    return (
       <a
-      href="http://localhost:3000/auth/linkedin">
+      href="https://together-lhl-api.herokuapp.com/auth/linkedin/callback">
       <img
       className="topbar__linkedIn"
       src="images/LinkedIn--Default.png"
