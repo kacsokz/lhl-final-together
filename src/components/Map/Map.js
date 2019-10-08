@@ -6,15 +6,14 @@ import axios from "axios";
 import config from "config";
 
 const mapStyles = {
-  width: "100%",
+  width: "85%",
   height: "70%",
   display: "grid",
   marginLeft: '15px',
-  // marginTop: '25px',
-  // margin: "0 auto",
   borderStyle: "double",
   borderWidth: "thick",
-  borderColor: "#5A7AAA",
+  borderColor: "#fff",
+  backgroundColor: "#000"
 };
 
 export class MapContainer extends Component {
@@ -40,20 +39,18 @@ export class MapContainer extends Component {
 
   render() {
     return (
-      <div className="map-object">
-        <div className="map-body">
-          <Map
-            google={this.props.google}
-            zoom={15}
-            style={mapStyles}
-            initialCenter={{
-              lat: 51.0447,
-              lng: -114.0719
-            }}
-          >
-            {this.displayMarkers(this.props.bars)}
-          </Map>
-        </div>
+      <div className="map-body">
+        <Map
+          google={this.props.google}
+          zoom={15}
+          style={mapStyles}
+          initialCenter={{
+            lat: 51.0447,
+            lng: -114.0719
+          }}
+        >
+          {this.displayMarkers(this.props.bars)}
+        </Map>
       </div>
     );
   }

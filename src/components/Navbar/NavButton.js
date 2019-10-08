@@ -1,10 +1,8 @@
 import React from "react";
-// import "components/Common/Button.scss";
 import "components/Navbar/NavButton.scss"
 
 
 export default function NavButton(props) {
-
 
    return (
       <button
