@@ -55,7 +55,7 @@ export default function Profile(props) {
           </Button>
         </section>
 
-        <h1 className="user__card--header text--header">MY EVENTS</h1>
+        {/* <h1 className="user__card--header text--header">MY EVENTS</h1>
         <section className="user__card--profile-list">
           <Button brand onClick={() =>hostEventList(props.user_id)} >
             Hosting
@@ -63,7 +63,7 @@ export default function Profile(props) {
           <Button brand onClick={() => props.onAttending()} >
             Attending
           </Button>
-        </section>
+        </section> */}
       </section>
 
     </main>
