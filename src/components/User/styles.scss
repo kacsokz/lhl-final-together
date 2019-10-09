@@ -34,11 +34,16 @@
 
     // User Profile Page Styles
     &--profile {
-      // padding: 20px;
       display: grid;
       grid-gap: 20px;
       text-align: center;
       background-color: rgba($accent1-color, 0.5);
+      border-radius: 0px 0px 10px 10px;
+
+      // User Avatar
+      &-avatar {
+        padding-top: 15px;
+      }
 
       // User Name
       &-name {
@@ -48,7 +53,7 @@
       }
 
       // User Email
-      &-name {
+      &-email {
         font-size: 30px;
         padding: 10px;
         text-align: center;
@@ -64,6 +69,7 @@
       // Update Button
       &-update {
         justify-items: center;
+        padding-bottom: 30px;
       }
 
       // List User Events
@@ -127,7 +133,7 @@
     // Host Event List Page Styles
     &--list {
       display: block;
-      background-color: rgba($accent1-color, 0.5);
+      // background-color: rgba($accent1-color, 0.5);
 
       // Event List Item Page Styles
       &-item {
@@ -137,6 +143,7 @@
         border-width: 0px 0px 2px 0px;
         border-style: solid;
         border-color: rgba($main-color, 0.5);
+        background-color: rgba($accent1-color, 0.5);
 
         &-name {
           margin: 5px;
@@ -157,7 +164,8 @@
       }
 
       &-item:hover {
-        background-color: rgba($main-color, 0.1);
+        color: $white;
+        background-color: rgba($main-color, 0.8);
       }
     
 

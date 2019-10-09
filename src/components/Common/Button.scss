@@ -54,17 +54,17 @@
   margin: 1rem;
   border-color: $main-color;
   color: $white;
-  background-color: rgba($main-color, 0.7);
+  background-color: rgba($main-color, 0.5);
 }
 
 .button--brand:hover {
   color: $white;
-  background-color: $main-color;
+  background-color: rgba($main-color, 0.8);
 }
 
 .button--local:hover {
   color: $white;
-  background-color: $main-color;
+  background-color: rgba($main-color, 0.8);
 }
 
 .button--blue:hover {

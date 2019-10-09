@@ -13,9 +13,9 @@ const mapStyles = {
   marginLeft: '60px',
   borderStyle: "solid",
   borderWidth: "2.5px",
-  borderColor: "#F64C72",
+  borderColor: "#2F2FA2",
   backgroundColor: "#000",
-  borderRadius: "20px",
+  borderRadius: "15px",
 };
 
 export class MapContainer extends Component {
