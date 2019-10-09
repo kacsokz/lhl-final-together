@@ -16,7 +16,7 @@ export default function Confirm(props) {
           </Button>
           <Button
             red
-            onClick={props.onConfirm}
+            onClick={() => props.onConfirm(props.event.event_id)}
           >
             Confirm
           </Button>
