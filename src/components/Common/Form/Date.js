@@ -15,6 +15,18 @@ const useStyles = makeStyles({
 
 export const useDatePicker = (initDate) => {
   const [eventDate, setEventDate] = React.useState(initDate);
+
+  var curr_date = eventDate.getDate();
+var curr_month = eventDate.getMonth() + 1; //Months are zero based
+var curr_year = eventDate.getFullYear();
+
+let m_names = ["Jan", "Feb", "Mar", 
+"Apr", "May", "Jun", "Jul", "Aug", "Sept", 
+"Oct", "Nov", "Dec"];
+
+const convertedDate = m_names[curr_month - 1] + ". " + curr_date + ", " + curr_year
+
+  // console.log(eventDate.toString())
   const FIELDS = {
     eventDate: setEventDate,
   }

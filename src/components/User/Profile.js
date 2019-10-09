@@ -17,6 +17,7 @@ export default function Profile(props) {
 
   const save = () => {
     props.onUpdateProfile(props.user_id, email, tagLine)
+    
   };
 
   const hostEventList = () => {
@@ -60,7 +61,7 @@ export default function Profile(props) {
       <h1 className="user__card--header text--header">MY EVENTS</h1>
 
       <section className="user__card--profile-list">
-        <Button blue onClick={() =>hostEventList()} >
+        <Button blue onClick={() =>hostEventList(props.user_id)} >
           Hosting
         </Button>
         <Button blue onClick={() => props.onAttending()} >

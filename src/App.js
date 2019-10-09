@@ -40,6 +40,7 @@ export default function App() {
   }
 
   const logout = () => {
+    transition(MAINVIEW)
     localStorage.removeItem("together::user_id")
     setId();
   }
@@ -83,6 +84,7 @@ export default function App() {
               getEventById='function to display single event'
               attendingMessage="Attending"
               event={state.event}
+              userId={userId}
             />
           </div>
         )}

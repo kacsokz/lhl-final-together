@@ -43,9 +43,11 @@ const useTime = initDate => {
 
   const initHr = pad(getHours(initDate), 2)
   const initMin = pad(getMinutes(initDate), 2)
+  console.log(initHr)
 
   const [hour, setHourStr] = React.useState(pad(initHr, 2));
   const [minute, setMinuteStr] = React.useState(pad(initMin, 2));
+  
 
   const handleHourChange = onChange => ({ target: { value }}) => {
     let hr = value;
@@ -71,9 +73,10 @@ const useTime = initDate => {
     )
     onChange(newDate)
   }
-
   return { hour, minute, handleHourChange, handleMinuteChange, setDate }
 }
+
+
 
 const TimePickerToolbar = props => {
   const { onChange } = props;
