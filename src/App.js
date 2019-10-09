@@ -27,8 +27,6 @@ export default function App() {
     if (!id && queryString.parse(window.location.search).user_id !== null
     && queryString.parse(window.location.search).user_id !== undefined) {
       id = queryString.parse(window.location.search).user_id
-      console.log(id)
-      // console.log(queryString.parse(window.location.search).user_id)
       localStorage.setItem("together::user_id", id)
     }
     if (id !== null) {
