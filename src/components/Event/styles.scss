@@ -10,6 +10,7 @@
   &__card {
     border-radius: 10px;
     height: 75vh;
+    width: 500px;
     color: $main-color;
 
     // Profile Nav
@@ -20,27 +21,44 @@
       justify-items: center;
     }
 
-    // Show Page Styles
-    &--show {
+    // Common Header Styles
+    &--header {
+      height: 50px;
+      font-size: 26px;
+      color: $accent1-color;
+      background-color: rgba($accent2-color, 0.9);
+      text-align: center;
 
-      &--header {
-
+      &-host {
         height: 50px;
         font-size: 26px;
         color: $accent1-color;
         background-color: rgba($accent2-color, 0.9);
         text-align: center;
-
-        &-host {
-          height: 50px;
-          font-size: 26px;
-          color: $accent1-color;
-          background-color: rgba($accent2-color, 0.9);
-          text-align: center;
-          border-radius: 0px 10px 0px 0px;
-        }
-
+        border-radius: 0px 10px 0px 0px;
       }
+    }
+
+    // Show Page Styles
+    &--show {
+
+      // &--header {
+      //   height: 50px;
+      //   font-size: 26px;
+      //   color: $accent1-color;
+      //   background-color: rgba($accent2-color, 0.9);
+      //   text-align: center;
+
+      //   &-host {
+      //     height: 50px;
+      //     font-size: 26px;
+      //     color: $accent1-color;
+      //     background-color: rgba($accent2-color, 0.9);
+      //     text-align: center;
+      //     border-radius: 0px 10px 0px 0px;
+      //   }
+
+      // }
 
       // Show Page Body Content Styles
       &-body {
@@ -105,15 +123,20 @@
     &--list {
       // display: block;
 
-      &--header {
-        border-radius: 10px;
-        height: 50px;
-        font-size: 26px;
-        color: $accent1-color;
-        background-color: rgba($accent2-color, 0.75);
-        text-align: center;
-        margin: 5px;
-      }
+      // &--header {
+      //   height: 50px;
+      //   font-size: 26px;
+      //   color: $accent1-color;
+      //   background-color: rgba($accent2-color, 0.9);
+      //   text-align: center;
+      //   // border-radius: 10px;
+      //   // height: 50px;
+      //   // font-size: 26px;
+      //   // color: $accent1-color;
+      //   // background-color: rgba($accent2-color, 0.75);
+      //   // text-align: center;
+      //   // margin: 5px;
+      // }
 
       // Event List Item Page Styles
       &-item {
@@ -124,10 +147,14 @@
         border: 2px;
         border-style: solid;
         border-width: 2px;
-        border-radius: 15px;
         border-color: $main-color;
-        color: $accent1-color;
-        background-color: rgba($main-color, 0.5);
+        border-radius: 15px;
+        // color: $accent1-color;
+        // background-color: rgba($main-color, 0.5);
+
+        color: $main-color;
+        background-color: rgba($accent1-color, 0.5);
+
 
         &-name {
           margin-top: 0px;
@@ -147,7 +174,7 @@
       }
 
       &-item:hover {
-        background-color: rgba($main-color, 0.95);
+        background-color: rgba($main-color, 0.2);
       }
     }
 
