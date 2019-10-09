@@ -68,7 +68,8 @@ end_time: end, bar_id: stateAndHandler.state.bar_id,
 event_name: stateAndHandler.state.name, tag_line: stateAndHandler.state.tag }
 
 // console.log(event)
-props.onSave(event)
+props.onSave(convertedDate, start, end, stateAndHandler.state.bar_id,
+  stateAndHandler.state.name, stateAndHandler.state.tag)
 
 
 
