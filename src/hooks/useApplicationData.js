@@ -56,7 +56,7 @@ export function useApplicationData() {
 const saveNewEvent = (id, date, start, end, bar_id, name, tag) => {
   return axios.put(`${config.API_PATH}/api//users/event/new/${id}`, { id, date, start, end, bar_id, name, tag })
   
-    .then((response) => id, date, start, end, bar_id, name, tag)
+    .then((response) => console.log(id, date, start, end, bar_id, name, tag))
     .catch(() => "ERROR_DELETE");
 };
 

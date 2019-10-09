@@ -115,7 +115,7 @@ export default function User(props) {
   const onSaveNewEvent = (date, start, end, bar_id, name, tag) => {
     // console.log(props.userId, date, start, end, bar_id, name, tag)
     transition(SAVING)
-    saveNewEvent(props.userId, date, start, end, bar_id, name, tag)
+    saveNewEvent(id, date, start, end, bar_id, name, tag)
       .then(() => getHostedEventsByUserID(props.userId))
       .then(transition(HOSTEVENTLIST))
     // Saves a new event to the db
