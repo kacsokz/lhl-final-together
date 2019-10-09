@@ -10,6 +10,7 @@
     min-height: 700px;
     width: 500px;
     color: $main-color;
+    // background-color: transparent;
     background-color: $accent1-color;
     text-align: center;
 
@@ -20,6 +21,7 @@
       padding: 10px;
       border-style: solid;
       border-radius: 1rem;
+      background-color: $accent1-color;
 
       &-cc {
         padding: 10px;

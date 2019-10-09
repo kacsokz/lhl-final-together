@@ -9,7 +9,7 @@ export default function Show(props) {
   return (
     <main className="event__card event__card--show">
 
-      <h1 className="event__card--show--header text--header">HOST</h1>
+      <h1 className="event__card--show--header-host text--header">HOST</h1>
 
       <section className="event__card--show-body-host">
         <UserAvatar src={props.event.avatar} />
@@ -29,7 +29,7 @@ export default function Show(props) {
       </section>
 
       {user_id && (
-        <h1 className="event__card--header text--header">JOIN {props.event.attendees_count} OTHERS</h1>
+        <h1 className="event__card--show--header text--header">JOIN {props.event.attendees_count} OTHERS</h1>
       )}
       
       <section className="event__card--show-footer">

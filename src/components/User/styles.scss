@@ -11,17 +11,16 @@
     width: 500px;
     color: $main-color;
     background-color: $accent1-color;
-    // border-style: double;
-    // border-color: $main-color;
+    border-radius: 0px 0px 10px 10px;
+
 
     // Common Header Styles
     &--header {
       height: 50px;
       font-size: 26px;
-      border-style: outset;
       color: $accent1-color;
-      background-color: $accent2-color;
       text-align: center;
+      background-color: rgba($accent2-color, 0.9);
       // background-image: url('../Common/evt-bg2.png');
     }
 
