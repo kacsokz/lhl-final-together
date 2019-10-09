@@ -6,7 +6,8 @@ export default function Button(props) {
    const buttonClass = classnames("button", {
       "button--red text--body": props.red,
       "button--blue text--body": props.blue,
-      "button--nav text--body": props.nav
+      "button--nav text--body": props.nav,
+      "button--local text--body": props.local
    });
 
    return (

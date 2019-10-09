@@ -9,20 +9,19 @@ const mapStyles = {
   width: "85%",
   height: "70%",
   display: "grid",
+  marginTop: '25px',
   marginLeft: '15px',
-  borderStyle: "double",
-  borderWidth: "thick",
-  borderColor: "#fff",
-  backgroundColor: "#000"
+  borderStyle: "solid",
+  borderWidth: "2.5px",
+  borderColor: "#F64C72",
+  backgroundColor: "#000",
+  borderRadius: "20px",
 };
 
 export class MapContainer extends Component {
   
   displayMarkers = (arg) => {
-    // console.log(arg)
     return arg.map((happyHour, index) => {
-
-      
       return (
         <Marker
           key={happyHour.id}

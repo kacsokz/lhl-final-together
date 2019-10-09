@@ -4,7 +4,7 @@ import React      from "react";
 import NavButton  from "components/Navbar/NavButton";
 
 export default function NavBar(props) {
-   
+
    return (
       <section className="topbar">
          <img

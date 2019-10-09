@@ -18,7 +18,7 @@ export default function NavBarFinal(props) {
       <div>
          {mode === "LOGGEDOUT" && (
             <NavBar>
-            <LinkedInBtn/>
+               <LinkedInBtn/>
             </NavBar>
          )}
 
