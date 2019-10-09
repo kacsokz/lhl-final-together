@@ -133,13 +133,13 @@ export default function User(props) {
     <section className="user">
 
       <section className="user__card--nav">
-        <Button nav onClick={() => transition(PROFILE)} >
+        <Button local onClick={() => transition(PROFILE)} >
           Profile
         </Button>
-        <Button nav onClick={() => hostEventList(props.id)} >
+        <Button local onClick={() => hostEventList(props.id)} >
           Hosting
         </Button>
-        <Button nav onClick={() => userEventList()} >
+        <Button local onClick={() => userEventList()} >
           Attending
         </Button>
       </section>

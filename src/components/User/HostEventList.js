@@ -24,7 +24,7 @@ export default function HostEventList(props) {
         {userEvents}
       </section>
       <section className="user__card--create-event">
-        <Button blue onClick={props.onCreate}>
+        <Button brand onClick={props.onCreate}>
           Create Event
         </Button>
       </section>

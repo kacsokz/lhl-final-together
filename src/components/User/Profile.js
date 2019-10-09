@@ -51,7 +51,7 @@ export default function Profile(props) {
         <TagLine tag_line={props.tag_line} updateTagLine={props.onUpdateTagLine} setTagLine={setTagLine} tagLineFromState={tagLine} />
 
         <section className="user__card--profile-save">
-          <Button blue onClick={save} >
+          <Button brand onClick={save} >
             Update
           </Button>
         </section>
@@ -61,10 +61,10 @@ export default function Profile(props) {
       <h1 className="user__card--header text--header">MY EVENTS</h1>
 
       <section className="user__card--profile-list">
-        <Button blue onClick={() =>hostEventList(props.user_id)} >
+        <Button brand onClick={() =>hostEventList(props.user_id)} >
           Hosting
         </Button>
-        <Button blue onClick={() => props.onAttending()} >
+        <Button brand onClick={() => props.onAttending()} >
           Attending
         </Button>
       </section>

@@ -39,25 +39,32 @@
   background-color: transparent;
 }
 
-.button--nav {
+.button--local {
   border-radius: 10px 7.5px 0px 0px;
   width: 10.5rem;
   border-color: $main-color;
   border-bottom: transparent;
-}
-
-.button--local {
-  border-radius: 10px 7.5px 0px 0px;
-  width: 10.5rem;
-  border-color: $accent2-color;
-  border-bottom: transparent;
-  color: $main-color;
-  background-color: rgba($accent1-color, 0.5);
-}
-
-.button--nav:hover {
   color: $white;
-  background-color: $accent2-color;
+  background-color: rgba($main-color, 0.5);
+}
+
+.button--brand {
+  border-radius: 1rem;
+  width: 8rem;
+  margin: 1rem;
+  border-color: $main-color;
+  color: $white;
+  background-color: rgba($main-color, 0.7);
+}
+
+.button--brand:hover {
+  color: $white;
+  background-color: $main-color;
+}
+
+.button--local:hover {
+  color: $white;
+  background-color: $main-color;
 }
 
 .button--blue:hover {
