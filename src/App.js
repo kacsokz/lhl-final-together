@@ -23,11 +23,15 @@ export default function App() {
   const [userId, setId] = React.useState("");
   useEffect(() => {
     let id = localStorage.getItem("together::user_id");
-    if (!id) {
+    
+    if (!id && queryString.parse(window.location.search).user_id !== null
+    && queryString.parse(window.location.search).user_id !== undefined) {
       id = queryString.parse(window.location.search).user_id
+      console.log(id)
+      // console.log(queryString.parse(window.location.search).user_id)
       localStorage.setItem("together::user_id", id)
     }
-    if (id) {
+    if (id !== null) {
       window.history.replaceState({},"", "/");
       setId(id)
       getUserById(id)
