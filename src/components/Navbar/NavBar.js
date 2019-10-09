@@ -8,11 +8,11 @@ export default function NavBar(props) {
    return (
       <section className="topbar">
          <img
+            onClick={() => props.homeView()}
             className="topbar__together"
             src="images/Logo_TogetherW.png"
             alt="Together"
          />
-
          {props.user1 ? (
             <div>
                <NavButton

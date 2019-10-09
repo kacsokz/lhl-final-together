@@ -104,10 +104,11 @@ export default function User(props) {
     transition(CREATING)
   };
 
-  const onSaveNewEvent = (eventData) => {
-    console.log(eventData)
+  const onSaveNewEvent = (date, start, end, bar_id, name, tag) => {
+    // console.log(props.userId, date, start, end, bar_id, name, tag)
     transition(SAVING)
-      saveNewEvent(eventData)
+      saveNewEvent(props.userId, date, start, end, bar_id, name, tag)
+      .then(() =>getHostedEventsByUserID(props.userId))
       .then(transition(HOSTEVENTLIST))
     // Saves a new event to the db
   }
@@ -126,6 +127,7 @@ export default function User(props) {
       .then(transition(USEREVENTLIST))
     // Join an event to the db
   }
+
   // Placeholder Functions ABOVE
   return (
     <section className="user">

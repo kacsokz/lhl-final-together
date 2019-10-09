@@ -53,9 +53,10 @@ export function useApplicationData() {
       .catch(() => "ERROR_DELETE");
   };
 
-const saveNewEvent = (id, eventData) => {
-  return axios.post(`${config.API_PATH}/api//users/event/new/${id}`, { eventData })
-    .then((response) => dispatch({ type: SET_ALL_EVENTS, response }))
+const saveNewEvent = (id, date, start, end, bar_id, name, tag) => {
+  return axios.put(`${config.API_PATH}/api//users/event/new/${id}`, { date, start, end, bar_id, name, tag })
+  
+    .then((response) => id, date, start, end, bar_id, name, tag)
     .catch(() => "ERROR_DELETE");
 };
 
@@ -87,6 +88,8 @@ const saveNewEvent = (id, eventData) => {
         console.log(response.data)
         dispatch({ type: SET_USER_INFO, value: userInfo });
       })
+
+      
 
   }
 
