@@ -6,16 +6,16 @@ import axios from "axios";
 import config from "config";
 
 const mapStyles = {
-  width: "85%",
-  height: "70%",
-  display: "grid",
-  marginTop: '25px',
-  marginLeft: '60px',
-  borderStyle: "solid",
-  borderWidth: "2.5px",
-  borderColor: "#2F2FA2",
+  // width: "85%",
+  // height: "100vh",
+  // display: "grid",
+  // marginTop: '25px',
+  // marginLeft: '100px',
+  borderRightStyle: "solid",
+  borderRightWidth: "2.5px",
+  borderRightColor: "#2F2FA2",
   backgroundColor: "#000",
-  borderRadius: "15px",
+  // borderRadius: "15px",
 };
 
 export class MapContainer extends Component {

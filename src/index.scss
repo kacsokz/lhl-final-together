@@ -1,10 +1,8 @@
 @import 'styles/variables.scss';
+@import 'styles/reset.scss';
 
 body {
   position: relative;
-  // background-repeat: no-repeat;
-  
-  // background-image: url("https://s7d2.scene7.com/is/image/ritzcarlton/rcsf_lobby_bar_v1a?$XlargeViewport100pct$");
 }
 
 body:after {

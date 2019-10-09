@@ -7,6 +7,7 @@ import Event from 'components/Event/';
 import useVisualMode from './hooks/useVisualMode';
 import User from 'components/User/index';
 import { useApplicationData } from "./hooks/useApplicationData";
+import { flexbox } from '@material-ui/system';
 
 
 const MAINVIEW = 'MAINVIEW';
@@ -95,7 +96,7 @@ export default function App() {
           </div>
         )}
       </article>
-      
+
     </main>
   );
 }
