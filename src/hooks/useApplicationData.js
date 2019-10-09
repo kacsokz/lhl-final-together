@@ -75,6 +75,7 @@ const saveNewEvent = (id, date, start, end, bar_id, name, tag) => {
   };
 
   const joinEvent = (user_id, event_id, bar_id) => {
+    // console.log(user_id, event_id, bar_id)
     return axios.put(`${config.API_PATH}/api/users/join/${user_id}`, { event_id, bar_id })
       .then((response) => dispatch({ type: SET_USER_INFO, value: response.data[0] }))
       
@@ -99,7 +100,7 @@ const saveNewEvent = (id, date, start, end, bar_id, name, tag) => {
     // Fetching and setting initial state from scheduler-api
     Promise.all([
       axios.get(`${config.API_PATH}/api/users`),
-      axios.get(`${config.API_PATH}/api/events/list`),
+      axios.get(`${config.API_PATH}/api/events`),
       axios.get(`${config.API_PATH}/api/bars`)
     ])
       .then(all => {

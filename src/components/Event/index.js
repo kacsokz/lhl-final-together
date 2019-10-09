@@ -28,9 +28,10 @@ export default function Event(props) {
       .then(transition(SHOW))
   };
 
-  const join = (joinData) => {
+  const join = (user_id, event_id, bar_id) => {
+    // console.log(user_id, event_id, bar_id)
     transition(JOINING)
-    joinEvent(joinData)
+    joinEvent(user_id, event_id, bar_id)
       // .then(() => getEventById(event_id))
       .then(transition(LIST))
     // the join function will update the attendees count
@@ -54,7 +55,7 @@ export default function Event(props) {
       {mode === LIST && (
         <List
           message={'LOCAL EVENTS'}
-          events={props.localEvents}
+          events={state.allEvents}
           fromIndex={viewEvent}
         />
       )}

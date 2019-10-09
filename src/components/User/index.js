@@ -63,38 +63,31 @@ export default function User(props) {
   const destroy = (event_id) => {
     transition(DELETING, true)
     deleteEvent(event_id)
-      .then(() => transition(PROFILE));
+      .then(() => getHostedEventsByUserID(id))
+      .then(() => transition(HOSTEVENTLIST));
   };
 
 
   const onUpdateProfile = (id, email, tagline) => {
-    // transition(UPDATING)
     updateProfile(id, email, tagline)
-      // .then(() => )
-      getUserById(props.user_id)
-      // .then(() => transition(PROFILE))
+    getUserById(props.user_id)
       .catch(error => transition(ERROR_SAVE, true));
     // save update to Profile Email &&/||Tag
   }
 
   const joinShow = (event_id) => {
     getEventById(event_id)
-      // .then(console.log(state.event))
       .then(transition(JOINSHOW))
     // Transition to Event/Show.js
   }
   const hostEventShow = (event_id) => {
-    // console.log(event_id)
-    // console.log(state)
 
     getEventById(event_id)
       .then(transition(HOSTSHOW))
     // Transition to User/HostShow.js
   }
   const hostEventList = (user_id) => {
-    // console.log(state)
     getUserById(user_id)
-    // console.log(user_id)
     getHostedEventsByUserID(user_id)
       .then(transition(HOSTEVENTLIST))
 
@@ -112,8 +105,8 @@ export default function User(props) {
     transition(CREATING)
   };
 
-  const onSaveNewEvent = (date, start, end, bar_id, name, tag) => {
-    // console.log(props.userId, date, start, end, bar_id, name, tag)
+  const onSaveNewEvent = (userId, date, start, end, bar_id, name, tag) => {
+    // console.log(userId, date, start, end, bar_id, name, tag)
     transition(SAVING)
     saveNewEvent(id, date, start, end, bar_id, name, tag)
       .then(() => getHostedEventsByUserID(props.userId))
@@ -128,9 +121,9 @@ export default function User(props) {
     // Update an event to the db
   }
 
-  const onJoinEvent = (joinData) => {
-    transition(JOINING)
-    joinEvent(joinData)
+  const onJoinEvent = (user_id, event_id, bar_id) => {
+    console.log(user_id, event_id, bar_id)
+    joinEvent(user_id, event_id, bar_id)
       .then(() => getAttendedEventsByUserID(props.id))
       .then(transition(USEREVENTLIST))
     // Join an event to the db
@@ -194,14 +187,6 @@ export default function User(props) {
       {/* Allows a User to Edit or Delete their Event */}
       {mode === HOSTSHOW && state.event && (
         <HostShow
-          // user_name={props.user_name}
-          // bar_name={props.bar_name}
-          // event_name={props.event_name}
-          // date={props.date}
-          // start_time={props.start_time}
-          // end_time={props.end_time}
-          // tag_line={props.tag_line}
-          // attendees={props.attendees}
           event={state.event}
           onEdit={edit}
           onDelete={confirm}
@@ -210,14 +195,6 @@ export default function User(props) {
 
       {mode === JOINSHOW && state.event && (
         <Show
-          // user_name="Kat Connolly"
-          // bar_name="The Last Best Brewing Company"
-          // event_name="Graduation & Celebration Drinks"
-          // date="Oct. 10, 2019"
-          // start_time="20:00"
-          // end_time="23:00"
-          // tag_line="Join me in celebrating the accomplishments of my favourite LHL cohort, Calgary 22-JUL-2019."
-          // attendees="18"
           event={state.event}
           onJoin={onJoinEvent}
         />

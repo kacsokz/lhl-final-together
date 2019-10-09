@@ -3,6 +3,7 @@ import EventListItem from 'components/Common/EventListItem';
 export default function EventList(props) {
 
   const events = props.events.map(event => {
+    // console.log(event)
     
     return (
       <EventListItem

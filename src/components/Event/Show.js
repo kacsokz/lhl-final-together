@@ -2,6 +2,7 @@ import React from "react";
 import UserAvatar from '../Common/Avatar';
 
 export default function Show(props) {
+  // console.log(props.event)
 
   const user_id = localStorage.getItem("together::user_id");
   return (

@@ -62,20 +62,14 @@ let m_names = ["Jan", "Feb", "Mar",
 
 const convertedDate = m_names[curr_month - 1] + ". " + curr_date + ", " + curr_year
 
-    // props.onSave( eventDate, eventStart, eventEnd, stateAndHandler.state.bar_id )
 const event = {date: convertedDate, start_time: start,
 end_time: end, bar_id: stateAndHandler.state.bar_id,
 event_name: stateAndHandler.state.name, tag_line: stateAndHandler.state.tag }
-
-console.log(event)
-props.onSave(convertedDate, start, end, stateAndHandler.state.bar_id,
+let id = localStorage.getItem("together::user_id");
+props.onSave(id, convertedDate, start, end, stateAndHandler.state.bar_id,
   stateAndHandler.state.name, stateAndHandler.state.tag)
 
 
-
-
-
-    // console.log( eventStart );
   };
 
   return (
