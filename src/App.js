@@ -46,12 +46,17 @@ export default function App() {
   }
 
 
+  const homeView = () => {
+    transition(MAINVIEW)
+  };
+
+
   return (
     <main className="frame">
 
       {/* Nav Section */}
       <section className="frame__navbar">
-        <NavBarFinal action={viewProfile} userId={userId} logout={logout}/>
+        <NavBarFinal action={viewProfile} userId={userId} logout={logout} homeView={homeView}/>
       </section>
 
       {/* Map Section */}

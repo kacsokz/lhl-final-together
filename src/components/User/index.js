@@ -127,6 +127,7 @@ export default function User(props) {
       .then(transition(USEREVENTLIST))
     // Join an event to the db
   }
+
   // Placeholder Functions ABOVE
   return (
     <section className="user">

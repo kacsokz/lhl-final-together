@@ -11,23 +11,23 @@ export default function NavBarFinal(props) {
 
    let mode = props.userId ? "LOGGEDIN" : "LOGGEDOUT";
 
-
    return (
       <div>
-      {mode === "LOGGEDOUT" && (
-   <NavBar>
-   <LinkedInBtn/>
-   </NavBar>
-      )}
-   {mode === "LOGGEDIN" && (
-    <NavBar
-    user1="Profile"
-    user2="Log Out"
-    //onClick render profile component
-    action1= {props.action}
-    action2= {props.logout}
-    />
-   )}
-   </div>
+         {mode === "LOGGEDOUT" && (
+            <NavBar >
+               <LinkedInBtn />
+            </NavBar>
+         )}
+         {mode === "LOGGEDIN" && (
+            <NavBar
+               homeView={props.homeView}
+               user1="Profile"
+               user2="Log Out"
+               //onClick render profile component
+               action1={props.action}
+               action2={props.logout}
+            />
+         )}
+      </div>
    )
 }
