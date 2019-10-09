@@ -6,24 +6,22 @@ import axios from "axios";
 import config from "config";
 
 const mapStyles = {
-  width: "100%",
+  width: "85%",
   height: "70%",
   display: "grid",
+  marginTop: '25px',
   marginLeft: '15px',
-  // marginTop: '25px',
-  // margin: "0 auto",
-  borderStyle: "double",
-  borderWidth: "thick",
-  borderColor: "#5A7AAA",
+  borderStyle: "solid",
+  borderWidth: "2.5px",
+  borderColor: "#F64C72",
+  backgroundColor: "#000",
+  borderRadius: "20px",
 };
 
 export class MapContainer extends Component {
   
   displayMarkers = (arg) => {
-    // console.log(arg)
     return arg.map((happyHour, index) => {
-
-      
       return (
         <Marker
           key={happyHour.id}
@@ -40,20 +38,18 @@ export class MapContainer extends Component {
 
   render() {
     return (
-      <div className="map-object">
-        <div className="map-body">
-          <Map
-            google={this.props.google}
-            zoom={15}
-            style={mapStyles}
-            initialCenter={{
-              lat: 51.0447,
-              lng: -114.0719
-            }}
-          >
-            {this.displayMarkers(this.props.bars)}
-          </Map>
-        </div>
+      <div className="map-body">
+        <Map
+          google={this.props.google}
+          zoom={15}
+          style={mapStyles}
+          initialCenter={{
+            lat: 51.0447,
+            lng: -114.0719
+          }}
+        >
+          {this.displayMarkers(this.props.bars)}
+        </Map>
       </div>
     );
   }

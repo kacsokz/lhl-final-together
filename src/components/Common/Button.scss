@@ -46,6 +46,15 @@
   border-bottom: transparent;
 }
 
+.button--local {
+  border-radius: 10px 7.5px 0px 0px;
+  width: 10.5rem;
+  border-color: $accent2-color;
+  border-bottom: transparent;
+  color: $main-color;
+  background-color: rgba($accent1-color, 0.5);
+}
+
 .button--nav:hover {
   color: $white;
   background-color: $accent2-color;

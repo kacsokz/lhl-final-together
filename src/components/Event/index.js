@@ -5,8 +5,9 @@ import List from 'components/Common/EventList';
 import Show from 'components/Event/Show';
 import { useApplicationData } from "../../hooks/useApplicationData";
 import Status from '../../components/Common/Status';
-const JOINING = 'JOINING';
+import Button from 'components/Common/Button';
 
+const JOINING = 'JOINING';
 const LIST = 'LIST';
 const SHOW = 'SHOW';
 
@@ -41,8 +42,8 @@ export default function Event(props) {
   return (
 
     <section className="event">
-
-      {/* <section className="event__card--nav">
+{/* 
+      <section className="event__card--nav">
         <Button nav onClick={() => transition(LIST)} >
           Local Events
         </Button>
@@ -52,7 +53,7 @@ export default function Event(props) {
       {/* A User can Click on an Event to view its' Show Page */}
       {mode === LIST && (
         <List
-          message={'LOCAL'}
+          message={'LOCAL EVENTS'}
           events={props.localEvents}
           fromIndex={viewEvent}
         />
@@ -61,21 +62,30 @@ export default function Event(props) {
       {/* If a User is LoggedIn, they can Join the Event */}
       {/* If a User is LoggedOut, clicking the Join button will redirect to LogIn */}
       {mode === SHOW && state.event && (
-        <Show
-          // key={state.event.event_id}
-          // event_id={state.event.event_id}
-          // user_name={state.event.host_name}
-          // avatar={state.event.host_avatar}
-          // tag_line={state.event.event_tag_line}
-          // event_name={state.event.event_name}
-          // date={state.event.event_date}
-          // start_time={state.event.event_start_time}
-          // end_time={state.event.event_end_time}
-          // bar_name={state.event.bar_name}
-          // attendees={state.event.attendees_count}
-          onJoin={join}
-          event={state.event}
-        />
+        <>
+          <Button
+            local
+            className="event__card--show-local"
+            onClick={() => transition(LIST)}
+          >
+            Local Events
+          </Button>
+          <Show
+            // key={state.event.event_id}
+            // event_id={state.event.event_id}
+            // user_name={state.event.host_name}
+            // avatar={state.event.host_avatar}
+            // tag_line={state.event.event_tag_line}
+            // event_name={state.event.event_name}
+            // date={state.event.event_date}
+            // start_time={state.event.event_start_time}
+            // end_time={state.event.event_end_time}
+            // bar_name={state.event.bar_name}
+            // attendees={state.event.attendees_count}
+            onJoin={join}
+            event={state.event}
+          />
+        </>
       )}
       {mode === JOINING && <Status message="JOINING..." />}
     </section>

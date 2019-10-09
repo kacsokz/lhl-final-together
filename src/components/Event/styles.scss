@@ -5,28 +5,17 @@
 @import 'styles/reset.scss';
 
 .event {
-  // display: grid;
 
   // Event Card Styles
   &__card {
-    min-height: 700px;
+    border-radius: 10px;
+    // min-height: 700px;
     height: 75vh;
     width: 30vw;
     color: $main-color;
-    background-color: $accent1-color;
-    border-style: double;
-    border-color: $main-color;
-
-    // Common Header Styles
-    &--header {
-      height: 50px;
-      font-size: 26px;
-      border-style: outset;
-      color: $accent1-color;
-      background-color: $accent2-color;
-      text-align: center;
-      background-image: url('../Common/evt-bg2.png');
-    }
+    // background-color: $accent1-color;
+    // border-style: outset;
+    // border-color: $main-color;
 
     // Profile Nav
     &--nav {
@@ -39,11 +28,44 @@
     // Show Page Styles
     &--show {
 
+      &--header {
+        // border-radius: 10px;
+        // border-color: $accent2-color;
+        // border-style: solid;
+        // border-width: 2px;
+        height: 50px;
+        font-size: 26px;
+        color: $accent1-color;
+        background-color: rgba($accent2-color, 0.75);
+        text-align: center;
+        // margin: 5px;
+        // background-image: url('../Common/evt-bg2.png');
+
+        // &-host {
+        //   border-radius: 10px 10px 0px 0px;
+        //   height: 50px;
+        //   font-size: 26px;
+        //   color: $accent1-color;
+        //   background-color: rgba($accent2-color, 0.75);
+        //   text-align: center;
+        // }
+      }
+
+      // // Return to Local Events Button
+      // &-local {
+      //   background-color: rgba($accent1-color, 0.5);
+      // }
+
       // Show Page Body Content Styles
       &-body {
-
+        
         // Body Content under Host Title
         &-host {
+          // border-radius: 10px;
+          // border-style: solid;
+          // border-width: 2px;
+          // margin: 5px;
+          background-color: rgba($accent1-color, 0.5);
           padding: 18px;
           padding-bottom: 5px;
           
@@ -52,6 +74,7 @@
             font-size: 30px;
             padding: 10px;
             text-align: center;
+            color: $main-color;
           }
 
           // Host Tag Line
@@ -60,20 +83,27 @@
             text-align: center;
             font-size: 16px;
           }
-
         }
 
         // Body Content under Event Title
         &-event {
           padding: 10px;
           text-align: center;
+          // border-radius: 10px;
+          // border-style: solid;
+          // border-width: 2px;
+          // margin: 5px;
+          background-color: rgba($accent1-color, 0.5);
+
           &-body {
             padding: 5px;
-            font-size: 18px;
+            font-size: 22px;
+            color: $main-color;
           }
+
           &-header {
             font-size: 18px;
-            color: $accent2-color;
+            color: $black;
           }
         }
       }
@@ -81,45 +111,74 @@
       // Show Page Footer Stles
       &-footer {
         height: 75px;
-        margin: auto;
+        // margin: auto;
+        // border-radius: 10px;
+        // border-style: solid;
+        // border-width: 2px;
+        // margin: 5px;
+        border-radius: 0px 0px 10px 10px;
+        background-color: rgba($accent1-color, 0.5);
         
         &-join {
           height: 50px;
           display: block;
           margin: auto;
-          margin-top: 20px;
+          padding-top: 10px;
         }
       }
     }
 
     // Event List Page Styles
     &--list {
-      display: block;
+      // display: block;
+
+      &--header {
+        border-radius: 10px;
+        // border-color: $accent2-color;
+        // border-style: solid;
+        // border-width: 2px;
+        height: 50px;
+        font-size: 26px;
+        color: $accent1-color;
+        background-color: rgba($accent2-color, 0.75);
+        text-align: center;
+        margin: 5px;
+        // background-image: url('../Common/evt-bg2.png');
+      }
 
       // Event List Item Page Styles
       &-item {
-        height: 100px;
+        height: 12vh;
         margin: 5px;
-        padding: 5px;
+        padding: 6px;
         text-align: center;
         border: 2px;
-        border-style: inset;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 15px;
+        border-color: $main-color;
+        color: $accent1-color;
+        background-color: rgba($main-color, 0.5);
 
         &-name {
-          margin: 5px;
+          margin-top: 0px;
+          margin-bottom: 5px;
+          font-size: 20px;
         }
 
         &-bar {
           margin: 5px;
+          font-size: 20px;
         }
 
         &-date {
           margin: 5px;
+          font-size: 15px;
         }
+      }
 
-        &-attendees {
-          margin: 5px;
-        }
+      &-item:hover {
+        background-color: rgba($main-color, 0.95);
       }
     }
 
