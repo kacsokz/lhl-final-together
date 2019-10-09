@@ -8,11 +8,10 @@
   // User Card Styles
   &__card {
     min-height: 700px;
-    width: 500px;
+    height: 75vh;
     color: $main-color;
-    background-color: $accent1-color;
     border-radius: 0px 0px 10px 10px;
-
+    background-color: rgba($accent1-color, 0.5);
 
     // Common Header Styles
     &--header {
@@ -21,7 +20,6 @@
       color: $accent1-color;
       text-align: center;
       background-color: rgba($accent2-color, 0.9);
-      // background-image: url('../Common/evt-bg2.png');
     }
 
     // Profile Nav

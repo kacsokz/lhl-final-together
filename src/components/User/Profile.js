@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Email from './Profile/Email';
 import TagLine from './Profile/Tag';
 import UserAvatar from '../Common/Avatar';
 import Button from '../Common/Button';
 import { useApplicationData } from "../../hooks/useApplicationData";
-import queryString from 'query-string'
-
 
 export default function Profile(props) {
   const {
@@ -24,15 +22,8 @@ export default function Profile(props) {
     props.onHosting()
     // Transitions to HostEventList
     // TRANSITIONS TAKE PLACE IN THE INDEX.JS
-  }
-  const userEventList = () => {
-    props.onAttending()
-    // Transitions to UserEventList
-    // TRANSITIONS TAKE PLACE IN THE INDEX.JS
-  }
-  // Placeholder Functions ABOVE
-
-
+  };
+  
   return (
     <main className="user__card">
 
