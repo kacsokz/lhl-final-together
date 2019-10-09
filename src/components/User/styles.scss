@@ -20,7 +20,7 @@
       font-size: 26px;
       color: $accent1-color;
       text-align: center;
-      background-color: rgba($accent2-color, 0.9);
+      background-color: rgba($accent2-color, 0.8);
     }
 
     // Profile Nav
@@ -132,11 +132,11 @@
       // Event List Item Page Styles
       &-item {
         height: 100px;
-        margin: 5px;
         padding: 5px;
         text-align: center;
-        border: 2px;
-        border-style: inset;
+        border-width: 0px 0px 2px 0px;
+        border-style: solid;
+        border-color: rgba($main-color, 0.5);
 
         &-name {
           margin: 5px;
@@ -153,7 +153,13 @@
         &-attendees {
           margin: 5px;
         }
-    }
+      
+      }
+
+      &-item:hover {
+        background-color: rgba($main-color, 0.1);
+      }
+    
 
     }
 
