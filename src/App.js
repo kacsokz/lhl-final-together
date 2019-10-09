@@ -11,7 +11,7 @@ import { useApplicationData } from "./hooks/useApplicationData";
 
 const MAINVIEW = 'MAINVIEW';
 const PROFILEVIEW = 'PROFILEVIEW';
-const VIEWLOCALEVENT = 'VIEWLOCALEVENT';
+const VIEWLOCALEVENT = 'VIEWLOCALEVENT'
 
 
 export default function App() {
