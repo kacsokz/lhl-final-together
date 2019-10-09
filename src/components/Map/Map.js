@@ -10,7 +10,7 @@ const mapStyles = {
   height: "70%",
   display: "grid",
   marginTop: '25px',
-  marginLeft: '15px',
+  marginLeft: '60px',
   borderStyle: "solid",
   borderWidth: "2.5px",
   borderColor: "#F64C72",

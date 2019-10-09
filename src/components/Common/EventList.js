@@ -21,7 +21,7 @@ export default function EventList(props) {
 
   return (
     <main className="event__card event__card--list">
-      <h1 className="event__card--list--header text--header">{props.message}</h1>
+      <h1 className="event__card--header text--header">{props.message}</h1>
       <section>
         {events}
       </section>
