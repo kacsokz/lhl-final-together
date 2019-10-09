@@ -11,6 +11,7 @@ export default function Profile(props) {
   const {
     state
   } = useApplicationData();
+  let id = localStorage.getItem("together::user_id");
   
   const [email, setEmail] = React.useState();
   const [tagLine, setTagLine] = React.useState();
@@ -20,13 +21,13 @@ export default function Profile(props) {
     
   };
 
-  const hostEventList = () => {
-    props.onHosting()
+  const hostEventList = (id) => {
+    props.onHosting(id)
     // Transitions to HostEventList
     // TRANSITIONS TAKE PLACE IN THE INDEX.JS
   }
-  const userEventList = () => {
-    props.onAttending()
+  const userEventList = (id) => {
+    props.onAttending(id)
     // Transitions to UserEventList
     // TRANSITIONS TAKE PLACE IN THE INDEX.JS
   }
@@ -61,10 +62,10 @@ export default function Profile(props) {
       <h1 className="user__card--header text--header">MY EVENTS</h1>
 
       <section className="user__card--profile-list">
-        <Button brand onClick={() =>hostEventList(props.user_id)} >
+        <Button brand onClick={() => hostEventList(id)} >
           Hosting
         </Button>
-        <Button brand onClick={() => props.onAttending()} >
+        <Button brand onClick={() => userEventList(id)} >
           Attending
         </Button>
       </section>

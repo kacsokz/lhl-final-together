@@ -2,6 +2,7 @@ import React from "react";
 import "components/User/styles.scss";
 
 export default function EventListItem(props) {
+  // console.log(props.id)
   
   return (
     <article style={{ cursor: 'pointer' }} className="user__card--list-item" onClick={() => props.hostEventShow(props.id)}>

@@ -45,57 +45,65 @@ export default function User(props) {
 
   } = useApplicationData();
 
+  let id = localStorage.getItem("together::user_id");
+
   useEffect(() => {
     if (props.user && mode === PROFILE) {
       transition(PROFILE);
     }
-  }, [props.user, transition, mode]);
+  }, []);
 
-  const confirm = () => transition(CONFIRM);
+  const confirm = (event_id) => {
+    getEventById(event_id)
+      .then(transition(CONFIRM));
+  }
 
   const edit = () => transition(EDIT);
 
-  const destroy = () => {
-    const event = null;
+  const destroy = (event_id) => {
     transition(DELETING, true)
-    deleteEvent(props.id, event)
+    deleteEvent(event_id)
       .then(() => transition(PROFILE));
   };
 
 
   const onUpdateProfile = (id, email, tagline) => {
-    transition(UPDATING)
+    // transition(UPDATING)
     updateProfile(id, email, tagline)
       // .then(() => )
-      // .then(() => getUserById(props.user_id))
-      .then(() => transition(PROFILE))
+      getUserById(props.user_id)
+      // .then(() => transition(PROFILE))
       .catch(error => transition(ERROR_SAVE, true));
     // save update to Profile Email &&/||Tag
   }
 
   const joinShow = (event_id) => {
-    getEventById(props.userId)
-    .then(console.log(state.event))
+    getEventById(event_id)
+      // .then(console.log(state.event))
       .then(transition(JOINSHOW))
     // Transition to Event/Show.js
   }
   const hostEventShow = (event_id) => {
+    // console.log(event_id)
+    // console.log(state)
+
     getEventById(event_id)
       .then(transition(HOSTSHOW))
     // Transition to User/HostShow.js
   }
   const hostEventList = (user_id) => {
-    console.log(state)
-    getUserById()
-    .then(() =>getHostedEventsByUserID(user_id))
+    // console.log(state)
+    getUserById(user_id)
+    // console.log(user_id)
+    getHostedEventsByUserID(user_id)
       .then(transition(HOSTEVENTLIST))
 
     // List of Events Hosted By the User
     // SEE User/Profile.js
   };
-  const userEventList = () => {
+  const userEventList = (id) => {
 
-    getAttendedEventsByUserID(props.id)
+    getAttendedEventsByUserID(id)
       .then(transition(USEREVENTLIST))
     // List of Events the User is Attending
     // SEE User/Profile.js
@@ -107,8 +115,8 @@ export default function User(props) {
   const onSaveNewEvent = (date, start, end, bar_id, name, tag) => {
     // console.log(props.userId, date, start, end, bar_id, name, tag)
     transition(SAVING)
-      saveNewEvent(props.userId, date, start, end, bar_id, name, tag)
-      .then(() =>getHostedEventsByUserID(props.userId))
+    saveNewEvent(props.userId, date, start, end, bar_id, name, tag)
+      .then(() => getHostedEventsByUserID(props.userId))
       .then(transition(HOSTEVENTLIST))
     // Saves a new event to the db
   }
@@ -136,10 +144,10 @@ export default function User(props) {
         <Button local onClick={() => transition(PROFILE)} >
           Profile
         </Button>
-        <Button local onClick={() => hostEventList(props.id)} >
+        <Button local onClick={() => hostEventList(id)} >
           Hosting
         </Button>
-        <Button local onClick={() => userEventList()} >
+        <Button local onClick={() => userEventList(id)} >
           Attending
         </Button>
       </section>
@@ -241,6 +249,7 @@ export default function User(props) {
       {/* A User can Confirm or Cancel a Pending Delete */}
       {mode === CONFIRM && (
         <Confirm
+          event={state.event}
           message={"Delete the Event?"}
           onCancel={() => back()}
           onConfirm={destroy}

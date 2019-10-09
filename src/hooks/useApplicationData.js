@@ -29,9 +29,9 @@ export function useApplicationData() {
     }
   );
 
-  const deleteEvent = (id, event) => {
-    return axios.delete(`${config.API_PATH}/api/users/event/${id}`, { event })
-      .then(() => dispatch({ type: SET_EVENT, value: event }))
+  const deleteEvent = (event_id) => {
+    return axios.delete(`${config.API_PATH}/api/users/event/${event_id}`)
+      // .then(() => dispatch({ type: SET_EVENT, value: event }))
       .catch(() => "ERROR_DELETE");
   };
 
@@ -54,19 +54,20 @@ export function useApplicationData() {
   };
 
 const saveNewEvent = (id, date, start, end, bar_id, name, tag) => {
-  return axios.put(`${config.API_PATH}/api//users/event/new/${id}`, { date, start, end, bar_id, name, tag })
+  return axios.put(`${config.API_PATH}/api//users/event/new/${id}`, { id, date, start, end, bar_id, name, tag })
   
     .then((response) => id, date, start, end, bar_id, name, tag)
     .catch(() => "ERROR_DELETE");
 };
 
   const getAllEvents = () => {
-    return axios.get(`${config.API_PATH}/api/events`)
+    return axios.get(`${config.API_PATH}/api/events/list`)
       .then((response) => dispatch({ type: SET_ALL_EVENTS, response }))
       .catch(() => "ERROR_DELETE");
   };
 
   const getUserById = (id) => {
+    // console.log(id)
     return axios.get(`${config.API_PATH}/api/users/${id}`)
       .then((response) => dispatch({ type: SET_USER_INFO, value: response.data[0] }))
       
@@ -95,7 +96,6 @@ const saveNewEvent = (id, date, start, end, bar_id, name, tag) => {
 
   // sets state with data retrieved from db server
   useEffect(() => {
-console.log(config.API_PATH)
     // Fetching and setting initial state from scheduler-api
     Promise.all([
       axios.get(`${config.API_PATH}/api/users`),

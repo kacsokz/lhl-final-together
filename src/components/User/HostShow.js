@@ -3,7 +3,6 @@ import Button     from "components/Common/Button";
 import UserAvatar from '../Common/Avatar';
 
 export default function HostShow(props) {
-  console.log(props)
   return (
     <main className="user__card user__card--show" >
 
@@ -35,7 +34,7 @@ export default function HostShow(props) {
         <Button
           red
           // onClick={props.onConfirm}
-          onClick={() => props.onDelete()}
+          onClick={() => props.onDelete(props.event.event_id)}
         >
           Delete
         </Button>

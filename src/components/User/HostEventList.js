@@ -3,6 +3,7 @@ import Button             from 'components/Common/Button';
 import HostEventListItem  from 'components/User/HostEventListItem';
 
 export default function HostEventList(props) {
+  // console.log(props.events)
 
   const userEvents = props.events.map(event => (
     <HostEventListItem
