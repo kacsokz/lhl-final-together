@@ -39,7 +39,8 @@ export default function User(props) {
     getAttendedEventsByUserID,
     updateProfile,
     joinEvent,
-    saveNewEvent
+    saveNewEvent,
+    getUserById
 
 
   } = useApplicationData();
@@ -65,13 +66,16 @@ export default function User(props) {
   const onUpdateProfile = (id, email, tagline) => {
     transition(UPDATING)
     updateProfile(id, email, tagline)
-      .then(transition(PROFILE))
+      // .then(() => )
+      // .then(() => getUserById(props.user_id))
+      .then(() => transition(PROFILE))
       .catch(error => transition(ERROR_SAVE, true));
     // save update to Profile Email &&/||Tag
   }
 
   const joinShow = (event_id) => {
-    getEventById(event_id)
+    getEventById(props.userId)
+    .then(console.log(state.event))
       .then(transition(JOINSHOW))
     // Transition to Event/Show.js
   }
@@ -81,8 +85,9 @@ export default function User(props) {
     // Transition to User/HostShow.js
   }
   const hostEventList = (user_id) => {
-    // console.log(user_id)
-    getHostedEventsByUserID(props.id)
+    console.log(state)
+    getUserById()
+    .then(() =>getHostedEventsByUserID(user_id))
       .then(transition(HOSTEVENTLIST))
 
     // List of Events Hosted By the User
@@ -100,8 +105,9 @@ export default function User(props) {
   };
 
   const onSaveNewEvent = (eventData) => {
+    console.log(eventData)
     transition(SAVING)
-      .then(saveNewEvent(eventData))
+      saveNewEvent(eventData)
       .then(transition(HOSTEVENTLIST))
     // Saves a new event to the db
   }
@@ -141,10 +147,11 @@ export default function User(props) {
       {/* A User can view events they are hosting & attending */}
       {mode === PROFILE && (
         <Profile
-          avatar={props.avatar}
-          name={props.name}
-          email={props.email}
-          tag_line={props.tag_line}
+          user_id={state.userInfo.id || props.id}
+          avatar={state.userInfo.avatar || props.avatar}
+          name={state.userInfo.name || props.name}
+          email={state.userInfo.email || props.email}
+          tag_line={state.userInfo.tag_line || props.tag_line}
           onUpdateProfile={onUpdateProfile}
           onHosting={hostEventList}
           onAttending={userEventList}
@@ -191,7 +198,7 @@ export default function User(props) {
         />
       )}
 
-      {mode === JOINSHOW && (
+      {mode === JOINSHOW && state.event && (
         <Show
           // user_name="Kat Connolly"
           // bar_name="The Last Best Brewing Company"

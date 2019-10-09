@@ -25,6 +25,7 @@ export const useTimePicker = ({ date: propsDate, start, end }) => {
   const [eventStart, setEventStart] = React.useState(initStartTime);
   const [eventEnd, setEventEnd] = React.useState(initEndTime);
 
+
   const updateDate = (newDate) => {
     if (!newDate || newDate === 'Invalid Date') return;
     if (!isSameDay(newDate, eventStart)) {

@@ -83,10 +83,8 @@ const saveNewEvent = (id, eventData) => {
 
     return axios.put(`${config.API_PATH}/api/users/${id}`, { id, email, tagLine })
       .then(response => {
-        const userInfo = {
-          response
-        };
-        // console.log(response.data)
+        const userInfo = response.data[0];
+        console.log(response.data)
         dispatch({ type: SET_USER_INFO, value: userInfo });
       })
 

@@ -13,6 +13,11 @@ const useStyles = makeStyles(theme => ({
 export default function Email(props) {
   const classes = useStyles();
 
+
+  if (!props.emailFromState) {
+    props.setEmail(props.email)
+  }
+  // props.setEmail(props.email);
   const handleChange = name => event => {
     props.setEmail(event.target.value);
   };

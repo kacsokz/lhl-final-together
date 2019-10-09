@@ -20,3 +20,17 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// UGLY!! This is to enable modifying the url without refreshing the page
+
+// window.history.pushState({
+//   "html": document.getElementById("root").innerHTML,
+//   "pageTitle": document.title
+// },"", "/");
+
+// window.onpopstate = function(e){
+//   if(e.state){
+//       document.getElementById("root").innerHTML = e.state.html;
+//       document.title = e.state.pageTitle;
+//   }
+// };

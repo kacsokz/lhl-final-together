@@ -12,6 +12,11 @@ const useStyles = makeStyles(theme => ({
 export default function TagLine(props) {
   const classes = useStyles();
 
+  // props.setTagLine(props.tag_line)
+  if (!props.tagLineFromState) {
+    props.setTagLine(props.tag_line)
+  }
+
   const handleChange = name => event => {
     props.setTagLine(event.target.value);
   };

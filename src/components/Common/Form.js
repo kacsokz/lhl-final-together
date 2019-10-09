@@ -45,11 +45,36 @@ export default function Form(props) {
 
     const { eventStart, eventEnd } = pickerTimeProps;
 
+    let curr_date = eventDate.getDate();
+let curr_month = eventDate.getMonth() + 1; //Months are zero based
+let curr_year = eventDate.getFullYear();
+
+let start_hour = eventStart.getHours();
+let start_min = eventStart.getMinutes();
+let end_hour = eventEnd.getHours();
+let end_min = eventEnd.getMinutes();
+const start =(start_hour + ":" + start_min);
+const end =(end_hour + ":" + end_min);
+
+let m_names = ["Jan", "Feb", "Mar", 
+"Apr", "May", "Jun", "Jul", "Aug", "Sept", 
+"Oct", "Nov", "Dec"];
+
+const convertedDate = m_names[curr_month - 1] + ". " + curr_date + ", " + curr_year
+
     // props.onSave( eventDate, eventStart, eventEnd, stateAndHandler.state.bar_id )
-const event = {date: eventDate, start_time: eventStart,
-end_time: eventEnd, bar_id: stateAndHandler.state.bar_id,
+const event = {date: convertedDate, start_time: start,
+end_time: end, bar_id: stateAndHandler.state.bar_id,
 event_name: stateAndHandler.state.name, tag_line: stateAndHandler.state.tag }
-    console.log( event );
+
+// console.log(event)
+props.onSave(event)
+
+
+
+
+
+    // console.log( eventStart );
   };
 
   return (
