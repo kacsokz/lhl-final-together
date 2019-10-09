@@ -1,7 +1,5 @@
 import React from "react";
-
 import UserAvatar from '../Common/Avatar';
-import queryString from 'query-string'
 
 export default function Show(props) {
 
