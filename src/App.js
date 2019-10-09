@@ -11,7 +11,7 @@ import { useApplicationData } from "./hooks/useApplicationData";
 
 const MAINVIEW = 'MAINVIEW';
 const PROFILEVIEW = 'PROFILEVIEW';
-const VIEWLOCALEVENT = 'VIEWLOCALEVENT'
+const VIEWLOCALEVENT = 'VIEWLOCALEVENT';
 
 export default function App() {
   const { mode, transition } = useVisualMode(MAINVIEW);
@@ -50,15 +50,9 @@ export default function App() {
     <main className="wrapper">
 
       {/* Nav Section */}
-<<<<<<< HEAD
-      <nav className="wrapper__navbar">
-        <NavBarFinal action1={viewProfile}/>
-      </nav>
-=======
-      <section className="frame__navbar">
+      <section className="wrapper__navbar">
         <NavBarFinal action={viewProfile} userId={userId} logout={logout}/>
       </section>
->>>>>>> b416943318cd6c94784ff96f9916294564ccdb05
 
       {/* Map Section */}
       <article className="wrapper__map">
