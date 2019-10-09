@@ -41,23 +41,21 @@ export default function Profile(props) {
 
         <TagLine tag_line={props.tag_line} updateTagLine={props.onUpdateTagLine} setTagLine={setTagLine} tagLineFromState={tagLine} />
 
-        <section className="user__card--profile-save">
+        <section className="user__card--profile-update">
           <Button brand onClick={save} >
             Update
           </Button>
         </section>
 
-      </section>
-
-      <h1 className="user__card--header text--header">MY EVENTS</h1>
-
-      <section className="user__card--profile-list">
-        <Button brand onClick={() =>hostEventList(props.user_id)} >
-          Hosting
-        </Button>
-        <Button brand onClick={() => props.onAttending()} >
-          Attending
-        </Button>
+        <h1 className="user__card--header text--header">MY EVENTS</h1>
+        <section className="user__card--profile-list">
+          <Button brand onClick={() =>hostEventList(props.user_id)} >
+            Hosting
+          </Button>
+          <Button brand onClick={() => props.onAttending()} >
+            Attending
+          </Button>
+        </section>
       </section>
 
     </main>

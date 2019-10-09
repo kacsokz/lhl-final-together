@@ -10,7 +10,6 @@
   &__card {
     border-radius: 10px;
     height: 75vh;
-    width: 30vw;
     color: $main-color;
 
     // Profile Nav
@@ -160,6 +159,7 @@
         display: grid;
         grid-gap: 28px;
         justify-items: center;
+        background-color: rgba($accent1-color, 0.5);
 
         &-date {
           margin: 0px;

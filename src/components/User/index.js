@@ -130,7 +130,7 @@ export default function User(props) {
 
   // Placeholder Functions ABOVE
   return (
-    <section className="user">
+    <section className="user__card">
 
       <section className="user__card--nav">
         <Button local onClick={() => transition(PROFILE)} >
@@ -186,14 +186,6 @@ export default function User(props) {
       {/* Allows a User to Edit or Delete their Event */}
       {mode === HOSTSHOW && state.event && (
         <HostShow
-          // user_name={props.user_name}
-          // bar_name={props.bar_name}
-          // event_name={props.event_name}
-          // date={props.date}
-          // start_time={props.start_time}
-          // end_time={props.end_time}
-          // tag_line={props.tag_line}
-          // attendees={props.attendees}
           event={state.event}
           onEdit={edit}
           onDelete={confirm}
@@ -202,14 +194,6 @@ export default function User(props) {
 
       {mode === JOINSHOW && state.event && (
         <Show
-          // user_name="Kat Connolly"
-          // bar_name="The Last Best Brewing Company"
-          // event_name="Graduation & Celebration Drinks"
-          // date="Oct. 10, 2019"
-          // start_time="20:00"
-          // end_time="23:00"
-          // tag_line="Join me in celebrating the accomplishments of my favourite LHL cohort, Calgary 22-JUL-2019."
-          // attendees="18"
           event={state.event}
           onJoin={onJoinEvent}
         />
