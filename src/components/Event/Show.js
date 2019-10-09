@@ -2,7 +2,6 @@ import React from "react";
 import UserAvatar from '../Common/Avatar';
 
 export default function Show(props) {
-  // console.log(props.event)
 
   const user_id = localStorage.getItem("together::user_id");
   return (
@@ -11,7 +10,7 @@ export default function Show(props) {
       <h1 className="event__card--header-host text--header">HOST</h1>
 
       <section className="event__card--show-body-host">
-        <UserAvatar src={props.event.avatar} />
+        <UserAvatar src={props.event.host_avatar} />
         <h1 className="event__card--show-body-host-name text--body">{props.event.host_name}</h1>
         <h3 className="event__card--show-body-host-tag text--body">{props.event.tag_line}</h3>
       </section>
@@ -30,7 +29,7 @@ export default function Show(props) {
       {user_id && (
         <h1 className="event__card--header text--header">JOIN {props.event.attendees_count} OTHERS</h1>
       )}
-      
+
       <section className="event__card--show-footer">
         {user_id && (<img
           style={{ cursor: 'pointer' }}
@@ -40,17 +39,6 @@ export default function Show(props) {
           onClick={() => props.onJoin(user_id, props.event.event_id, props.event.bar_id)}
         />
         )}
-        {/* {user_id && user_id !== props.event.host_id && (
-          <h1 className="event__card--header text--header">GOING WITH {props.event.attendees_count} OTHERS</h1>
-        )}
-        {user_id && user_id !== props.event.host_id && (<img
-          style={{ cursor: 'pointer' }}
-          className="event__card--show-footer-join"
-          src="images/minus-64.png"
-          alt="Join"
-          onClick={() => props.onJoin(user_id, props.event.event_id, props.event.bar_id, props.event.event_id)}
-        />
-        )} */}
       </section>
 
     </main>
