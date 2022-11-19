@@ -15,7 +15,7 @@
     "query-string": "^6.8.3",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "react-scripts": "3.1.2",
+    "react-scripts": "5.0.1",
     "storybook-addon-material-ui": "^0.9.0-alpha.20",
     "typeface-roboto": "0.0.75"
   },
@@ -47,6 +47,6 @@
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/addon-links": "^5.2.1",
     "@storybook/addons": "^5.2.1",
-    "@storybook/react": "^5.2.1"
+    "@storybook/react": "^6.5.13"
   }
 }
